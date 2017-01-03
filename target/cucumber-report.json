@@ -1,0 +1,92 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 21740457541,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterTestStepDef.setUp()"
+            }
+          }
+        ],
+        "line": 6,
+        "name": "Open Temperature Convertor",
+        "description": "",
+        "id": "browse-the-temperature-converter-page;open-temperature-convertor",
+        "after": [
+          {
+            "result": {
+              "duration": 289095526,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterTestStepDef.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5854998687,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Google Entrance Page",
+            "match": {
+              "location": "TemperatureConverterTestStepDef.google_Entrance_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1639861816,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Search \"temperature converter\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "temperature converter",
+                  "offset": 8
+                }
+              ],
+              "location": "TemperatureConverterTestStepDef.search_Temperature_Converter(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 19478249,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "The page title is \"temperature converter\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "temperature converter",
+                  "offset": 19
+                }
+              ],
+              "location": "TemperatureConverterTestStepDef.page_Title_is_Temperature_Converter(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Browse the temperature converter page",
+    "description": "As a developer,\nIn order to convert temperature\nI want to enter number and check result on google search page \"temperature convertor\".",
+    "id": "browse-the-temperature-converter-page",
+    "keyword": "Feature",
+    "uri": "Sarafi_to_TempConvertor.feature"
+  }
+]
