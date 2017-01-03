@@ -7,7 +7,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 21740457541,
+  "duration": 24895033679,
   "status": "passed"
 });
 formatter.scenario({
@@ -33,11 +33,16 @@ formatter.step({
   "name": "The page title is \"temperature converter\"",
   "keyword": "Then "
 });
+formatter.step({
+  "line": 10,
+  "name": "There is a \"Temperature\" option selected",
+  "keyword": "And "
+});
 formatter.match({
   "location": "TemperatureConverterTestStepDef.google_Entrance_page()"
 });
 formatter.result({
-  "duration": 5854998687,
+  "duration": 4102012008,
   "status": "passed"
 });
 formatter.match({
@@ -50,7 +55,7 @@ formatter.match({
   "location": "TemperatureConverterTestStepDef.search_Temperature_Converter(String)"
 });
 formatter.result({
-  "duration": 1639861816,
+  "duration": 2200362084,
   "status": "passed"
 });
 formatter.match({
@@ -63,11 +68,24 @@ formatter.match({
   "location": "TemperatureConverterTestStepDef.page_Title_is_Temperature_Converter(String)"
 });
 formatter.result({
-  "duration": 19478249,
+  "duration": 16059785,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Temperature",
+      "offset": 12
+    }
+  ],
+  "location": "TemperatureConverterTestStepDef.verify_option_selected(String)"
+});
+formatter.result({
+  "duration": 27128918,
   "status": "passed"
 });
 formatter.after({
-  "duration": 289095526,
+  "duration": 329739784,
   "status": "passed"
 });
 });

@@ -7,5 +7,8 @@ Feature:  Browse the temperature converter page
     Given Google Entrance Page
     When  Search "temperature converter"
     Then  The page title is "temperature converter"
+    And There is a "Temperature" option selected
+    #And The converter table includes Fahrenheit and Celsius input cell
+
 
 #####################################################

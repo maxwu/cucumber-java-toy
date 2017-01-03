@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="org.maxwu.jrefresh.selenium.TemperatureConverterTest" time="0.299" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="org.maxwu.jrefresh.selenium.TemperatureConverterTest" time="0.353" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2016.3.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -63,8 +63,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="Scenario: Open Temperature Convertor" name="Given Google Entrance Page" time="0.008"/>
+  <testcase classname="Scenario: Open Temperature Convertor" name="Given Google Entrance Page" time="0.022"/>
   <testcase classname="Scenario: Open Temperature Convertor" name="When Search &quot;temperature converter&quot;" time="0"/>
   <testcase classname="Scenario: Open Temperature Convertor" name="Then The page title is &quot;temperature converter&quot;" time="0"/>
-  <testcase classname="Scenario: Open Temperature Convertor" name="Scenario: Open Temperature Convertor" time="0.291"/>
+  <testcase classname="Scenario: Open Temperature Convertor" name="And There is a &quot;Temperature&quot; option selected" time="0"/>
+  <testcase classname="Scenario: Open Temperature Convertor" name="Scenario: Open Temperature Convertor" time="0.331"/>
 </testsuite>

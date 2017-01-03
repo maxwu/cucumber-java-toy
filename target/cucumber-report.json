@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 21740457541,
+              "duration": 24895033679,
               "status": "passed"
             },
             "match": {
@@ -21,7 +21,7 @@
         "after": [
           {
             "result": {
-              "duration": 289095526,
+              "duration": 329739784,
               "status": "passed"
             },
             "match": {
@@ -34,7 +34,7 @@
         "steps": [
           {
             "result": {
-              "duration": 5854998687,
+              "duration": 4102012008,
               "status": "passed"
             },
             "line": 7,
@@ -46,7 +46,7 @@
           },
           {
             "result": {
-              "duration": 1639861816,
+              "duration": 2200362084,
               "status": "passed"
             },
             "line": 8,
@@ -64,7 +64,7 @@
           },
           {
             "result": {
-              "duration": 19478249,
+              "duration": 16059785,
               "status": "passed"
             },
             "line": 9,
@@ -79,6 +79,24 @@
               "location": "TemperatureConverterTestStepDef.page_Title_is_Temperature_Converter(String)"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 27128918,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "There is a \"Temperature\" option selected",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Temperature",
+                  "offset": 12
+                }
+              ],
+              "location": "TemperatureConverterTestStepDef.verify_option_selected(String)"
+            },
+            "keyword": "And "
           }
         ]
       }

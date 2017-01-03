@@ -9,7 +9,9 @@ import org.junit.Assert;
 import org.maxwu.jrefresh.ColorPrint;
 import org.maxwu.jrefresh.selenium.DriverFactory;
 import org.maxwu.jrefresh.selenium.pageObjects.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
@@ -55,5 +57,11 @@ public class TemperatureConverterTestStepDef {
             throw new WrongPageException("TemperatureConverter is null!");
         }
         Assert.assertEquals(driver.getTitle(), expectedTitle);
+    }
+
+    @And("^There is a \"(.*)\" option selected$")
+    public void verify_option_selected(String val) throws Throwable{
+        WebElement ele = driver.findElement(By.xpath("/html/body/div/div[6]/div[4]/div[8]/div[1]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div[1]/select"));
+
     }
 }
