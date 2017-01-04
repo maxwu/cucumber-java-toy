@@ -13,6 +13,7 @@ import java.io.File;
 public class DriverFactory {
     public enum Browsers {FIREFOX, FIREFOX_NIGHTLY};
 
+    //TODO: Change to config.json
     public static void setPropertiesFirefox(Browsers bin){
         System.setProperty("webdriver.gecko.driver", "/Users/maxwu/devel/webdrivers/geckodriver");
         if (Browsers.FIREFOX_NIGHTLY == bin){

@@ -12,8 +12,12 @@ import org.maxwu.jrefresh.selenium.pageObjects.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
+import java.awt.*;
 import java.util.concurrent.TimeUnit;
+
+import static org.hamcrest.CoreMatchers.containsString;
 
 /**
  * Created by maxwu on 1/2/17.
@@ -62,6 +66,14 @@ public class TemperatureConverterTestStepDef {
     @And("^There is a \"(.*)\" option selected$")
     public void verify_option_selected(String val) throws Throwable{
         WebElement ele = driver.findElement(By.xpath("/html/body/div/div[6]/div[4]/div[8]/div[1]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div[1]/select"));
+        ColorPrint.println_red("Got Select Element:" + ele.getText());
 
+        Assert.assertThat(ele.getText(), containsString("Temperature"));
+        ColorPrint.printDriverReport(driver);
+
+        Select select = new Select(ele);
+        WebElement opt = select.getFirstSelectedOption();
+        ColorPrint.println_red("Got Selected Opt:" + opt.getText());
+        Assert.assertEquals(opt.getText(), val.trim());
     }
 }
