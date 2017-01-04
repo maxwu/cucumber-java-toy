@@ -41,9 +41,10 @@ public class TemperatureConverterTestStepDef {
         driver.quit();
     }
 
-    @Given("^Google Entrance Page$")
-    public void google_Entrance_page() throws Throwable {
+    @Given("^Google Entrance Page with:$")
+    public void google_Entrance_page(String mulText) throws Throwable {
         googlePage = new GooglePage(driver);
+        ColorPrint.println_green("Got multiple lines parameter:\n" + mulText);
     }
 
     @When("^Search \"(.*)\"$")
