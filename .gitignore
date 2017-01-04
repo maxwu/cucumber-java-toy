@@ -1,6 +1,7 @@
 *.class
 *.iml
 /target/
+/build/
 
 # 2017-01-04: Developer's configuration.
 config.json
