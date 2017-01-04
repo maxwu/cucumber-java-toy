@@ -1,6 +1,6 @@
 *.class
 *.iml
-target/
+/target/
 
 # 2017-01-04: Developer's configuration.
 config.json
@@ -21,3 +21,4 @@ config.json
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
