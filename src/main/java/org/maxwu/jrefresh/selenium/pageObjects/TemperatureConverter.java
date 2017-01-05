@@ -19,7 +19,7 @@ public class TemperatureConverter {
         //Title check
         String title = driver.getTitle();
         if (!title.endsWith(TemperatureConverter.titleSuffix)){
-            throw new WrongPageException("Title is " + title);
+            throw new WrongPageException("Got wrong title " + title);
         }
     }
 }

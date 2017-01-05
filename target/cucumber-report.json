@@ -3,29 +3,63 @@
     "line": 1,
     "elements": [
       {
+        "line": 6,
+        "name": "Web Browser is successfully initialized (Here we launch profiled firefox as an example)",
+        "description": "",
+        "type": "background",
+        "keyword": "Background"
+      },
+      {
         "before": [
           {
             "result": {
-              "duration": 20933743823,
+              "duration": 11640202421,
               "status": "passed"
             },
             "match": {
-              "location": "TemperatureConverterTestStepDef.setUp()"
+              "location": "TemperatureConverterCalStepdef.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 4020648642,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterPageStepDef.setUp()"
             }
           }
         ],
-        "line": 7,
+        "line": 9,
         "name": "Open Temperature Convertor",
         "description": "",
         "id": "browse-the-temperature-converter-page;open-temperature-convertor",
         "after": [
           {
             "result": {
-              "duration": 341604196,
+              "duration": 286400981,
               "status": "passed"
             },
             "match": {
-              "location": "TemperatureConverterTestStepDef.tearDown()"
+              "location": "TemperatureConverterCalStepdef.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "duration": 159768,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterCalStepdef.tearDownHook(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 333749192,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterPageStepDef.tearDown()"
             }
           }
         ],
@@ -34,27 +68,27 @@
         "steps": [
           {
             "result": {
-              "duration": 5607740274,
+              "duration": 5256207725,
               "status": "passed"
             },
-            "line": 8,
+            "line": 10,
             "name": "Google Entrance Page with:",
             "match": {
-              "location": "TemperatureConverterTestStepDef.google_Entrance_page(String)"
+              "location": "TemperatureConverterPageStepDef.google_Entrance_page(String)"
             },
             "keyword": "Given ",
             "doc_string": {
               "content_type": "",
-              "line": 9,
+              "line": 11,
               "value": "A multiple lines sample parameter.\nThis is the 2nd line.\n-end-line-"
             }
           },
           {
             "result": {
-              "duration": 1691294258,
+              "duration": 1639258662,
               "status": "passed"
             },
-            "line": 14,
+            "line": 16,
             "name": "Search \"temperature converter\"",
             "match": {
               "arguments": [
@@ -63,16 +97,16 @@
                   "offset": 8
                 }
               ],
-              "location": "TemperatureConverterTestStepDef.search_Temperature_Converter(String)"
+              "location": "TemperatureConverterPageStepDef.search_Temperature_Converter(String)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 14487478,
+              "duration": 9954928,
               "status": "passed"
             },
-            "line": 15,
+            "line": 17,
             "name": "The page title is \"temperature converter\"",
             "match": {
               "arguments": [
@@ -81,16 +115,16 @@
                   "offset": 19
                 }
               ],
-              "location": "TemperatureConverterTestStepDef.page_Title_is_Temperature_Converter(String)"
+              "location": "TemperatureConverterPageStepDef.page_Title_is_Temperature_Converter(String)"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 703282834,
+              "duration": 643181965,
               "status": "passed"
             },
-            "line": 16,
+            "line": 18,
             "name": "There is a \"Temperature\" option selected",
             "match": {
               "arguments": [
@@ -99,15 +133,199 @@
                   "offset": 12
                 }
               ],
-              "location": "TemperatureConverterTestStepDef.verify_option_selected(String)"
+              "location": "TemperatureConverterPageStepDef.verify_option_selected(String)"
             },
             "keyword": "And "
           }
         ],
         "tags": [
           {
-            "line": 6,
+            "line": 8,
             "name": "@baseline"
+          }
+        ]
+      },
+      {
+        "line": 6,
+        "name": "Web Browser is successfully initialized (Here we launch profiled firefox as an example)",
+        "description": "",
+        "type": "background",
+        "keyword": "Background"
+      },
+      {
+        "comments": [
+          {
+            "line": 20,
+            "value": "# With tags yet, the browser still needs to input key words before executing below feature."
+          }
+        ],
+        "before": [
+          {
+            "result": {
+              "duration": 10330694928,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterCalStepdef.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 3479873585,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterPageStepDef.setUp()"
+            }
+          }
+        ],
+        "line": 22,
+        "name": "Calculate temperature degrees",
+        "description": "",
+        "id": "browse-the-temperature-converter-page;calculate-temperature-degrees",
+        "after": [
+          {
+            "result": {
+              "duration": 242021252,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterCalStepdef.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "duration": 27182,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterCalStepdef.tearDownHook(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 194387374,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterPageStepDef.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 135741868,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "\"Fahrenheit\" select is present",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Fahrenheit",
+                  "offset": 1
+                }
+              ],
+              "location": "TemperatureConverterCalStepdef.verify_fahrenheit_present(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 144695,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "\"Celsius\" select is present",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Celsius",
+                  "offset": 1
+                }
+              ],
+              "location": "TemperatureConverterCalStepdef.verify_celsius_present(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3031164,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "Input data from the table:",
+            "match": {
+              "location": "TemperatureConverterCalStepdef.test_input_data(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Celsius",
+                  "100"
+                ],
+                "line": 26
+              },
+              {
+                "cells": [
+                  "Celsius",
+                  "0"
+                ],
+                "line": 27
+              },
+              {
+                "cells": [
+                  "Celsius",
+                  "-100"
+                ],
+                "line": 28
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 41960,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "Get results as the table:",
+            "match": {
+              "location": "TemperatureConverterCalStepdef.verify_converted_data(DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Fahrenheit",
+                  "212"
+                ],
+                "line": 30
+              },
+              {
+                "cells": [
+                  "Fahrenheit",
+                  "32"
+                ],
+                "line": 31
+              },
+              {
+                "cells": [
+                  "Fahrenheit",
+                  "-148"
+                ],
+                "line": 32
+              }
+            ],
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 21,
+            "name": "@calculation"
           }
         ]
       }

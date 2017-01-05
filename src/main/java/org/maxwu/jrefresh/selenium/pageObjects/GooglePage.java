@@ -18,11 +18,11 @@ public class GooglePage {
 
     public GooglePage(WebDriver driver) throws RuntimeException{
         dr = driver;
-        dr.manage().window().maximize();
+        //dr.manage().window().maximize();
         dr.get(baseUrl + "/");
         String title = dr.getTitle();
         if (!title.equals(baseTitle)){
-            throw new WrongPageException("Got title:" + title);
+            throw new WrongPageException("Got wrong title:" + title);
         }
     }
 

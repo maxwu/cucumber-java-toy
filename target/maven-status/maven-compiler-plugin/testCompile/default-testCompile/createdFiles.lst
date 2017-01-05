@@ -1,4 +1,6 @@
+org/maxwu/jrefresh/selenium/TemperatureConverterJUnitTest.class
 org/maxwu/jrefresh/selenium/DriverFactory.class
 org/maxwu/jrefresh/selenium/TemperatureConverterTest.class
+org/maxwu/jrefresh/selenium/stepdefs/TemperatureConverterCalStepdef.class
 org/maxwu/jrefresh/selenium/DriverFactory$Browsers.class
-org/maxwu/jrefresh/selenium/stepdefs/TemperatureConverterTestStepDef.class
+org/maxwu/jrefresh/selenium/stepdefs/TemperatureConverterPageStepDef.class

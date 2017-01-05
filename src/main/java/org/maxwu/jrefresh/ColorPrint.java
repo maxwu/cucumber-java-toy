@@ -24,7 +24,12 @@ public class ColorPrint {
     private static JSONObject jsonDriverReport(WebDriver driver){
         // Here we take the 3rd object on the calling chain
         // because this method is designed private to supply another public method.
-        String caller = new Exception().getStackTrace()[2].getClassName();
+        StackTraceElement[] stList = new Exception().getStackTrace();
+        String caller = stList[1].getClassName()
+                + "\n<---"
+                + stList[2].getClassName()
+                + "\n<---"
+                + stList[3].getClassName();
         /*System.out.println("-->>Caller:" + caller+
                 "\n>>>> URL:" + driver.getCurrentUrl() +
                 "\n>>>> Title:" + driver.getTitle() +

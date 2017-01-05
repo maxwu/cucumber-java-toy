@@ -28,9 +28,10 @@ public class DriverFactory {
 
     public static WebDriver getFirefoxNightlyDriver(){
         setPropertiesFirefox(Browsers.FIREFOX_NIGHTLY);
-        String profileDir = "/Users/maxwu/Library/Application Support/Firefox/Profiles/kgyv8qd5.default";
-        FirefoxProfile profile = new FirefoxProfile(new File(profileDir));
-        return new FirefoxDriver(profile);
+//        String profileDir = "/Users/maxwu/Library/Application Support/Firefox/Profiles/kgyv8qd5.default";
+//        FirefoxProfile profile = new FirefoxProfile(new File(profileDir));
+//        return new FirefoxDriver(profile);
+        return new FirefoxDriver();
     }
 
     public static WebDriver getDriver(){

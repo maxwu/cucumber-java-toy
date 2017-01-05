@@ -1,6 +1,7 @@
 package org.maxwu.jrefresh.selenium.stepdefs;
 
 //Before/After
+import cucumber.api.DataTable;
 import cucumber.api.java.*;
 //Cucumber Annotation Keys
 import cucumber.api.java.en.*;
@@ -14,25 +15,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import java.awt.*;
 import java.util.concurrent.TimeUnit;
-
 import static org.hamcrest.CoreMatchers.containsString;
 
 /**
  * Created by maxwu on 1/2/17.
  */
 
-public class TemperatureConverterTestStepDef {
+public class TemperatureConverterPageStepDef {
     private WebDriver driver = null;
     private GooglePage googlePage = null;
     private TemperatureConverter tempConvt = null;
 
     @Before
-    public void setUp(){
-        driver = DriverFactory.getDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
+    public void setUp() {
+        if (driver == null) {
+            driver = DriverFactory.getDriver();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            driver.manage().window().maximize();
+        }
     }
 
     @After
@@ -58,15 +59,15 @@ public class TemperatureConverterTestStepDef {
         expectedTitle += TemperatureConverter.titleSuffix;
 
         ColorPrint.println_blue(System.out, "Got expected title:" + expectedTitle);
-        if (tempConvt == null){
+        if (tempConvt == null) {
             throw new WrongPageException("TemperatureConverter is null!");
         }
         Assert.assertEquals(driver.getTitle(), expectedTitle);
     }
 
     @And("^There is a \"(.*)\" option selected$")
-    public void verify_option_selected(String val) throws Throwable{
-        WebElement ele = driver.findElement(By.xpath("/html/body/div/div[6]/div[4]/div[8]/div[1]/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div/div/div/div[1]/div/div[1]/select"));
+    public void verify_option_selected(String val) throws Throwable {
+        WebElement ele = driver.findElement(By.cssSelector("div#rso div._frf > select"));
         ColorPrint.println_red("Got Select Element:" + ele.getText());
 
         Assert.assertThat(ele.getText(), containsString("Temperature"));
@@ -77,4 +78,7 @@ public class TemperatureConverterTestStepDef {
         ColorPrint.println_red("Got Selected Opt:" + opt.getText());
         Assert.assertEquals(opt.getText(), val.trim());
     }
+
+
+
 }
