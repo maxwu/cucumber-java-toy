@@ -23,13 +23,10 @@ Feature:  Browse the temperature converter page
     Given "Fahrenheit" select is present
       And "Celsius" select is present
     When  Input data from the table:
-      | Celsius | 100 |
-      | Celsius | 0   |
-      | Celsius | -100|
-    Then  Get results as the table:
-      | Fahrenheit | 212 |
-      | Fahrenheit | 32  |
-      | Fahrenheit | -148|
+      | 100 | 212|
+      | 0   | 32 |
+      | -100|-148|
+    Then  Results are correct as on table
 
   ## Scenario outline
 #####################################################

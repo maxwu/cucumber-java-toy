@@ -7,11 +7,11 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 11640202421,
+  "duration": 11379461257,
   "status": "passed"
 });
 formatter.before({
-  "duration": 4020648642,
+  "duration": 5010724492,
   "status": "passed"
 });
 formatter.background({
@@ -64,7 +64,7 @@ formatter.match({
   "location": "TemperatureConverterPageStepDef.google_Entrance_page(String)"
 });
 formatter.result({
-  "duration": 5256207725,
+  "duration": 5048496508,
   "status": "passed"
 });
 formatter.match({
@@ -77,7 +77,7 @@ formatter.match({
   "location": "TemperatureConverterPageStepDef.search_Temperature_Converter(String)"
 });
 formatter.result({
-  "duration": 1639258662,
+  "duration": 1472020088,
   "status": "passed"
 });
 formatter.match({
@@ -90,7 +90,7 @@ formatter.match({
   "location": "TemperatureConverterPageStepDef.page_Title_is_Temperature_Converter(String)"
 });
 formatter.result({
-  "duration": 9954928,
+  "duration": 46331212,
   "status": "passed"
 });
 formatter.match({
@@ -103,27 +103,27 @@ formatter.match({
   "location": "TemperatureConverterPageStepDef.verify_option_selected(String)"
 });
 formatter.result({
-  "duration": 643181965,
+  "duration": 452267035,
   "status": "passed"
 });
 formatter.after({
-  "duration": 286400981,
+  "duration": 251143307,
   "status": "passed"
 });
 formatter.after({
-  "duration": 159768,
+  "duration": 156285,
   "status": "passed"
 });
 formatter.after({
-  "duration": 333749192,
+  "duration": 232152241,
   "status": "passed"
 });
 formatter.before({
-  "duration": 10330694928,
+  "duration": 10137020499,
   "status": "passed"
 });
 formatter.before({
-  "duration": 3479873585,
+  "duration": 3734327177,
   "status": "passed"
 });
 formatter.background({
@@ -169,22 +169,22 @@ formatter.step({
   "rows": [
     {
       "cells": [
-        "Celsius",
-        "100"
+        "100",
+        "212"
       ],
       "line": 26
     },
     {
       "cells": [
-        "Celsius",
-        "0"
+        "0",
+        "32"
       ],
       "line": 27
     },
     {
       "cells": [
-        "Celsius",
-        "-100"
+        "-100",
+        "-148"
       ],
       "line": 28
     }
@@ -193,30 +193,7 @@ formatter.step({
 });
 formatter.step({
   "line": 29,
-  "name": "Get results as the table:",
-  "rows": [
-    {
-      "cells": [
-        "Fahrenheit",
-        "212"
-      ],
-      "line": 30
-    },
-    {
-      "cells": [
-        "Fahrenheit",
-        "32"
-      ],
-      "line": 31
-    },
-    {
-      "cells": [
-        "Fahrenheit",
-        "-148"
-      ],
-      "line": 32
-    }
-  ],
+  "name": "Results are correct as on table",
   "keyword": "Then "
 });
 formatter.match({
@@ -229,7 +206,7 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.verify_fahrenheit_present(String)"
 });
 formatter.result({
-  "duration": 135741868,
+  "duration": 198307998,
   "status": "passed"
 });
 formatter.match({
@@ -242,33 +219,33 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.verify_celsius_present(String)"
 });
 formatter.result({
-  "duration": 144695,
+  "duration": 152539334,
   "status": "passed"
 });
 formatter.match({
-  "location": "TemperatureConverterCalStepdef.test_input_data(DataTable)"
+  "location": "TemperatureConverterCalStepdef.test_input_data(String,String\u003e)"
 });
 formatter.result({
-  "duration": 3031164,
+  "duration": 1256169,
   "status": "passed"
 });
 formatter.match({
-  "location": "TemperatureConverterCalStepdef.verify_converted_data(DataTable)"
+  "location": "TemperatureConverterCalStepdef.verify_converted_data()"
 });
 formatter.result({
-  "duration": 41960,
+  "duration": 571529503,
   "status": "passed"
 });
 formatter.after({
-  "duration": 242021252,
+  "duration": 187720514,
   "status": "passed"
 });
 formatter.after({
-  "duration": 27182,
+  "duration": 26814,
   "status": "passed"
 });
 formatter.after({
-  "duration": 194387374,
+  "duration": 195830084,
   "status": "passed"
 });
 });

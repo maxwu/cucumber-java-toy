@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="org.maxwu.jrefresh.selenium.TemperatureConverterTest" time="1.052" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="org.maxwu.jrefresh.selenium.TemperatureConverterTest" time="0.876" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2016.3.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -14,7 +14,7 @@
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
-    <property name="idea.launcher.port" value="7533"/>
+    <property name="idea.launcher.port" value="7538"/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
@@ -67,10 +67,10 @@
   <testcase classname="Scenario: Open Temperature Convertor" name="When Search &quot;temperature converter&quot;" time="0"/>
   <testcase classname="Scenario: Open Temperature Convertor" name="Then The page title is &quot;temperature converter&quot;" time="0"/>
   <testcase classname="Scenario: Open Temperature Convertor" name="And There is a &quot;Temperature&quot; option selected" time="0"/>
-  <testcase classname="Scenario: Open Temperature Convertor" name="Scenario: Open Temperature Convertor" time="0.626"/>
+  <testcase classname="Scenario: Open Temperature Convertor" name="Scenario: Open Temperature Convertor" time="0.488"/>
   <testcase classname="Scenario: Calculate temperature degrees" name="Given &quot;Fahrenheit&quot; select is present" time="0"/>
   <testcase classname="Scenario: Calculate temperature degrees" name="And &quot;Celsius&quot; select is present" time="0"/>
   <testcase classname="Scenario: Calculate temperature degrees" name="When Input data from the table:" time="0"/>
-  <testcase classname="Scenario: Calculate temperature degrees" name="Then Get results as the table:" time="0"/>
-  <testcase classname="Scenario: Calculate temperature degrees" name="Scenario: Calculate temperature degrees" time="0.426"/>
+  <testcase classname="Scenario: Calculate temperature degrees" name="Then Results are correct as on table" time="0"/>
+  <testcase classname="Scenario: Calculate temperature degrees" name="Scenario: Calculate temperature degrees" time="0.388"/>
 </testsuite>

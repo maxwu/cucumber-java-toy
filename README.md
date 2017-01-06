@@ -7,9 +7,10 @@
 >* [X] Gherkin description and how to map to steps implementation
 >* [X] JUnit integration and the annotations to run by Cucumber
 >* [X] Multiple line parameters to step method by Cucumber Gherkin statement
->* [ ] DataTable for Cucumber 
->* [ ] Failure hook for Cucumber
->* [ ] Screenshot in Cucumber hook
+>* [X] DataTable for Cucumber 
+>* [X] Java 8 Lambda practice
+>* [X] Failure hook for Cucumber
+>* [X] Screenshot in Cucumber hook
 >* [ ] Parameterized test with Cucumber Scenario Outline
 
 ## Tips

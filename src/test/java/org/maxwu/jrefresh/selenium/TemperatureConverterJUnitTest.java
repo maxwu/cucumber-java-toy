@@ -15,7 +15,7 @@ public class TemperatureConverterJUnitTest {
     }
     @Test
     public void verify_true(){
-        ColorPrint.println_blue("case-1");
+        ColorPrint.println_blue("Sample Case-1");
 
     }
     @After

@@ -13,7 +13,7 @@
         "before": [
           {
             "result": {
-              "duration": 11640202421,
+              "duration": 11379461257,
               "status": "passed"
             },
             "match": {
@@ -22,7 +22,7 @@
           },
           {
             "result": {
-              "duration": 4020648642,
+              "duration": 5010724492,
               "status": "passed"
             },
             "match": {
@@ -37,7 +37,7 @@
         "after": [
           {
             "result": {
-              "duration": 286400981,
+              "duration": 251143307,
               "status": "passed"
             },
             "match": {
@@ -46,7 +46,7 @@
           },
           {
             "result": {
-              "duration": 159768,
+              "duration": 156285,
               "status": "passed"
             },
             "match": {
@@ -55,7 +55,7 @@
           },
           {
             "result": {
-              "duration": 333749192,
+              "duration": 232152241,
               "status": "passed"
             },
             "match": {
@@ -68,7 +68,7 @@
         "steps": [
           {
             "result": {
-              "duration": 5256207725,
+              "duration": 5048496508,
               "status": "passed"
             },
             "line": 10,
@@ -85,7 +85,7 @@
           },
           {
             "result": {
-              "duration": 1639258662,
+              "duration": 1472020088,
               "status": "passed"
             },
             "line": 16,
@@ -103,7 +103,7 @@
           },
           {
             "result": {
-              "duration": 9954928,
+              "duration": 46331212,
               "status": "passed"
             },
             "line": 17,
@@ -121,7 +121,7 @@
           },
           {
             "result": {
-              "duration": 643181965,
+              "duration": 452267035,
               "status": "passed"
             },
             "line": 18,
@@ -162,7 +162,7 @@
         "before": [
           {
             "result": {
-              "duration": 10330694928,
+              "duration": 10137020499,
               "status": "passed"
             },
             "match": {
@@ -171,7 +171,7 @@
           },
           {
             "result": {
-              "duration": 3479873585,
+              "duration": 3734327177,
               "status": "passed"
             },
             "match": {
@@ -186,7 +186,7 @@
         "after": [
           {
             "result": {
-              "duration": 242021252,
+              "duration": 187720514,
               "status": "passed"
             },
             "match": {
@@ -195,7 +195,7 @@
           },
           {
             "result": {
-              "duration": 27182,
+              "duration": 26814,
               "status": "passed"
             },
             "match": {
@@ -204,7 +204,7 @@
           },
           {
             "result": {
-              "duration": 194387374,
+              "duration": 195830084,
               "status": "passed"
             },
             "match": {
@@ -217,7 +217,7 @@
         "steps": [
           {
             "result": {
-              "duration": 135741868,
+              "duration": 198307998,
               "status": "passed"
             },
             "line": 23,
@@ -235,7 +235,7 @@
           },
           {
             "result": {
-              "duration": 144695,
+              "duration": 152539334,
               "status": "passed"
             },
             "line": 24,
@@ -253,33 +253,33 @@
           },
           {
             "result": {
-              "duration": 3031164,
+              "duration": 1256169,
               "status": "passed"
             },
             "line": 25,
             "name": "Input data from the table:",
             "match": {
-              "location": "TemperatureConverterCalStepdef.test_input_data(DataTable)"
+              "location": "TemperatureConverterCalStepdef.test_input_data(String,String\u003e)"
             },
             "rows": [
               {
                 "cells": [
-                  "Celsius",
-                  "100"
+                  "100",
+                  "212"
                 ],
                 "line": 26
               },
               {
                 "cells": [
-                  "Celsius",
-                  "0"
+                  "0",
+                  "32"
                 ],
                 "line": 27
               },
               {
                 "cells": [
-                  "Celsius",
-                  "-100"
+                  "-100",
+                  "-148"
                 ],
                 "line": 28
               }
@@ -288,37 +288,14 @@
           },
           {
             "result": {
-              "duration": 41960,
+              "duration": 571529503,
               "status": "passed"
             },
             "line": 29,
-            "name": "Get results as the table:",
+            "name": "Results are correct as on table",
             "match": {
-              "location": "TemperatureConverterCalStepdef.verify_converted_data(DataTable)"
+              "location": "TemperatureConverterCalStepdef.verify_converted_data()"
             },
-            "rows": [
-              {
-                "cells": [
-                  "Fahrenheit",
-                  "212"
-                ],
-                "line": 30
-              },
-              {
-                "cells": [
-                  "Fahrenheit",
-                  "32"
-                ],
-                "line": 31
-              },
-              {
-                "cells": [
-                  "Fahrenheit",
-                  "-148"
-                ],
-                "line": 32
-              }
-            ],
             "keyword": "Then "
           }
         ],
