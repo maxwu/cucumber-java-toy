@@ -10,6 +10,9 @@ before_script:
 jdk:
   - oraclejdk8
 
+addons:
+  firefox: "latest-nightly"
+
 branches :
    only :
      - master
