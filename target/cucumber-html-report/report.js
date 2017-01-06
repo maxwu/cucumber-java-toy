@@ -7,11 +7,11 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 13873723041,
+  "duration": 7035574762,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5227731648,
+  "duration": 10775370490,
   "status": "passed"
 });
 formatter.background({
@@ -64,7 +64,7 @@ formatter.match({
   "location": "TemperatureConverterPageStepDef.google_Entrance_page(String)"
 });
 formatter.result({
-  "duration": 5055063496,
+  "duration": 4334109014,
   "status": "passed"
 });
 formatter.match({
@@ -77,7 +77,7 @@ formatter.match({
   "location": "TemperatureConverterPageStepDef.search_Temperature_Converter(String)"
 });
 formatter.result({
-  "duration": 2131739748,
+  "duration": 1249585587,
   "status": "passed"
 });
 formatter.match({
@@ -90,7 +90,7 @@ formatter.match({
   "location": "TemperatureConverterPageStepDef.page_Title_is_Temperature_Converter(String)"
 });
 formatter.result({
-  "duration": 15064764,
+  "duration": 15053548,
   "status": "passed"
 });
 formatter.match({
@@ -103,27 +103,27 @@ formatter.match({
   "location": "TemperatureConverterPageStepDef.verify_option_selected(String)"
 });
 formatter.result({
-  "duration": 478913320,
+  "duration": 519966424,
   "status": "passed"
 });
 formatter.after({
-  "duration": 161433,
+  "duration": 211471991,
   "status": "passed"
 });
 formatter.after({
-  "duration": 305189102,
+  "duration": 212097,
   "status": "passed"
 });
 formatter.after({
-  "duration": 215115460,
+  "duration": 234864884,
   "status": "passed"
 });
 formatter.before({
-  "duration": 10381166417,
+  "duration": 4650677759,
   "status": "passed"
 });
 formatter.before({
-  "duration": 6089972290,
+  "duration": 9957368084,
   "status": "passed"
 });
 formatter.background({
@@ -206,7 +206,7 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.verify_fahrenheit_present(String)"
 });
 formatter.result({
-  "duration": 126543340,
+  "duration": 74662919,
   "status": "passed"
 });
 formatter.match({
@@ -219,33 +219,33 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.verify_celsius_present(String)"
 });
 formatter.result({
-  "duration": 72213754,
+  "duration": 62700175,
   "status": "passed"
 });
 formatter.match({
   "location": "TemperatureConverterCalStepdef.test_input_data(String,String\u003e)"
 });
 formatter.result({
-  "duration": 3567120,
+  "duration": 1677308,
   "status": "passed"
 });
 formatter.match({
   "location": "TemperatureConverterCalStepdef.verify_converted_data()"
 });
 formatter.result({
-  "duration": 600007486,
+  "duration": 571590395,
   "status": "passed"
 });
 formatter.after({
-  "duration": 31279,
+  "duration": 152623045,
   "status": "passed"
 });
 formatter.after({
-  "duration": 177183154,
+  "duration": 57641,
   "status": "passed"
 });
 formatter.after({
-  "duration": 159062686,
+  "duration": 179885721,
   "status": "passed"
 });
 formatter.scenarioOutline({
@@ -325,11 +325,11 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 10223911232,
+  "duration": 6292297864,
   "status": "passed"
 });
 formatter.before({
-  "duration": 5044683228,
+  "duration": 9996571567,
   "status": "passed"
 });
 formatter.background({
@@ -378,7 +378,7 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.verify_page_title()"
 });
 formatter.result({
-  "duration": 9443869,
+  "duration": 7663485,
   "status": "passed"
 });
 formatter.match({
@@ -391,7 +391,7 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.enter_celsius_degree(String)"
 });
 formatter.result({
-  "duration": 139716761,
+  "duration": 104910701,
   "status": "passed"
 });
 formatter.match({
@@ -404,27 +404,27 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.check_fahrenheit_degree(String)"
 });
 formatter.result({
-  "duration": 49995205,
+  "duration": 113488450,
   "status": "passed"
 });
 formatter.after({
-  "duration": 32944,
+  "duration": 160833182,
   "status": "passed"
 });
 formatter.after({
-  "duration": 183000827,
+  "duration": 30283,
   "status": "passed"
 });
 formatter.after({
-  "duration": 152860810,
+  "duration": 180787140,
   "status": "passed"
 });
 formatter.before({
-  "duration": 11518451559,
+  "duration": 4474447059,
   "status": "passed"
 });
 formatter.before({
-  "duration": 6381917483,
+  "duration": 9618085497,
   "status": "passed"
 });
 formatter.background({
@@ -473,7 +473,7 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.verify_page_title()"
 });
 formatter.result({
-  "duration": 22026301,
+  "duration": 8421526,
   "status": "passed"
 });
 formatter.match({
@@ -486,7 +486,7 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.enter_celsius_degree(String)"
 });
 formatter.result({
-  "duration": 143228730,
+  "duration": 75928791,
   "status": "passed"
 });
 formatter.match({
@@ -499,27 +499,27 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.check_fahrenheit_degree(String)"
 });
 formatter.result({
-  "duration": 65618466,
+  "duration": 91610870,
   "status": "passed"
 });
 formatter.after({
-  "duration": 63691,
+  "duration": 206911697,
   "status": "passed"
 });
 formatter.after({
-  "duration": 229111090,
+  "duration": 119122,
   "status": "passed"
 });
 formatter.after({
-  "duration": 154581913,
+  "duration": 193953444,
   "status": "passed"
 });
 formatter.before({
-  "duration": 9870009033,
+  "duration": 6759336138,
   "status": "passed"
 });
 formatter.before({
-  "duration": 7911821766,
+  "duration": 10360705960,
   "status": "passed"
 });
 formatter.background({
@@ -568,7 +568,7 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.verify_page_title()"
 });
 formatter.result({
-  "duration": 18602388,
+  "duration": 8660188,
   "status": "passed"
 });
 formatter.match({
@@ -581,7 +581,7 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.enter_celsius_degree(String)"
 });
 formatter.result({
-  "duration": 230184578,
+  "duration": 144742102,
   "status": "passed"
 });
 formatter.match({
@@ -594,19 +594,19 @@ formatter.match({
   "location": "TemperatureConverterCalStepdef.check_fahrenheit_degree(String)"
 });
 formatter.result({
-  "duration": 113049079,
+  "duration": 36327262,
   "status": "passed"
 });
 formatter.after({
-  "duration": 24750,
+  "duration": 210080533,
   "status": "passed"
 });
 formatter.after({
-  "duration": 338253310,
+  "duration": 24152,
   "status": "passed"
 });
 formatter.after({
-  "duration": 345509103,
+  "duration": 184079517,
   "status": "passed"
 });
 });

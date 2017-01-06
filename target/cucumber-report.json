@@ -13,20 +13,20 @@
         "before": [
           {
             "result": {
-              "duration": 13873723041,
-              "status": "passed"
-            },
-            "match": {
-              "location": "TemperatureConverterCalStepdef.setUp()"
-            }
-          },
-          {
-            "result": {
-              "duration": 5227731648,
+              "duration": 7035574762,
               "status": "passed"
             },
             "match": {
               "location": "TemperatureConverterPageStepDef.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 10775370490,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterCalStepdef.setUp()"
             }
           }
         ],
@@ -37,7 +37,16 @@
         "after": [
           {
             "result": {
-              "duration": 161433,
+              "duration": 211471991,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterPageStepDef.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "duration": 212097,
               "status": "passed"
             },
             "match": {
@@ -46,20 +55,11 @@
           },
           {
             "result": {
-              "duration": 305189102,
+              "duration": 234864884,
               "status": "passed"
             },
             "match": {
               "location": "TemperatureConverterCalStepdef.tearDown()"
-            }
-          },
-          {
-            "result": {
-              "duration": 215115460,
-              "status": "passed"
-            },
-            "match": {
-              "location": "TemperatureConverterPageStepDef.tearDown()"
             }
           }
         ],
@@ -68,7 +68,7 @@
         "steps": [
           {
             "result": {
-              "duration": 5055063496,
+              "duration": 4334109014,
               "status": "passed"
             },
             "line": 10,
@@ -85,7 +85,7 @@
           },
           {
             "result": {
-              "duration": 2131739748,
+              "duration": 1249585587,
               "status": "passed"
             },
             "line": 16,
@@ -103,7 +103,7 @@
           },
           {
             "result": {
-              "duration": 15064764,
+              "duration": 15053548,
               "status": "passed"
             },
             "line": 17,
@@ -121,7 +121,7 @@
           },
           {
             "result": {
-              "duration": 478913320,
+              "duration": 519966424,
               "status": "passed"
             },
             "line": 18,
@@ -162,20 +162,20 @@
         "before": [
           {
             "result": {
-              "duration": 10381166417,
-              "status": "passed"
-            },
-            "match": {
-              "location": "TemperatureConverterCalStepdef.setUp()"
-            }
-          },
-          {
-            "result": {
-              "duration": 6089972290,
+              "duration": 4650677759,
               "status": "passed"
             },
             "match": {
               "location": "TemperatureConverterPageStepDef.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 9957368084,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterCalStepdef.setUp()"
             }
           }
         ],
@@ -186,7 +186,16 @@
         "after": [
           {
             "result": {
-              "duration": 31279,
+              "duration": 152623045,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterPageStepDef.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "duration": 57641,
               "status": "passed"
             },
             "match": {
@@ -195,20 +204,11 @@
           },
           {
             "result": {
-              "duration": 177183154,
+              "duration": 179885721,
               "status": "passed"
             },
             "match": {
               "location": "TemperatureConverterCalStepdef.tearDown()"
-            }
-          },
-          {
-            "result": {
-              "duration": 159062686,
-              "status": "passed"
-            },
-            "match": {
-              "location": "TemperatureConverterPageStepDef.tearDown()"
             }
           }
         ],
@@ -217,7 +217,7 @@
         "steps": [
           {
             "result": {
-              "duration": 126543340,
+              "duration": 74662919,
               "status": "passed"
             },
             "line": 23,
@@ -235,7 +235,7 @@
           },
           {
             "result": {
-              "duration": 72213754,
+              "duration": 62700175,
               "status": "passed"
             },
             "line": 24,
@@ -253,7 +253,7 @@
           },
           {
             "result": {
-              "duration": 3567120,
+              "duration": 1677308,
               "status": "passed"
             },
             "line": 25,
@@ -288,7 +288,7 @@
           },
           {
             "result": {
-              "duration": 600007486,
+              "duration": 571590395,
               "status": "passed"
             },
             "line": 29,
@@ -317,20 +317,20 @@
         "before": [
           {
             "result": {
-              "duration": 10223911232,
-              "status": "passed"
-            },
-            "match": {
-              "location": "TemperatureConverterCalStepdef.setUp()"
-            }
-          },
-          {
-            "result": {
-              "duration": 5044683228,
+              "duration": 6292297864,
               "status": "passed"
             },
             "match": {
               "location": "TemperatureConverterPageStepDef.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 9996571567,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterCalStepdef.setUp()"
             }
           }
         ],
@@ -341,7 +341,16 @@
         "after": [
           {
             "result": {
-              "duration": 32944,
+              "duration": 160833182,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterPageStepDef.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "duration": 30283,
               "status": "passed"
             },
             "match": {
@@ -350,20 +359,11 @@
           },
           {
             "result": {
-              "duration": 183000827,
+              "duration": 180787140,
               "status": "passed"
             },
             "match": {
               "location": "TemperatureConverterCalStepdef.tearDown()"
-            }
-          },
-          {
-            "result": {
-              "duration": 152860810,
-              "status": "passed"
-            },
-            "match": {
-              "location": "TemperatureConverterPageStepDef.tearDown()"
             }
           }
         ],
@@ -372,7 +372,7 @@
         "steps": [
           {
             "result": {
-              "duration": 9443869,
+              "duration": 7663485,
               "status": "passed"
             },
             "line": 34,
@@ -384,7 +384,7 @@
           },
           {
             "result": {
-              "duration": 139716761,
+              "duration": 104910701,
               "status": "passed"
             },
             "line": 35,
@@ -405,7 +405,7 @@
           },
           {
             "result": {
-              "duration": 49995205,
+              "duration": 113488450,
               "status": "passed"
             },
             "line": 36,
@@ -443,20 +443,20 @@
         "before": [
           {
             "result": {
-              "duration": 11518451559,
-              "status": "passed"
-            },
-            "match": {
-              "location": "TemperatureConverterCalStepdef.setUp()"
-            }
-          },
-          {
-            "result": {
-              "duration": 6381917483,
+              "duration": 4474447059,
               "status": "passed"
             },
             "match": {
               "location": "TemperatureConverterPageStepDef.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 9618085497,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterCalStepdef.setUp()"
             }
           }
         ],
@@ -467,7 +467,16 @@
         "after": [
           {
             "result": {
-              "duration": 63691,
+              "duration": 206911697,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterPageStepDef.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "duration": 119122,
               "status": "passed"
             },
             "match": {
@@ -476,20 +485,11 @@
           },
           {
             "result": {
-              "duration": 229111090,
+              "duration": 193953444,
               "status": "passed"
             },
             "match": {
               "location": "TemperatureConverterCalStepdef.tearDown()"
-            }
-          },
-          {
-            "result": {
-              "duration": 154581913,
-              "status": "passed"
-            },
-            "match": {
-              "location": "TemperatureConverterPageStepDef.tearDown()"
             }
           }
         ],
@@ -498,7 +498,7 @@
         "steps": [
           {
             "result": {
-              "duration": 22026301,
+              "duration": 8421526,
               "status": "passed"
             },
             "line": 34,
@@ -510,7 +510,7 @@
           },
           {
             "result": {
-              "duration": 143228730,
+              "duration": 75928791,
               "status": "passed"
             },
             "line": 35,
@@ -531,7 +531,7 @@
           },
           {
             "result": {
-              "duration": 65618466,
+              "duration": 91610870,
               "status": "passed"
             },
             "line": 36,
@@ -569,20 +569,20 @@
         "before": [
           {
             "result": {
-              "duration": 9870009033,
-              "status": "passed"
-            },
-            "match": {
-              "location": "TemperatureConverterCalStepdef.setUp()"
-            }
-          },
-          {
-            "result": {
-              "duration": 7911821766,
+              "duration": 6759336138,
               "status": "passed"
             },
             "match": {
               "location": "TemperatureConverterPageStepDef.setUp()"
+            }
+          },
+          {
+            "result": {
+              "duration": 10360705960,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterCalStepdef.setUp()"
             }
           }
         ],
@@ -593,7 +593,16 @@
         "after": [
           {
             "result": {
-              "duration": 24750,
+              "duration": 210080533,
+              "status": "passed"
+            },
+            "match": {
+              "location": "TemperatureConverterPageStepDef.tearDown()"
+            }
+          },
+          {
+            "result": {
+              "duration": 24152,
               "status": "passed"
             },
             "match": {
@@ -602,20 +611,11 @@
           },
           {
             "result": {
-              "duration": 338253310,
+              "duration": 184079517,
               "status": "passed"
             },
             "match": {
               "location": "TemperatureConverterCalStepdef.tearDown()"
-            }
-          },
-          {
-            "result": {
-              "duration": 345509103,
-              "status": "passed"
-            },
-            "match": {
-              "location": "TemperatureConverterPageStepDef.tearDown()"
             }
           }
         ],
@@ -624,7 +624,7 @@
         "steps": [
           {
             "result": {
-              "duration": 18602388,
+              "duration": 8660188,
               "status": "passed"
             },
             "line": 34,
@@ -636,7 +636,7 @@
           },
           {
             "result": {
-              "duration": 230184578,
+              "duration": 144742102,
               "status": "passed"
             },
             "line": 35,
@@ -657,7 +657,7 @@
           },
           {
             "result": {
-              "duration": 113049079,
+              "duration": 36327262,
               "status": "passed"
             },
             "line": 36,
