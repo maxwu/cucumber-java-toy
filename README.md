@@ -29,10 +29,5 @@ This section records the issues resolved during the construction/devops phase.
 ```
 - Change browser binary, profile, local/remote and other parameters to json.config.
 - Test more elements.
-- Parameterized test. 
-- Add below scenario and implement the def.
-#  Scenario: Convert Temperature "Celsius" "100"
-#    Given Convert Page
-#    When  I entered 100 Celsius
-#    Then  I shall get 212 Fahrenheit
+- Add Coverage.
 ```
