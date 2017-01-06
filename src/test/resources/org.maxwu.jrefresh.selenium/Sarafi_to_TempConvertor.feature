@@ -28,5 +28,15 @@ Feature:  Browse the temperature converter page
       | -100|-148|
     Then  Results are correct as on table
 
-  ## Scenario outline
+  ## Scenario outline sample test
+  @calculation
+  Scenario Outline: Convert Celsius to Fahrenheit and verify the values
+    Given Google search page with predefined keywords
+    When  Enter Celsius degree as "<celsius_degree>"
+    Then  Check the value against "<fahrenheit_degree>"
+  Examples:
+    | celsius_degree | fahrenheit_degree |
+    | 100            | 212               |
+    | 0              | 32                |
+    | -100           | -148              |
 #####################################################

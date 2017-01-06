@@ -110,16 +110,24 @@ public class TemperatureConverterCalStepdef {
         this.degreeList = degreeList;
     }
 
-
-    private String convertCelsiusToFahrenheit(String celsiusDegree) {
+    private void enterCelsiusInput(String celsiusDegree){
         WebElement inputCelsius = driver.findElement(By.cssSelector("div#_Aif > input._eif"));
         // BugFix: Be sure to clear the existing strings on this Input Element.
         inputCelsius.clear();
         inputCelsius.sendKeys(celsiusDegree);
-        inputCelsius.sendKeys(Keys.RETURN);
 
+        // Notes: Return here is optional
+        inputCelsius.sendKeys(Keys.RETURN);
+    }
+
+    private String getFahrenheitDegree(){
         WebElement inputFahrenheit = driver.findElement(By.cssSelector("div#_Cif > input._eif"));
         return inputFahrenheit.getAttribute("value").trim();
+    }
+
+    private String convertCelsiusToFahrenheit(String celsiusDegree) {
+        enterCelsiusInput(celsiusDegree);
+        return getFahrenheitDegree();
     }
 
     @Then("^Results are correct as on table$")
@@ -137,5 +145,20 @@ public class TemperatureConverterCalStepdef {
                     Assert.assertEquals(converted, v);
                 }
         );
+    }
+
+    @Given("^Google search page with predefined keywords$")
+    public  void verify_page_title() throws Throwable {
+        Assert.assertTrue(driver.getTitle().startsWith("temperature converter"));
+    }
+
+    @When("Enter Celsius degree as \"([^\"]*)\"$")
+    public void enter_celsius_degree(String degree) throws Throwable{
+        enterCelsiusInput(degree);
+    }
+
+    @Then("Check the value against \"([^\"]*)\"$")
+    public void check_fahrenheit_degree(String degree) throws Throwable{
+        Assert.assertEquals(degree, getFahrenheitDegree());
     }
 }
