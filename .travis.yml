@@ -1,6 +1,7 @@
 language : java
 
-script : mvn clean install
+script : mvn cobertura:cobertura
+#mvn clean install
 
 before_script:
   - "export DISPLAY=:99.0"
@@ -16,6 +17,10 @@ addons:
 branches :
    only :
      - master
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 notifications :
    email :
      - maxwunj@gmail.com
