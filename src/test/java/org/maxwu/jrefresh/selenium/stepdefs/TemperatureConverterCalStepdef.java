@@ -65,6 +65,7 @@ public class TemperatureConverterCalStepdef {
     public void tearDown(){
         if (driver != null) {
             driver.quit();
+            driver = null;
         }else{
             ColorPrint.println_red("Browser is null in @After hook!");
         }
