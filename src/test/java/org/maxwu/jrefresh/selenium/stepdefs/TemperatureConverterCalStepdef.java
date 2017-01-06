@@ -63,8 +63,11 @@ public class TemperatureConverterCalStepdef {
 
     @After
     public void tearDown(){
-        //driver.close();
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }else{
+            ColorPrint.println_red("Browser is null in @After hook!");
+        }
     }
 
     // Get the 1st selected option from filtered select element.
