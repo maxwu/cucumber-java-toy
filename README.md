@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=master)](https://travis-ci.org/maxwu/cucumber-java-toy)
+
+
 # Selenium Refreshment Project
 
 *This project is a self-study project to refresh the skills and knowledge about Java, JUnit, Cucumber and Selenium topics*
