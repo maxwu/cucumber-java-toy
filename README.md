@@ -11,7 +11,9 @@
 >* [X] Java 8 Lambda practice
 >* [X] Failure hook for Cucumber
 >* [X] Screenshot in Cucumber hook
->* [ ] Parameterized test with Cucumber Scenario Outline
+>* [X] Parameterized test with Cucumber Scenario Outline
+>* [X] Bringing in driver manager to support Travis
+>* [X] Travis test configuration
 
 ## Tips
 This section records the issues resolved during the construction/devops phase.
