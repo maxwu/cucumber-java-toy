@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=master)](https://travis-ci.org/maxwu/cucumber-java-toy)
 [![codecov](https://codecov.io/gh/maxwu/cucumber-java-toy/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/cucumber-java-toy)
+[![Documentation Status](https://readthedocs.org/projects/cucumber-java-toy/badge/?version=latest)](http://cucumber-java-toy.readthedocs.io/en/latest/?badge=latest)
+ 
 
 # Selenium Refreshment Project
 
@@ -24,6 +26,12 @@ This section records the issues resolved during the construction/devops phase.
 - Assert.assertEqual() will call obj.equals(), however, to check with "==", we shall use Asser.assertSame() instead.
 - @Cucumber.Options() is replaced by @CucumberOptions annotation.
 - Step def class must be public.
+- Blinking scenarios, which passes sometimes but fails other time, is the smell of environmental(sharing), design, or, unexpected errors.
+- Cucumber report is not thread-safe, we shall avoid this case multiple tests write to same report.
+- How to run Cucumber with specified sequence?
+    - In CLI, provide the first features in order and then the rest with whole folder.
+    - With Maven, renaming feature name is needed.
+    * Shall avoid this kind of dependency, which is out of Unit Test scope.
 
 ## TODO
 ```

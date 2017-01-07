@@ -29,8 +29,7 @@ public class TemperatureConverterCalStepdef {
     private TemperatureConverter tempConvt = null;
     private Map<String, String> degreeList = null;
 
-    // TODO: parameterize the 4 CssSelector for this test scenario.
-
+    // TODO: parametrise the 4 CssSelector for this test scenario.
     @Before
     public void setUp() {
         if (driver == null) {
@@ -114,19 +113,14 @@ public class TemperatureConverterCalStepdef {
         this.degreeList = degreeList;
     }
 
-    private void enterCelsiusInput(String celsiusDegree){
-        WebElement inputCelsius = driver.findElement(By.cssSelector("div#_Aif > input._eif"));
-        // BugFix: Be sure to clear the existing strings on this Input Element.
-        inputCelsius.clear();
-        inputCelsius.sendKeys(celsiusDegree);
 
-        // Notes: Return here is optional
-        inputCelsius.sendKeys(Keys.RETURN);
+
+    private void enterCelsiusInput(String celsiusDegree){
+        tempConvt.setLeftInput(celsiusDegree);
     }
 
     private String getFahrenheitDegree(){
-        WebElement inputFahrenheit = driver.findElement(By.cssSelector("div#_Cif > input._eif"));
-        return inputFahrenheit.getAttribute("value").trim();
+        return tempConvt.getRightInput();
     }
 
     private String convertCelsiusToFahrenheit(String celsiusDegree) {

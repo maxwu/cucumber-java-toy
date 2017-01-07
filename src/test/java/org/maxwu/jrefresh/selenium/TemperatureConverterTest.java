@@ -16,7 +16,10 @@ import org.junit.runner.RunWith;
                 "html:target/cucumber-html-report",
                 "json:target/cucumber-report.json"
         },
-        features = "src/test/resources/org.maxwu.jrefresh.selenium",
+        features = {
+                /* FIXME: Test Cucumber feature sequence. */
+                "src/test/resources/org.maxwu.jrefresh.selenium"
+        },
         dryRun = false,
         glue = "org.maxwu.jrefresh.selenium.stepdefs"
 )

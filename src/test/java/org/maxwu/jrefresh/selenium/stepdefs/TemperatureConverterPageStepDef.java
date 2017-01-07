@@ -67,9 +67,7 @@ public class TemperatureConverterPageStepDef {
 
     @And("^There is a \"(.*)\" option selected$")
     public void verify_option_selected(String val) throws Throwable {
-        WebElement ele = driver.findElement(By.cssSelector("div#rso div._frf > select"));
-        ColorPrint.println_red("Got Select Element:" + ele.getText());
-
+        WebElement ele = tempConvt.getConverterSelect();
         Assert.assertThat(ele.getText(), containsString("Temperature"));
         ColorPrint.printDriverReport(driver);
 
