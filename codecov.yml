@@ -19,6 +19,9 @@ coverage:
 - doc/.*
 - target/.*
 - build/.*
+- .*/resources/.*
+- doc/.*
+- test/.*
 parsers:
   gcov:
     branch_detection:
