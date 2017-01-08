@@ -13,11 +13,14 @@ public class TemperatureConverterJUnitTest {
     public void setUp(){
         ColorPrint.println_blue("Starting JUnit 2nd phase test");
     }
+
     @Test
     public void verify_true(){
         ColorPrint.println_blue("Sample Case-1");
-
+        // This is the sample case driven by JUnit.
+        // The real tests were done with Cucumber JVM and Selenium Page Object.
     }
+
     @After
     public void tearDown(){
         ColorPrint.println_blue("The tear down step");

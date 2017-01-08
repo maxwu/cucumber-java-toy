@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class GooglePage {
     private WebDriver dr = null;
-    private String baseUrl = "https://www.google.co.nz";
+    private String baseUrl = "https://www.google.com";
     private String baseTitle = "Google";
 
     public GooglePage(WebDriver driver) throws RuntimeException{
@@ -24,6 +25,8 @@ public class GooglePage {
         if (!title.equals(baseTitle)){
             throw new WrongPageException("Got wrong title:" + title);
         }
+
+        //PageFactory.initElements(driver, this);
     }
 
     public TemperatureConverter getTempConverter(String keyWords){

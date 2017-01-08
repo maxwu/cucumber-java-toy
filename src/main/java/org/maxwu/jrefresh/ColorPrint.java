@@ -22,19 +22,18 @@ public class ColorPrint {
 
     //TODO: Change to Log4J.
     private static JSONObject jsonDriverReport(WebDriver driver){
+        if (driver == null){
+            return new JSONObject("{'Obj':'NULL'}");
+        }
         // Here we take the 3rd object on the calling chain
         // because this method is designed private to supply another public method.
         StackTraceElement[] stList = new Exception().getStackTrace();
         String caller = stList[1].getClassName()
-                + "\n<---"
+                + "<--"
                 + stList[2].getClassName()
-                + "\n<---"
+                + "<--"
                 + stList[3].getClassName();
-        /*System.out.println("-->>Caller:" + caller+
-                "\n>>>> URL:" + driver.getCurrentUrl() +
-                "\n>>>> Title:" + driver.getTitle() +
-                "\n>>>> Driver:" + driver.toString()
-        );*/
+
         JSONObject json = new JSONObject();
         json.append("caller", caller);
         json.append("url", driver.getCurrentUrl());

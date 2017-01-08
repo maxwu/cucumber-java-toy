@@ -29,7 +29,6 @@ public class TemperatureConverterCalStepdef {
     private TemperatureConverter tempConvt = null;
     private Map<String, String> degreeList = null;
 
-    // TODO: parametrise the 4 CssSelector for this test scenario.
     @Before
     public void setUp() {
         if (driver == null) {
@@ -37,7 +36,7 @@ public class TemperatureConverterCalStepdef {
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().window().maximize();
         }
-        tempConvt = new GooglePage(driver).getTempConverter("temperature converter");
+        tempConvt = new GooglePage(driver).getTempConverter("Temperature Converter");
     }
 
     // "After" runs by each scenario ending.
@@ -116,11 +115,11 @@ public class TemperatureConverterCalStepdef {
 
 
     private void enterCelsiusInput(String celsiusDegree){
-        tempConvt.setLeftInput(celsiusDegree);
+        tempConvt.setInputLeft(celsiusDegree);
     }
 
     private String getFahrenheitDegree(){
-        return tempConvt.getRightInput();
+        return tempConvt.getInputRight();
     }
 
     private String convertCelsiusToFahrenheit(String celsiusDegree) {
@@ -147,7 +146,7 @@ public class TemperatureConverterCalStepdef {
 
     @Given("^Google search page with predefined keywords$")
     public  void verify_page_title() throws Throwable {
-        Assert.assertTrue(driver.getTitle().startsWith("temperature converter"));
+        Assert.assertTrue(driver.getTitle().startsWith("Temperature Converter"));
     }
 
     @When("Enter Celsius degree as \"([^\"]*)\"$")

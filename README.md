@@ -19,6 +19,7 @@
 >* [X] Parameterized test with Cucumber Scenario Outline
 >* [X] Bringing in driver manager to support Travis
 >* [X] Travis test configuration
+>* [X] Refactor to Page Factory Pattern
 
 ## Tips
 This section records the issues resolved during the construction/devops phase.
@@ -32,6 +33,18 @@ This section records the issues resolved during the construction/devops phase.
     - In CLI, provide the first features in order and then the rest with whole folder.
     - With Maven, renaming feature name is needed.
     * Shall avoid this kind of dependency, which is out of Unit Test scope.
+- Pay attention to @FindBy and @FindBys, @FindAll.
+    - @FindBys is to narrow down the filter with multiple matching rules, AKA., to get the intersection.
+    - @FindAll is to build the union set with at least one rule matched.
+    - With @Find* annotation, each the factory or the constructor shall load initElements call.
+- Not so important but keep in mind, the annotation @Before/@After and so on shall be imported from cucumber.api.java or cucumber.api.java.en (The Gherkin keys).
+    - Make sure to import cucumber.api.java and cucumber.api.java.en;
+    - Pay attention to any JUnit import and the application scope.
+- Environmental Issue with network:
+    - The WebDriverManager lib was configured to download latest nightly Firefox driver but the network will blink if we keep on downloading many times in a short while;
+    - If Exception points to HTTP failure and the return JSON indicates a rate limit, try to launch a proxy or change your connection/IP.
+    - Here the author uses Sakura with ShadowSocks Docker as a free SS proxy. If so, please change base URL from google.co.nz to google.com.
+
 
 ## TODO
 ```
