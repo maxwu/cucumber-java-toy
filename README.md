@@ -50,6 +50,5 @@ This section records the issues resolved during the construction/devops phase.
 ## TODO
 ```
 - Change browser binary, profile, local/remote and other parameters to json.config.
-- There is a rate limit on mozilla release page, if the tests were launched ferquently in a short while, the Web Driver Manager would be unable to fetch the latest driver binary.
-    - Check how to add cache (if we don't run clean task).
+- Consider Log4J to refactor the logging instructions.
 ```

@@ -78,7 +78,7 @@ public class TemperatureConverterCalStepdef {
 
     private void verifySelectOptionText(String expected, String got) throws Throwable{
         if (!expected.equals(got)){
-            throw new WrongPageException("Excepted "
+            throw new WrongPageException("In Select Web Element, expected "
                     + expected
                     + " but got wrong selected option: "
                     + got
@@ -128,7 +128,7 @@ public class TemperatureConverterCalStepdef {
 
     @Then("^Results are correct as on table$")
     public void verify_converted_data() throws Throwable{
-        ColorPrint.println_blue("Got data table in turned to Map structure");
+
         //Traditional way to loop Map.
         for (Map.Entry<String, String> entry : degreeList.entrySet()) {
             ColorPrint.println_blue("Celsius: " + entry.getKey() + "\t Fahrenheit: " + entry.getValue());
