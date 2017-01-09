@@ -52,13 +52,13 @@ public class LengthConverterCalStepDef  {
     public void tearDown(){
         if (driver != null) {
             driver.quit();
-            driver = null;
         }else{
-            ColorPrint.println_red("Browser is null in @After hook!");
+            ColorPrint.println_red("Driver is null in @tearDown()");
         }
     }
     public void saveScreenShot() throws Exception {
         if (driver == null){
+            ColorPrint.println_red("Driver is null in @saveScreenShot()");
             return;
         }
 
