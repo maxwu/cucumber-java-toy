@@ -88,16 +88,18 @@ public class TemperatureConverterCalStepdef {
 
     @Given("^\"(F.*)\" select is present$")
     public void verify_fahrenheit_present(String fahText) throws Throwable {
+        tempConvt.setSelectRight(fahText);
         String selected = tempConvt.getSelectRight();
         ColorPrint.println_red("Fahrenheit text:" + selected);
-        verifySelectOptionText("Fahrenheit", selected);
+        verifySelectOptionText(fahText, selected);
     }
 
     @And("^\"(C.*)\" select is present$")
     public void verify_celsius_present(String celText) throws Throwable {
+        tempConvt.setSelectLeft(celText);
         String selected = tempConvt.getSelectLeft();
         ColorPrint.println_red("Celsius text:" + selected);
-        verifySelectOptionText("Celsius", selected);
+        verifySelectOptionText(celText, selected);
     }
 
     @When("^Input data from the table:$")

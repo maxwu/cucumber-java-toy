@@ -5,9 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
 /**
  * Created by maxwu on 1/2/17.
@@ -16,6 +21,9 @@ public class GooglePage {
     private WebDriver dr = null;
     private String baseUrl = "https://www.google.com";
     private String baseTitle = "Google";
+
+    @FindBy(how = How.CSS, using = "input#lst-ib")
+    WebElement inputSearch;
 
     public GooglePage(WebDriver driver) throws RuntimeException{
         dr = driver;
@@ -26,7 +34,7 @@ public class GooglePage {
             throw new WrongPageException("Got wrong title:" + title);
         }
 
-        //PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver, this);
     }
 
     public TemperatureConverter getTempConverter(String keyWords){
@@ -34,19 +42,14 @@ public class GooglePage {
             keyWords = "Temperature Converter";
         }
 
-        // Find element
-        WebElement ele = dr.findElement(By.cssSelector("input#lst-ib"));
-        ColorPrint.println_green(System.out, "Got Element class:" + ele.getClass() );
-
-        // Enter ""
-        ele.sendKeys(keyWords);
-        ele.sendKeys(Keys.RETURN);
+        inputSearch.sendKeys(keyWords);
+        inputSearch.sendKeys(Keys.RETURN);
 
         //Wait until stats is visible
         WebDriverWait wait = new WebDriverWait(dr, 5);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("resultStats")));
-        ele = dr.findElement(By.id("resultStats"));
-        ColorPrint.println_blue(System.out,"Result Statistics:" + ele.getText());
+        WebElement ele = dr.findElement(By.id("resultStats"));
+        ColorPrint.println_blue(System.out,"Google Search Result Statistics:" + ele.getText());
 
         return new TemperatureConverter(dr);
     }
