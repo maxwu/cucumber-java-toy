@@ -17,7 +17,7 @@
 >* [X] Failure hook for Cucumber
 >* [X] Screenshot in Cucumber hook
 >* [X] Parameterized test with Cucumber Scenario Outline
->* [X] Bringing in driver manager to support Travis
+>* [X] Introduce WebDriverManager to support Travis could test
 >* [X] Travis test configuration
 >* [X] Refactor to Page Factory Pattern
 
@@ -42,13 +42,14 @@ This section records the issues resolved during the construction/devops phase.
     - Pay attention to any JUnit import and the application scope.
 - Environmental Issue with network:
     - The WebDriverManager lib was configured to download latest nightly Firefox driver but the network will blink if we keep on downloading many times in a short while;
-    - If Exception points to HTTP failure and the return JSON indicates a rate limit, try to launch a proxy or change your connection/IP.
-    - Here the author uses Sakura with ShadowSocks Docker as a free SS proxy. If so, please change base URL from google.co.nz to google.com.
-
+    - Set properties value to force cache will resolve it:
+        ```
+        wdm.forceCache=true
+        ```
 
 ## TODO
 ```
 - Change browser binary, profile, local/remote and other parameters to json.config.
-- Test more elements.
-- Add Coverage.
+- There is a rate limit on mozilla release page, if the tests were launched ferquently in a short while, the Web Driver Manager would be unable to fetch the latest driver binary.
+    - Check how to add cache (if we don't run clean task).
 ```
