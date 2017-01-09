@@ -73,4 +73,12 @@ public class TemperatureConverter {
     public void setSelectRight(String opt){
         new Select(selectRight).selectByVisibleText(opt);
     }
+
+    public String getSelectLeft(){
+        return new Select(selectLeft).getFirstSelectedOption().getText().trim();
+    }
+
+    public String getSelectRight(){
+        return new Select(selectRight).getFirstSelectedOption().getText().trim();
+    }
 }

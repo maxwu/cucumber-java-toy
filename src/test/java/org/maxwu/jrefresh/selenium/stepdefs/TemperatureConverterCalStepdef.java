@@ -88,17 +88,14 @@ public class TemperatureConverterCalStepdef {
 
     @Given("^\"(F.*)\" select is present$")
     public void verify_fahrenheit_present(String fahText) throws Throwable {
-        String selected = getSelectedText(By.cssSelector("div#_Cif > select")).trim();
-
+        String selected = tempConvt.getSelectRight();
         ColorPrint.println_red("Fahrenheit text:" + selected);
         verifySelectOptionText("Fahrenheit", selected);
     }
 
     @And("^\"(C.*)\" select is present$")
     public void verify_celsius_present(String celText) throws Throwable {
-        //select#_Bif
-        String selected = getSelectedText(By.cssSelector("div#_Aif > select")).trim();
-
+        String selected = tempConvt.getSelectLeft();
         ColorPrint.println_red("Celsius text:" + selected);
         verifySelectOptionText("Celsius", selected);
     }
