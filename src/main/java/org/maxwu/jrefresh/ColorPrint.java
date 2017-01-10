@@ -1,10 +1,11 @@
 package org.maxwu.jrefresh;
 
-import org.openqa.selenium.WebDriver;
-
 import java.io.PrintStream;
 import org.json.JSONObject;
 import org.json.JSONArray;
+import org.openqa.selenium.WebDriver;
+import cucumber.api.Scenario;
+import org.maxwu.jrefresh.selenium.DriverFactory;
 
 /**
  * Created by maxwu on 1/2/17.
@@ -20,10 +21,28 @@ public class ColorPrint {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
 
-    //TODO: Change to Log4J.
+    //TODO: Change general logs to Log4J.
+
+    public static String getTs(){
+        return new java.text.SimpleDateFormat(
+                "yyyy-MM-dd-HH_mm_ss").format(new java.util.Date()
+                );
+    }
+
+    public static void printScenarioState(Object obj, Scenario scenario, String state){
+        println_green(
+                getTs() + " #" + obj.hashCode() + " "+ obj.getClass().getSimpleName()
+                + ", [" + scenario.getName() + "] " + state
+        );
+
+    }
+
     private static JSONObject jsonDriverReport(WebDriver driver){
         if (driver == null){
-            return new JSONObject("{'Obj':'NULL'}");
+            return new JSONObject("{'driver':'NULL'}");
+        }
+        if (DriverFactory.hasQuit(driver)){
+            return new JSONObject("{'driver':'QUIT'}");
         }
         // Here we take the 3rd object on the calling chain
         // because this method is designed private to supply another public method.
@@ -54,20 +73,28 @@ public class ColorPrint {
         System.out.println(col + str + ANSI_RESET);
     }
 
+    // Urgent or critical message
     public static void println_red(PrintStream ps, String st){
         ps.println(ANSI_RED + st + ANSI_RESET);
+        ps.flush();
     }
     public static void println_red(String st){
         println_red(System.out, st);
     }
+
+    // General comment message
     public static void println_green(PrintStream ps, String st){
         ps.println(ANSI_GREEN + st + ANSI_RESET);
+        ps.flush();
     }
     public static void println_green(String st){
         println_green(System.out, st);
     }
+
+    // Element, data to show in log messages
     public static void println_blue(PrintStream ps, String st){
         ps.println(ANSI_BLUE + st + ANSI_RESET);
+        ps.flush();
     }
     public static void println_blue(String st){
         println_blue(System.out, st);

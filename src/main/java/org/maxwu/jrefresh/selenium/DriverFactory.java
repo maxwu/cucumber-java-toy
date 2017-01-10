@@ -6,7 +6,6 @@ import org.maxwu.jrefresh.selenium.pageObjects.WrongPageException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 /**
@@ -18,12 +17,12 @@ public class DriverFactory {
     // Since it is designed to destroy (quit) driver at every test (scenario) end,
     // it requires a new driver at every test scenario beginning.
     public static synchronized WebDriver getDriver(){
-        ColorPrint.println_blue("**** Request on Web Driver received ****");
+        ColorPrint.println_blue("**** Request creation Web Driver received ****");
 
         FirefoxDriverManager.getInstance().setup();
         WebDriver driver = new FirefoxDriver();
         if (hasQuit(driver)){
-            ColorPrint.println_red("**** Driver has quit already ****");
+            ColorPrint.println_red("**** New Driver has quit already ****");
             throw new WrongPageException("New Driver has quit == true!");
         }
         return driver;
@@ -34,12 +33,13 @@ public class DriverFactory {
     }
 
     public static synchronized void quitDriver(WebDriver driver){
-        if (driver != null) {
+        if ((driver != null) &&(!hasQuit(driver))){
             ColorPrint.println_red("Request received to quit the driver!");
             ((JavascriptExecutor) driver).executeScript("window.stop;");
             driver.quit();
+            waitInterval();
         }else{
-            ColorPrint.println_red("Driver is null while requesting to quit!");
+            // Do nothing for null driver on quiting state transition.
         }
     }
 

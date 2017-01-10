@@ -2,6 +2,7 @@ package org.maxwu.jrefresh.selenium.stepdefs;
 
 //Before/After
 import cucumber.api.DataTable;
+import cucumber.api.Scenario;
 import cucumber.api.java.*;
 //Cucumber Annotation Keys
 import cucumber.api.java.en.*;
@@ -27,21 +28,30 @@ public class TemperatureConverterPageStepDef {
     private TemperatureConverter tempConvt = null;
 
     @Before
-    public void setUp() {
+    public void setUp(Scenario scenario) {
+        ColorPrint.printScenarioState(this, scenario, "starts, "  + scenario.getStatus());
+    }
+
+    @After
+    public void tearDown(Scenario sc) {
+        ColorPrint.printScenarioState(this, sc, "ends "  + sc.getStatus());
+        DriverFactory.quitDriver(driver);
+        // FIXME:
+        tempConvt = null;
+        googlePage = null;
+        driver = null;
+    }
+
+    @Given("^Google Entrance Page with:$")
+    public void google_Entrance_page(String mulText) throws Throwable {
+        //The precondition
         if ((driver == null)||(DriverFactory.hasQuit(driver))) {
             driver = DriverFactory.getDriver();
         }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-    }
+        // precondition
 
-    @After
-    public void tearDown() {
-        DriverFactory.quitDriver(driver);
-    }
-
-    @Given("^Google Entrance Page with:$")
-    public void google_Entrance_page(String mulText) throws Throwable {
         googlePage = new GooglePage(driver);
         ColorPrint.println_green("Got multiple lines parameter:\n" + mulText);
     }
@@ -74,7 +84,5 @@ public class TemperatureConverterPageStepDef {
         ColorPrint.println_red("Got Selected Opt:" + opt.getText());
         Assert.assertEquals(opt.getText(), val.trim());
     }
-
-
 
 }

@@ -32,40 +32,34 @@ public class TemperatureConverterCalStepdef {
     private Map<String, String> degreeList = null;
 
     @Before
-    public void setUp() {
-        if ((driver == null)||(DriverFactory.hasQuit(driver))){
-            driver = DriverFactory.getDriver();
-        }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-
-        tempConvt = new GooglePage(driver).getTempConverter("Temperature Converter");
+    public void setUp(Scenario scenario) {
+        ColorPrint.printScenarioState(this, scenario, "starts, "  + scenario.getStatus());
     }
 
-    // "After" runs by each scenario ending.
     @After
-    public void tearDownHook(Scenario scenario) {
+    public void tearDown(Scenario scenario) {
+
+        ColorPrint.printScenarioState(this, scenario, "ends, " + scenario.getStatus());
         if (scenario.isFailed()) {
             try {
                 ColorPrint.println_red("****>>>> Failure in scenario: " + scenario.getName());
                 ColorPrint.printDriverReport(driver);
-                if (driver != null){
-                    String fname = new java.text.SimpleDateFormat(
-                            "yyyy-MM-dd-HH_mm_ss").format(new java.util.Date()
-                    );
+                if ((driver != null)&&(!DriverFactory.hasQuit(driver))){
+                    String fname = ColorPrint.getTs();
                     File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
                     FileUtils.copyFile(scrFile, new File("target/screenshot" + fname + ".png"));
+                }else{
+                    ColorPrint.println_red("driver is not working: " + driver);
                 }
             } catch (final Exception ex) {
                 ex.printStackTrace();
             }
         }
-
-    }
-
-    @After
-    public void tearDown() throws Throwable {
         DriverFactory.quitDriver(driver);
+        // FIXME:
+        tempConvt = null;
+        googlePage = null;
+        driver = null;
     }
 
     // Get the 1st selected option from filtered select element.
@@ -87,11 +81,20 @@ public class TemperatureConverterCalStepdef {
 
     @Given("^\"(F.*)\" select is present$")
     public void verify_fahrenheit_present(String fahText) throws Throwable {
+        // test precondition
+        if ((driver == null)||(DriverFactory.hasQuit(driver))){
+            driver = DriverFactory.getDriver();
+        }
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        tempConvt = new GooglePage(driver).getTempConverter("Temperature Converter");
+        // precondition
+
         tempConvt.setSelectRight(fahText);
         DriverFactory.waitInterval();
 
         String selected = tempConvt.getSelectRight();
-        ColorPrint.println_red("Fahrenheit text:" + selected);
+        ColorPrint.println_blue("Fahrenheit text:" + selected);
         verifySelectOptionText(fahText, selected);
     }
 
@@ -101,16 +104,15 @@ public class TemperatureConverterCalStepdef {
         DriverFactory.waitInterval();
 
         String selected = tempConvt.getSelectLeft();
-        ColorPrint.println_red("Celsius text:" + selected);
+        ColorPrint.println_blue("Celsius text:" + selected);
         verifySelectOptionText(celText, selected);
     }
 
     @When("^Input data from the table:$")
     public void test_input_data(Map<String, String> degreeList) throws Throwable {
-        ColorPrint.println_blue(
+        ColorPrint.println_green(
                 "This solution holds data as object member between methods, which is better to divided or turned to Scenario Outline."
         );
-
         this.degreeList = degreeList;
     }
 
@@ -141,7 +143,7 @@ public class TemperatureConverterCalStepdef {
         degreeList.forEach(
                 (String k, String v) -> {
                     String converted = convertCelsiusToFahrenheit(k);
-                    ColorPrint.println_red("Expected " + v + "F,\t got " + converted + "F for " + k + "C");
+                    ColorPrint.println_green("Expected " + v + "F,\t got " + converted + "F for " + k + "C");
                     Assert.assertEquals(converted, v);
                 }
         );
@@ -149,6 +151,15 @@ public class TemperatureConverterCalStepdef {
 
     @Given("^Google search page with predefined keywords$")
     public  void verify_page_title() throws Throwable {
+        // test precondition
+        if ((driver == null)||(DriverFactory.hasQuit(driver))){
+            driver = DriverFactory.getDriver();
+        }
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        tempConvt = new GooglePage(driver).getTempConverter("Temperature Converter");
+        // precondition
+
         Assert.assertTrue(driver.getTitle().startsWith("Temperature Converter"));
     }
 

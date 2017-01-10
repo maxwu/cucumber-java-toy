@@ -6,9 +6,9 @@ Feature:  With "Temperature Converter" Page, verify the Fahrenheit value turned 
   Given "Fahrenheit" select is present
   And "Celsius" select is present
   When  Input data from the table:
-  | 100 | 212|
-  | 0   | 32 |
-  | -100|-148|
+    | 100    | 212       |
+    | 0      | 32        |
+
   Then  Results are correct as on table
 
   ## Scenario outline sample test
@@ -18,7 +18,9 @@ Feature:  With "Temperature Converter" Page, verify the Fahrenheit value turned 
   When  Enter Celsius degree as "<celsius_degree>"
   Then  Check the value against "<fahrenheit_degree>"
   Examples:
-  | celsius_degree | fahrenheit_degree |
-  | 100            | 212               |
-  | 0              | 32                |
-  | -100           | -148              |
+    | celsius_degree | fahrenheit_degree |
+    | 100            | 212               |
+    | 0              | 32                |
+    | -100           | -148              |
+    | 65535          | 117995            |
+    | -65536         | -117932.8         |
