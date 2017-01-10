@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=master)](https://travis-ci.org/maxwu/cucumber-java-toy)
 [![codecov](https://codecov.io/gh/maxwu/cucumber-java-toy/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/cucumber-java-toy)
 [![Documentation Status](https://readthedocs.org/projects/cucumber-java-toy/badge/?version=latest)](http://cucumber-java-toy.readthedocs.io/en/latest/?badge=latest)
- 
+[![DUB](https://img.shields.io/dub/l/vibe-d.svg)]()
 
 # Selenium Refreshment Project
 
@@ -52,3 +52,10 @@ This section records the issues resolved during the construction/devops phase.
 - Change browser binary, profile, local/remote and other parameters to json.config.
 - Consider Log4J to refactor the logging instructions.
 ```
+
+## About
+An open source toy project to refresh Cucumber-JVM+Selenium in MIT License.
+
+maxwunj{AT}gmail{DOT}com 
+
+http://www.maxwu.me
