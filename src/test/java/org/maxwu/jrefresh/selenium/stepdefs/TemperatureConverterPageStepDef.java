@@ -35,7 +35,7 @@ public class TemperatureConverterPageStepDef {
         driver.manage().window().maximize();
     }
 
-    @After
+    @After("@quit")
     public void tearDown() {
         driver.quit();
     }

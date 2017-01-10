@@ -6,6 +6,7 @@ Feature:  Browse the temperature converter page
   Background: Web Browser is successfully initialized (Here we launch profiled firefox as an example)
 
   @baseline
+  @quit
   Scenario: Open Temperature Convertor
     Given Google Entrance Page with:
     """

@@ -5,6 +5,7 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.*;
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.maxwu.jrefresh.ColorPrint;
@@ -62,9 +63,10 @@ public class TemperatureConverterCalStepdef {
 
     }
 
-    @After
-    public void tearDown(){
+    @After("@quit")
+    public void tearDown() throws Throwable {
         if (driver != null) {
+            ColorPrint.println_red("@After in tearDown(), quit the driver.");
             driver.quit();
         }else{
             ColorPrint.println_red("Driver is null in tearDown() hook.");

@@ -11,8 +11,9 @@ Feature:  With "Temperature Converter" Page, verify the Fahrenheit value turned 
   | -100|-148|
   Then  Results are correct as on table
 
-    ## Scenario outline sample test
+  ## Scenario outline sample test
   @calculation
+  @quit
   Scenario Outline: Convert Celsius to Fahrenheit and verify the values
   Given Google search page with predefined keywords
   When  Enter Celsius degree as "<celsius_degree>"

@@ -16,8 +16,9 @@ public class DriverFactory {
 
     // TODO: Add config.json items and loop on multiple browsers.
     public static WebDriver getDriver(){
-        FirefoxDriverManager.getInstance().setup();
         ColorPrint.println_blue("****Request on Web Driver received****");
+
+        FirefoxDriverManager.getInstance().setup();
         return new FirefoxDriver();
     }
 

@@ -37,8 +37,8 @@ public class LengthConverterCalStepDef  {
         tempConvt = new GooglePage(driver).getTempConverter(null);
     }
 
-    // "After" runs by each scenario ending.
-    @After
+    // "After" runs by each scenario ending, therefore add a "tag" to quit.
+    @After("@quit")
     public void tearDownHook(Scenario scenario) {
         if (scenario.isFailed()) {
             try {
