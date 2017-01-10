@@ -6,6 +6,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.*;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.maxwu.jrefresh.ColorPrint;
 import org.maxwu.jrefresh.selenium.DriverFactory;
 import org.maxwu.jrefresh.selenium.pageObjects.GooglePage;
@@ -31,11 +32,12 @@ public class TemperatureConverterCalStepdef {
 
     @Before
     public void setUp() {
-        if (driver == null) {
+        if ((driver == null)||(DriverFactory.hasQuit(driver))){
             driver = DriverFactory.getDriver();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            driver.manage().window().maximize();
         }
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+
         tempConvt = new GooglePage(driver).getTempConverter("Temperature Converter");
     }
 
@@ -46,12 +48,13 @@ public class TemperatureConverterCalStepdef {
             try {
                 ColorPrint.println_red("****>>>> Failure in scenario: " + scenario.getName());
                 ColorPrint.printDriverReport(driver);
-                String fname = new java.text.SimpleDateFormat(
-                        "yyyy-MM-dd-HH_mm_ss").format(new java.util.Date()
-                );
-                File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-                FileUtils.copyFile(scrFile, new File("target/screenshot" + fname + ".png"));
-
+                if (driver != null){
+                    String fname = new java.text.SimpleDateFormat(
+                            "yyyy-MM-dd-HH_mm_ss").format(new java.util.Date()
+                    );
+                    File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                    FileUtils.copyFile(scrFile, new File("target/screenshot" + fname + ".png"));
+                }
             } catch (final Exception ex) {
                 ex.printStackTrace();
             }
@@ -63,9 +66,8 @@ public class TemperatureConverterCalStepdef {
     public void tearDown(){
         if (driver != null) {
             driver.quit();
-            driver = null;
         }else{
-            ColorPrint.println_red("Browser is null in @After hook!");
+            ColorPrint.println_red("Driver is null in tearDown() hook.");
         }
     }
 

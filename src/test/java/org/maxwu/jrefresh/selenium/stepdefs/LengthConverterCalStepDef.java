@@ -7,6 +7,7 @@ import cucumber.api.java.en.*;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 
+import org.junit.BeforeClass;
 import org.maxwu.jrefresh.ColorPrint;
 import org.maxwu.jrefresh.selenium.DriverFactory;
 import org.maxwu.jrefresh.selenium.pageObjects.GooglePage;
@@ -28,7 +29,9 @@ public class LengthConverterCalStepDef  {
 
     @Before
     public void setUp() {
-        driver = DriverFactory.getDriver();
+        if ((driver == null)||(DriverFactory.hasQuit(driver))) {
+            driver = DriverFactory.getDriver();
+        }
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         tempConvt = new GooglePage(driver).getTempConverter(null);
@@ -56,9 +59,10 @@ public class LengthConverterCalStepDef  {
             ColorPrint.println_red("Driver is null in @tearDown()");
         }
     }
+
     public void saveScreenShot() throws Exception {
         if (driver == null){
-            ColorPrint.println_red("Driver is null in @saveScreenShot()");
+            ColorPrint.println_red("Driver is null in saveScreenShot()");
             return;
         }
 

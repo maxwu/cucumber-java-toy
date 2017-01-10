@@ -10,7 +10,6 @@ import org.junit.Assert;
 import org.maxwu.jrefresh.ColorPrint;
 import org.maxwu.jrefresh.selenium.DriverFactory;
 import org.maxwu.jrefresh.selenium.pageObjects.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -29,16 +28,15 @@ public class TemperatureConverterPageStepDef {
 
     @Before
     public void setUp() {
-        if (driver == null) {
+        if ((driver == null)||(DriverFactory.hasQuit(driver))) {
             driver = DriverFactory.getDriver();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            driver.manage().window().maximize();
         }
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
     }
 
     @After
     public void tearDown() {
-        //driver.close();
         driver.quit();
     }
 

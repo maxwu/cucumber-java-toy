@@ -2,6 +2,7 @@ package org.maxwu.jrefresh.selenium;
 
 import cucumber.api.junit.Cucumber;
 import cucumber.api.CucumberOptions;
+import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
 
@@ -24,4 +25,8 @@ import org.junit.runner.RunWith;
         glue = "org.maxwu.jrefresh.selenium.stepdefs"
 )
 public class TemperatureConverterTest {
+    @AfterClass
+    public static void tearDownSuite(){
+        DriverFactory.getDriver().quit();
+    }
 }
