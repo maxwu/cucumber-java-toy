@@ -12,6 +12,7 @@ import org.maxwu.jrefresh.ColorPrint;
 import org.maxwu.jrefresh.selenium.DriverFactory;
 import org.maxwu.jrefresh.selenium.pageObjects.GooglePage;
 import org.maxwu.jrefresh.selenium.pageObjects.TemperatureConverter;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -38,7 +39,7 @@ public class LengthConverterCalStepDef  {
     }
 
     // "After" runs by each scenario ending, therefore add a "tag" to quit.
-    @After("@quit")
+    @After
     public void tearDownHook(Scenario scenario) {
         if (scenario.isFailed()) {
             try {
@@ -53,11 +54,7 @@ public class LengthConverterCalStepDef  {
 
     @After
     public void tearDown(){
-        if (driver != null) {
-            driver.quit();
-        }else{
-            ColorPrint.println_red("Driver is null in @tearDown()");
-        }
+        DriverFactory.quitDriver(driver);
     }
 
     public void saveScreenShot() throws Exception {
@@ -93,6 +90,7 @@ public class LengthConverterCalStepDef  {
     @When("^Enter \"(.*)\" in left input$")
     public void setLeftInputNumber(String num) throws Throwable{
         tempConvt.setInputLeft(num);
+        DriverFactory.waitInterval();
     }
 
     @Then("^Get \"(.*)\" on right input$")

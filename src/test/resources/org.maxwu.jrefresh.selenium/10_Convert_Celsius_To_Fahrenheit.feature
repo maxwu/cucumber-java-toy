@@ -13,7 +13,6 @@ Feature:  With "Temperature Converter" Page, verify the Fahrenheit value turned 
 
   ## Scenario outline sample test
   @calculation
-  @quit
   Scenario Outline: Convert Celsius to Fahrenheit and verify the values
   Given Google search page with predefined keywords
   When  Enter Celsius degree as "<celsius_degree>"

@@ -1,5 +1,5 @@
 Feature: Convert value in mile to km
-  @quit
+  @calculation
   Scenario Outline: Convert number of mile to km
     Given Select "Length" dimension
       And Select "Mile" unit in left

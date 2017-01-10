@@ -35,9 +35,9 @@ public class TemperatureConverterPageStepDef {
         driver.manage().window().maximize();
     }
 
-    @After("@quit")
+    @After
     public void tearDown() {
-        driver.quit();
+        DriverFactory.quitDriver(driver);
     }
 
     @Given("^Google Entrance Page with:$")

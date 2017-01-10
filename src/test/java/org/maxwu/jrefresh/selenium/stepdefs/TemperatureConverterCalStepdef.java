@@ -63,14 +63,9 @@ public class TemperatureConverterCalStepdef {
 
     }
 
-    @After("@quit")
+    @After
     public void tearDown() throws Throwable {
-        if (driver != null) {
-            ColorPrint.println_red("@After in tearDown(), quit the driver.");
-            driver.quit();
-        }else{
-            ColorPrint.println_red("Driver is null in tearDown() hook.");
-        }
+        DriverFactory.quitDriver(driver);
     }
 
     // Get the 1st selected option from filtered select element.
@@ -93,6 +88,8 @@ public class TemperatureConverterCalStepdef {
     @Given("^\"(F.*)\" select is present$")
     public void verify_fahrenheit_present(String fahText) throws Throwable {
         tempConvt.setSelectRight(fahText);
+        DriverFactory.waitInterval();
+
         String selected = tempConvt.getSelectRight();
         ColorPrint.println_red("Fahrenheit text:" + selected);
         verifySelectOptionText(fahText, selected);
@@ -101,6 +98,8 @@ public class TemperatureConverterCalStepdef {
     @And("^\"(C.*)\" select is present$")
     public void verify_celsius_present(String celText) throws Throwable {
         tempConvt.setSelectLeft(celText);
+        DriverFactory.waitInterval();
+
         String selected = tempConvt.getSelectLeft();
         ColorPrint.println_red("Celsius text:" + selected);
         verifySelectOptionText(celText, selected);
@@ -119,6 +118,7 @@ public class TemperatureConverterCalStepdef {
 
     private void enterCelsiusInput(String celsiusDegree){
         tempConvt.setInputLeft(celsiusDegree);
+        DriverFactory.waitInterval();
     }
 
     private String getFahrenheitDegree(){
