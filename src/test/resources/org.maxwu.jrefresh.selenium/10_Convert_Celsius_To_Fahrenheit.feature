@@ -1,6 +1,7 @@
 Feature:  With "Temperature Converter" Page, verify the Fahrenheit value turned from Celsius degree
   # With tags yet, the browser still needs to input key words before executing below feature.
-  Background: There is a background assumption that Celsius number is in right column and Fahrenheit is in the left.
+  Background: Background sample has no real steps defined here
+
   @calculation
   Scenario: Calculate temperature degrees
   Given "Fahrenheit" select is present
