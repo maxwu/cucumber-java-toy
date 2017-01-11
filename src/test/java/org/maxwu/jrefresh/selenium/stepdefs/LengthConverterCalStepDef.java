@@ -31,26 +31,39 @@ public class LengthConverterCalStepDef  {
     @Before
     public void setUp(Scenario scenario) {
         ColorPrint.printScenarioState(this, scenario, "starts, " + scenario.getStatus());
+        // test precondition
+        if ((driver == null)||(DriverFactory.hasQuit(driver))) {
+            driver = DriverFactory.getDriver();
+        }
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        // precondition
     }
 
     // "After" runs by each scenario ending, therefore add a "tag" to quit.
     @After
-    public void tearDownHook(Scenario scenario) {
-        ColorPrint.printScenarioState(this, scenario, "ends, "  + scenario.getStatus());
+    public void tearDown(Scenario scenario){
+        ColorPrint.printScenarioState(this, scenario, "ends, " + scenario.getStatus());
         if (scenario.isFailed()) {
             try {
                 ColorPrint.println_red("****>>>> Failure in scenario: " + scenario.getName());
                 ColorPrint.printDriverReport(driver);
-                saveScreenShot();
+                if ((driver != null)&&(!DriverFactory.hasQuit(driver))){
+                    String fname = ColorPrint.getTs();
+                    File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                    FileUtils.copyFile(scrFile, new File("target/screenshot" + fname + ".png"));
+                }else{
+                    ColorPrint.println_red("Exception: driver is not working #" + driver);
+                }
             } catch (final Exception ex) {
                 ex.printStackTrace();
             }
         }
-    }
-
-    @After
-    public void tearDown(){
         DriverFactory.quitDriver(driver);
+        // FIXME:
+        tempConvt = null;
+        googlePage = null;
+        driver = null;
     }
 
     public void saveScreenShot() throws Exception {
@@ -68,15 +81,7 @@ public class LengthConverterCalStepDef  {
 
     @Given("^Select \"(.*)\" dimension")
     public void selectGivenDimension(String dim) throws Throwable {
-        // test precondition
-        if ((driver == null)||(DriverFactory.hasQuit(driver))) {
-            driver = DriverFactory.getDriver();
-        }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
         tempConvt = new GooglePage(driver).getTempConverter(null);
-        // precondition
-
         tempConvt.setSelectDim(dim);
     }
 

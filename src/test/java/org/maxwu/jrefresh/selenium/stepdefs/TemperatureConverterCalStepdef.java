@@ -34,6 +34,13 @@ public class TemperatureConverterCalStepdef {
     @Before
     public void setUp(Scenario scenario) {
         ColorPrint.printScenarioState(this, scenario, "starts, "  + scenario.getStatus());
+        // test precondition
+        if ((driver == null)||(DriverFactory.hasQuit(driver))){
+            driver = DriverFactory.getDriver();
+        }
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        // precondition
     }
 
     @After
@@ -49,7 +56,7 @@ public class TemperatureConverterCalStepdef {
                     File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
                     FileUtils.copyFile(scrFile, new File("target/screenshot" + fname + ".png"));
                 }else{
-                    ColorPrint.println_red("driver is not working: " + driver);
+                    ColorPrint.println_red("Exception: driver is not working #" + driver);
                 }
             } catch (final Exception ex) {
                 ex.printStackTrace();
@@ -81,14 +88,7 @@ public class TemperatureConverterCalStepdef {
 
     @Given("^\"(F.*)\" select is present$")
     public void verify_fahrenheit_present(String fahText) throws Throwable {
-        // test precondition
-        if ((driver == null)||(DriverFactory.hasQuit(driver))){
-            driver = DriverFactory.getDriver();
-        }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
         tempConvt = new GooglePage(driver).getTempConverter("Temperature Converter");
-        // precondition
 
         tempConvt.setSelectRight(fahText);
         DriverFactory.waitInterval();
@@ -151,15 +151,7 @@ public class TemperatureConverterCalStepdef {
 
     @Given("^Google search page with predefined keywords$")
     public  void verify_page_title() throws Throwable {
-        // test precondition
-        if ((driver == null)||(DriverFactory.hasQuit(driver))){
-            driver = DriverFactory.getDriver();
-        }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
         tempConvt = new GooglePage(driver).getTempConverter("Temperature Converter");
-        // precondition
-
         Assert.assertTrue(driver.getTitle().startsWith("Temperature Converter"));
     }
 

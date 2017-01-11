@@ -3,34 +3,41 @@ package org.maxwu.jrefresh.selenium;
 import org.junit.*;
 import org.maxwu.jrefresh.ColorPrint;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 /**
  * Created by maxwu on 1/5/17.
- * This class is designed to demo pure JUnit way of test.
+ * This class is designed to demo pure JUnit test on Classes.
  * (Instead of Cucumber-JVM).
  */
-public class TemperatureConverterJUnitTest {
-    private WebDriver driver = null;
+public class DriverFactoryTest {
 
     @Before
     public void setUp(){
-        driver = DriverFactory.getDriver();
+        // Intend to keep empty.
+        // In the future, @BeforeEach could be considered to simplify cases.
     }
 
     @Test
-    public void get_one_page(){
-        // This is the sample case driven by JUnit.
-        // The real tests were done with Cucumber JVM and Selenium Page Object.
+    public void getDriverTest(){
+        WebDriver driver = DriverFactory.getDriver();
+        Assert.assertNotNull(driver);
+        Assert.assertTrue(driver instanceof FirefoxDriver);
+        Assert.assertTrue(driver instanceof RemoteWebDriver);
+        DriverFactory.quitDriver(driver);
+    }
+
+    @Test
+    public void navigateWeb(){
+        WebDriver driver = DriverFactory.getDriver();
         driver.get("http://www.facebook.com");
-    }
-
-    @Test
-    public void get_one_page_after1(){
         driver.get("http://www.google.com");
+        DriverFactory.quitDriver(driver);
     }
 
     @After
     public void tearDown(){
-        driver.quit();
+        // Intend to keep empty.
     }
 }

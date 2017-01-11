@@ -15,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.awt.*;
 import java.util.concurrent.TimeUnit;
 import static org.hamcrest.CoreMatchers.containsString;
 
@@ -27,9 +28,19 @@ public class TemperatureConverterPageStepDef {
     private GooglePage googlePage = null;
     private TemperatureConverter tempConvt = null;
 
+
     @Before
     public void setUp(Scenario scenario) {
         ColorPrint.printScenarioState(this, scenario, "starts, "  + scenario.getStatus());
+        //The precondition
+        if (driver != null){
+            // Whatever the browser status is, in a @Before hook we initialize a new browser to separate scenarios.
+            DriverFactory.quitDriver(driver);
+        }
+        driver = DriverFactory.getDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        // precondition
     }
 
     @After
@@ -44,14 +55,6 @@ public class TemperatureConverterPageStepDef {
 
     @Given("^Google Entrance Page with:$")
     public void google_Entrance_page(String mulText) throws Throwable {
-        //The precondition
-        if ((driver == null)||(DriverFactory.hasQuit(driver))) {
-            driver = DriverFactory.getDriver();
-        }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        // precondition
-
         googlePage = new GooglePage(driver);
         ColorPrint.println_green("Got multiple lines parameter:\n" + mulText);
     }
