@@ -17,14 +17,14 @@ public class DriverFactory {
     // Since it is designed to destroy (quit) driver at every test (scenario) end,
     // it requires a new driver at every test scenario beginning.
     public static synchronized WebDriver getDriver(){
-        ColorPrint.println_blue("**** Request creation Web Driver received ****");
-
         FirefoxDriverManager.getInstance().setup();
+
         WebDriver driver = new FirefoxDriver();
         if (hasQuit(driver)){
             ColorPrint.println_red("**** New Driver has quit already ****");
             throw new WrongPageException("New Driver has quit == true!");
         }
+        ColorPrint.println_blue("**** Created Web Driver #" + driver.hashCode() +"****");
         return driver;
     }
 
