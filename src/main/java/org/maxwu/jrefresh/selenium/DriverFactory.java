@@ -34,7 +34,7 @@ public class DriverFactory {
 
     public static synchronized void quitDriver(WebDriver driver){
         if ((driver != null) &&(!hasQuit(driver))){
-            ColorPrint.println_red("Request received to quit the driver!");
+            ColorPrint.println_blue("**** Destroying Web Driver #" + driver.hashCode() +"****");
             ((JavascriptExecutor) driver).executeScript("window.stop;");
             driver.quit();
             waitInterval();
