@@ -31,7 +31,6 @@ public class TemperatureConverterJUnitTest {
 
     @After
     public void tearDown(){
-        ColorPrint.println_blue("The tear down step for JUnit");
         driver.quit();
     }
 }

@@ -19,7 +19,10 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class GooglePage {
     private WebDriver dr = null;
-    private String baseUrl = "https://www.google.com";
+    // Special note:
+    // Google.co.nz would simply turn to Celsius->Fahrenheit table.
+    // Instead, google.com would lead to Fahrenheit->Celsius table as US style.
+    private String baseUrl = "https://www.google.co.nz";
     private String baseTitle = "Google";
 
     @FindBy(how = How.CSS, using = "input#lst-ib")
