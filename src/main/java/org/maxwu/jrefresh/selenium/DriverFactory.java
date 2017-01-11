@@ -44,7 +44,7 @@ public class DriverFactory {
     }
 
     // To simulate the real world, JS still needs a short interval to run and fetch the result.
-    public static synchronized void waitInterval(){
+    public static void waitInterval(){
         try{
             Thread.sleep(200);
         }catch (Exception e){

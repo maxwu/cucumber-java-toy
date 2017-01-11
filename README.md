@@ -24,6 +24,13 @@
 ## Tips
 This section records the issues resolved during the construction/devops phase.
 
+- @Before and @After hooks are invoked by each scenario on *every* test class defined in option *"glue".
+    - However, most of the online documents and tutorials suggest to initialize Page Objects (for specific scenario) during @Before;
+        - This brings redundant browser activities on those classes have nothing to do with other feature files;
+        - The execution time extends dramatically.
+    - If there are multiple scenarios in one single feature definition file, here is the tip:
+        - Browsers instance could not restore if they quit (destroyed) already;
+        - To mitigate and separate test scenarios, we shall initial browser at each scenario @Before.
 - Assert.assertEqual() will call obj.equals(), however, to check with "==", we shall use Asser.assertSame() instead.
 - @Cucumber.Options() is replaced by @CucumberOptions annotation.
 - Step def class must be public.

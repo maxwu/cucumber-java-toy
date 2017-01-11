@@ -48,13 +48,7 @@ public class LengthConverterCalStepDef  {
             try {
                 ColorPrint.println_red("****>>>> Failure in scenario: " + scenario.getName());
                 ColorPrint.printDriverReport(driver);
-                if ((driver != null)&&(!DriverFactory.hasQuit(driver))){
-                    String fname = ColorPrint.getTs();
-                    File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-                    FileUtils.copyFile(scrFile, new File("target/screenshot" + fname + ".png"));
-                }else{
-                    ColorPrint.println_red("Exception: driver is not working #" + driver);
-                }
+                saveScreenShot();
             } catch (final Exception ex) {
                 ex.printStackTrace();
             }
@@ -67,11 +61,10 @@ public class LengthConverterCalStepDef  {
     }
 
     public void saveScreenShot() throws Exception {
-        if (driver == null){
-            ColorPrint.println_red("Driver is null in saveScreenShot()");
+        if ((driver != null)&&(!DriverFactory.hasQuit(driver))){
+            ColorPrint.println_red("Driver is null or quit already in saveScreenShot()");
             return;
         }
-
         String fname = ColorPrint.getTs();
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("target/screenshot" + fname + ".png"));
@@ -83,6 +76,10 @@ public class LengthConverterCalStepDef  {
     public void selectGivenDimension(String dim) throws Throwable {
         tempConvt = new GooglePage(driver).getTempConverter(null);
         tempConvt.setSelectDim(dim);
+
+        ColorPrint.println_red("Selecting " + dim);
+        String gotDim = tempConvt.getSelectDim();
+        ColorPrint.println_red("Got Dimension: %s" + dim);
     }
 
     @And("^Select \"(.*)\" unit in left$")

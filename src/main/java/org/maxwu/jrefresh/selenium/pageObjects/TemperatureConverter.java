@@ -34,9 +34,13 @@ public class TemperatureConverter {
 
 
     public void setSelectDim(String selected){
+        selectDim.click();
         Select selectDimOpt = new Select(selectDim);
-        ColorPrint.println_red("Selecting " + selected);
         selectDimOpt.selectByValue(selected);
+    }
+
+    public String getSelectDim(){
+        return new Select(selectDim).getFirstSelectedOption().getText().trim();
     }
 
     public TemperatureConverter(WebDriver driver){
@@ -67,10 +71,12 @@ public class TemperatureConverter {
     }
 
     public void setSelectLeft(String opt){
+        selectLeft.click();
         new Select(selectLeft).selectByVisibleText(opt);
     }
 
     public void setSelectRight(String opt){
+        selectRight.click();
         new Select(selectRight).selectByVisibleText(opt);
     }
 
