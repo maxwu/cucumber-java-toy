@@ -1,14 +1,18 @@
+
 codecov:
   notify:
     require_ci_to_pass: true
+  branch: master, dev
+
 comment:
   behavior: default
   layout: header, diff
   require_changes: false
+
 coverage:
   precision: 2
   range:
-  - 70.0
+  - 60.0
   - 100.0
   round: down
   status:
@@ -16,12 +20,13 @@ coverage:
     patch: true
     project: true
   ignore: 
-- doc/.*
-- target/.*
-- build/.*
-- .*/resources/.*
-- doc/.*
-- test/.*
+  - doc/.*
+  - target/.*
+  - build/.*
+  - .*/resources/.*
+  - doc/.*
+  - test/.*
+
 parsers:
   gcov:
     branch_detection:
