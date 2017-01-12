@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>refresh-java</groupId>
-    <artifactId>refresh-java</artifactId>
-    <version>1.0</version>
+    <groupId>Cucumber-Jvm-Selenium-Toy</groupId>
+    <artifactId>Cucumber-Jvm-Selenium-Toy</artifactId>
+    <version>1.2</version>
 
     <properties>
         <project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
