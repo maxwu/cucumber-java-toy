@@ -18,7 +18,7 @@ public class DriverFactory {
     // TODO: Add config.json items and loop on multiple browsers.
     // Since it is designed to destroy (quit) driver at every test (scenario) end,
     // it requires a new driver at every test scenario beginning.
-    public static synchronized WebDriver getDriver(){
+    public static WebDriver getDriver(){
         //FirefoxDriverManager.getInstance().setup();
         ChromeDriverManager.getInstance().setup();
 
@@ -36,7 +36,7 @@ public class DriverFactory {
         return ((RemoteWebDriver)driver).getSessionId() == null;
     }
 
-    public static synchronized void quitDriver(WebDriver driver){
+    public static void quitDriver(WebDriver driver){
         if ((driver != null) &&(!hasQuit(driver))){
             ColorPrint.println_blue("**** Destroying Web Driver #" + driver.hashCode() +"****");
             ((JavascriptExecutor) driver).executeScript("window.stop;");
