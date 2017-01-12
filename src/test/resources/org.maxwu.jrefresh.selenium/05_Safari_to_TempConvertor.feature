@@ -3,7 +3,8 @@ Feature:  Browse the temperature converter page
   In order to convert temperature
   I want to enter number and check result on google search page "temperature convertor".
 
-  Background: Web Browser is successfully initialized (Here we launch profiled firefox as an example)
+  Background: Web Browser is successfully initialized
+    Given Web browser initialized
 
   @regression
   Scenario: Open Temperature Convertor

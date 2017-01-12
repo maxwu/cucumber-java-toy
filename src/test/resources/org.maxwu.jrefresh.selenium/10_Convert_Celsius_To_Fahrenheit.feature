@@ -1,6 +1,7 @@
 Feature:  With "Temperature Converter" Page, verify the Fahrenheit value turned from Celsius degree
-  # With tags yet, the browser still needs to input key words before executing below feature.
-  Background: Background sample has no real steps defined here
+
+  Background: Web Browser is successfully initialized
+    Given Temperature background check
 
   @calculation
   Scenario: Calculate temperature degrees
