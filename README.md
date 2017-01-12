@@ -19,8 +19,10 @@
 >* [X] Screenshot in Cucumber hook
 >* [X] Parameterized test with Cucumber Scenario Outline
 >* [X] Introduce WebDriverManager to support Travis could test
->* [X] Travis test configuration
+>* [X] Add Travis test configuration
 >* [X] Refactor to Page Factory Pattern
+>* [X] Various tests and code reading to clarify obj lifecycle of Cucumber-JVM
+>* [X] Add circleCI online CI and deployment test
 
 ## Tips
 This section records the issues resolved during the construction/devops phase.
@@ -41,7 +43,9 @@ This section records the issues resolved during the construction/devops phase.
         - In the @Given step of Gherkin, initialize the PageObject, in Page Factory Pattern if you like;
         - Still destroy browsers by @After hook via quit() method.
         > The redundant browser instances will still be invoked but it is better and test will be much faster.
-        
+    - Readers shall pay attention to understand @Before, @After and the steps in Background section comparing to Junit.
+      Actually the lifecycles are a bit different. 
+        - [TODO] a chart of non-paralleled Cucumber-JVM test sequence chart.
 - CircleCI browser version issue resolved by updating chrome to >=v52
     ```
     google-chrome --version
@@ -81,7 +85,10 @@ This section records the issues resolved during the construction/devops phase.
         ```
         wdm.forceCache=true
         ```
-
+- The dev and test env:
+    - Dev env on MBP with IntelliJ IDEA CE, Maven, JUnit, Selenium WebDriver, Firefox (stable and nightly), Chrome;
+    - Test with Travis-CI and CircleCI, Ubuntu 14, Chrome.
+    
 ## TODO
 ```
 - Change browser binary, profile, local/remote and other parameters to json.config.
