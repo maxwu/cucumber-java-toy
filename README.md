@@ -28,6 +28,8 @@ This section records the issues resolved during the construction/devops phase.
     - However, most of the online documents and tutorials suggest to initialize Page Objects (for specific scenario) during @Before;
         - This brings redundant browser activities on those classes have nothing to do with other feature files;
         - The execution time extends dramatically.
+        - If failure check hook is place with @After, for example, to take screenshot, useless screens are saved. 
+          Only one of the class is taking necessary picture, other pictures are from browsers without any test steps.
     - If there are multiple scenarios in one single feature definition file, here is the tip:
         - Browsers instance could not restore if they quit (destroyed) already;
         - To mitigate and separate test scenarios, we shall initial browser at each scenario @Before.
