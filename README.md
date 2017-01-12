@@ -34,7 +34,8 @@ This section records the issues resolved during the construction/devops phase.
     - If there are multiple scenarios in one single feature definition file, here is the tip:
         - Browsers instance could not restore if they quit (destroyed) already;
         - To mitigate and separate test scenarios, we shall initial browser at each scenario @Before.
-    - Resolution:
+    - Current Solution:
+      This solution optimized test time from 3:09 to 2:18 min on dev MacPro env and from 4:24 to 3:08 on circleCI.
       However, there is no global hook supports with Cucumber-JVM for now. A possible balance is to:
         - Still creating new driver in @Before hook but don't go further to PageObject;
         - In the @Given step of Gherkin, initialize the PageObject, in Page Factory Pattern if you like;
