@@ -1,6 +1,4 @@
 machine:
-  environment:
-    DBUS_SESSION_BUS_ADDRESS: /dev/null
   java:
     version: oraclejdk8
 test:
