@@ -72,6 +72,9 @@ public class TemperatureConverter {
 
     public void setSelectLeft(String opt){
         selectLeft.click();
+        for (WebElement webEle : new Select(selectLeft).getOptions()){
+            ColorPrint.println_red("Option X: " + webEle.getText());
+        }
         new Select(selectLeft).selectByVisibleText(opt);
     }
 
