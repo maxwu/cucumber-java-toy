@@ -1,10 +1,12 @@
 package org.maxwu.jrefresh.selenium;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.maxwu.jrefresh.ColorPrint;
 import org.maxwu.jrefresh.selenium.pageObjects.WrongPageException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -17,9 +19,11 @@ public class DriverFactory {
     // Since it is designed to destroy (quit) driver at every test (scenario) end,
     // it requires a new driver at every test scenario beginning.
     public static synchronized WebDriver getDriver(){
-        FirefoxDriverManager.getInstance().setup();
+        //FirefoxDriverManager.getInstance().setup();
+        ChromeDriverManager.getInstance().setup();
 
-        WebDriver driver = new FirefoxDriver();
+        //WebDriver driver = new FirefoxDriver();
+        WebDriver driver = new ChromeDriver();
         if (hasQuit(driver)){
             ColorPrint.println_red("**** New Driver has quit already ****");
             throw new WrongPageException("New Driver has quit == true!");

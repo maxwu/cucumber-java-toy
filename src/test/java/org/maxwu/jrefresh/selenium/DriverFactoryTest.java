@@ -12,7 +12,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
  * (Instead of Cucumber-JVM).
  */
 public class DriverFactoryTest {
-
+    private WebDriver driver = null;
     @Before
     public void setUp(){
         // Intend to keep empty.
@@ -21,23 +21,27 @@ public class DriverFactoryTest {
 
     @Test
     public void getDriverTest(){
-        WebDriver driver = DriverFactory.getDriver();
+        driver = DriverFactory.getDriver();
         Assert.assertNotNull(driver);
-        Assert.assertTrue(driver instanceof FirefoxDriver);
+        //Assert.assertTrue(driver instanceof FirefoxDriver);
         Assert.assertTrue(driver instanceof RemoteWebDriver);
         DriverFactory.quitDriver(driver);
+        driver = null;
     }
 
     @Test
     public void navigateWeb(){
-        WebDriver driver = DriverFactory.getDriver();
+        driver = DriverFactory.getDriver();
         driver.get("http://www.facebook.com");
         driver.get("http://www.google.com");
         DriverFactory.quitDriver(driver);
+        driver = null;
     }
 
     @After
     public void tearDown(){
-        // Intend to keep empty.
+        if (null != driver){
+            DriverFactory.quitDriver(driver);
+        }
     }
 }
