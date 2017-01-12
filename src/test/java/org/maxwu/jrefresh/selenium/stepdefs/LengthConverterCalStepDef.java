@@ -78,10 +78,19 @@ public class LengthConverterCalStepDef  {
         tempConvt = new GooglePage(driver).getTempConverter(null);
 
         tempConvt.setSelectDim(dim);
-        DriverFactory.waitInterval();
-
-        String gotDim = tempConvt.getSelectDim();
-        ColorPrint.println_red("Got Dimension: " + dim);
+        // This only happens with Cloud CI platform that the select elements below the dimension
+        // are not updated right after dimension select element "select" against string "dim".
+        // On dev env Mac, it has no such issue.
+        for(int i=0; i<3; i++){
+            String gotDim = tempConvt.getSelectDim();
+            ColorPrint.println_red("Got Dimension: " + dim);
+            if (dim.equals(gotDim)){
+                // Stop the waiting.
+                break;
+            }
+            ColorPrint.println_red("Try again after a short interval...");
+            DriverFactory.waitInterval();
+        }
     }
 
     @And("^Select \"(.*)\" unit in left$")
