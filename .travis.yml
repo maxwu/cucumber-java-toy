@@ -1,5 +1,9 @@
 language : java
 
+sudo: required
+
+dist: trusty
+
 script : mvn cobertura:cobertura
 #mvn clean install
 
@@ -21,6 +25,7 @@ addons:
 branches :
    only :
      - master
+     - dev
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
