@@ -23,9 +23,18 @@ public class DriverFactoryTest {
     public void getDriverTest(){
         driver = DriverFactory.getDriver();
         Assert.assertNotNull(driver);
-        //Assert.assertTrue(driver instanceof FirefoxDriver);
+        // Assert.assertTrue(driver instanceof FirefoxDriver);
         Assert.assertTrue(driver instanceof RemoteWebDriver);
         DriverFactory.quitDriver(driver);
+        driver = null;
+    }
+
+    @Test
+    public void quitDriverTest(){
+        driver = DriverFactory.getDriver();
+
+        DriverFactory.quitDriver(driver);
+        Assert.assertTrue(DriverFactory.hasQuit(driver));
         driver = null;
     }
 

@@ -54,7 +54,6 @@ public class LengthConverterCalStepDef  {
             }
         }
         DriverFactory.quitDriver(driver);
-        // FIXME:
         tempConvt = null;
         googlePage = null;
         driver = null;
@@ -78,7 +77,7 @@ public class LengthConverterCalStepDef  {
         tempConvt = new GooglePage(driver).getTempConverter(null);
 
         tempConvt.setSelectDim(dim);
-        DriverFactory.waitInterval();
+        //DriverFactory.waitInterval();
 
         // This only happens with Cloud CI platform that the select elements below the dimension
         // are not updated right after dimension select element "select" against string "dim".
@@ -93,7 +92,6 @@ public class LengthConverterCalStepDef  {
             }
             ColorPrint.println_red("Try again after a short interval...");
             tempConvt.setSelectDim(dim);
-            DriverFactory.waitInterval();
         }
     }
 
@@ -110,7 +108,6 @@ public class LengthConverterCalStepDef  {
     @When("^Enter \"(.*)\" in left input$")
     public void setLeftInputNumber(String num) throws Throwable{
         tempConvt.setInputLeft(num);
-        DriverFactory.waitInterval();
     }
 
     @Then("^Get \"(.*)\" on right input$")

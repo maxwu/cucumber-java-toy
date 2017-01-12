@@ -38,9 +38,9 @@ public class TemperatureConverter {
         selectDimOpt.selectByValue(selected);
 
         for (WebElement webEle : selectDimOpt.getOptions()){
-            // Added for cloud CI platform only.
+            // Added for cloud CI platform debug only.
             String optText = webEle.getText();
-            ColorPrint.println_red("Option D: " + optText);
+            ColorPrint.println_green("Option D: " + optText);
         }
     }
 
@@ -66,6 +66,11 @@ public class TemperatureConverter {
         inputLeft.sendKeys(Keys.RETURN);
     }
 
+    public String getInputLeft(){
+        return inputLeft.getAttribute("value").trim();
+    }
+
+
     public String getInputRight(){
         return inputRight.getAttribute("value").trim();
     }
@@ -76,15 +81,10 @@ public class TemperatureConverter {
     }
 
     public void setSelectLeft(String opt){
-        //selectLeft.click();
-        for (WebElement webEle : new Select(selectLeft).getOptions()){
-            ColorPrint.println_red("Option L: " + webEle.getText());
-        }
         new Select(selectLeft).selectByVisibleText(opt);
     }
 
     public void setSelectRight(String opt){
-        //selectRight.click();
         new Select(selectRight).selectByVisibleText(opt);
     }
 

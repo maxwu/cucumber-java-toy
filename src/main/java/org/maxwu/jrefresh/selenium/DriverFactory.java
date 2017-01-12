@@ -41,14 +41,15 @@ public class DriverFactory {
             ColorPrint.println_blue("**** Destroying Web Driver #" + driver.hashCode() +"****");
             ((JavascriptExecutor) driver).executeScript("window.stop;");
             driver.quit();
-            waitInterval();
         }else{
             // Do nothing for null driver on quiting state transition.
+            // However, further code of logs will be nice.
         }
     }
 
     // To simulate the real world, JS still needs a short interval to run and fetch the result.
     public static void waitInterval(){
+        ColorPrint.println_red("CAUTION: waiting is a temporary solution for debug only!");
         try{
             Thread.sleep(200);
         }catch (Exception e){

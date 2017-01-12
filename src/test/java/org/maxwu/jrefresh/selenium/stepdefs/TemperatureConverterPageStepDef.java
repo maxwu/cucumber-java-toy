@@ -47,7 +47,6 @@ public class TemperatureConverterPageStepDef {
     public void tearDown(Scenario sc) {
         ColorPrint.printScenarioState(this, sc, "ends "  + sc.getStatus());
         DriverFactory.quitDriver(driver);
-        // FIXME:
         tempConvt = null;
         googlePage = null;
         driver = null;
@@ -80,7 +79,6 @@ public class TemperatureConverterPageStepDef {
     public void verify_option_selected(String val) throws Throwable {
         WebElement ele = tempConvt.getConverterSelect();
         Assert.assertThat(ele.getText(), containsString("Temperature"));
-        ColorPrint.printDriverReport(driver);
 
         Select select = new Select(ele);
         WebElement opt = select.getFirstSelectedOption();

@@ -63,7 +63,6 @@ public class TemperatureConverterCalStepdef {
             }
         }
         DriverFactory.quitDriver(driver);
-        // FIXME:
         tempConvt = null;
         googlePage = null;
         driver = null;
@@ -101,7 +100,6 @@ public class TemperatureConverterCalStepdef {
     @And("^\"(C.*)\" select is present$")
     public void verify_celsius_present(String celText) throws Throwable {
         tempConvt.setSelectLeft(celText);
-        DriverFactory.waitInterval();
 
         String selected = tempConvt.getSelectLeft();
         ColorPrint.println_blue("Celsius text:" + selected);
@@ -120,6 +118,8 @@ public class TemperatureConverterCalStepdef {
 
     private void enterCelsiusInput(String celsiusDegree){
         tempConvt.setInputLeft(celsiusDegree);
+        Assert.assertEquals(celsiusDegree, tempConvt.getInputLeft());
+        // The data fetching needs a communication delay.
         DriverFactory.waitInterval();
     }
 
