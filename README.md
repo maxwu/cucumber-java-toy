@@ -4,7 +4,7 @@
 [![Documentation Status](https://readthedocs.org/projects/cucumber-java-toy/badge/?version=latest)](http://cucumber-java-toy.readthedocs.io/en/latest/?badge=latest)
 [![DUB](https://img.shields.io/dub/l/vibe-d.svg)]()
 
-# Selenium Refreshment Project
+# Cucumber-JVM + JUnit + Selenium Web Driver Toy Project
 
 *This project is a self-study project to refresh the skills and knowledge about Java, JUnit, Cucumber and Selenium topics*
 
