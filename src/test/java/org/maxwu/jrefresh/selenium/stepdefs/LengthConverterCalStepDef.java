@@ -79,7 +79,7 @@ public class LengthConverterCalStepDef  {
 
         ColorPrint.println_red("Selecting " + dim);
         String gotDim = tempConvt.getSelectDim();
-        ColorPrint.println_red("Got Dimension: %s" + dim);
+        ColorPrint.println_red("Got Dimension: " + dim);
     }
 
     @And("^Select \"(.*)\" unit in left$")
