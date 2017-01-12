@@ -36,6 +36,10 @@ public class TemperatureConverter {
     public void setSelectDim(String selected){
         Select selectDimOpt = new Select(selectDim);
         selectDimOpt.selectByValue(selected);
+
+        for (WebElement webEle : selectDimOpt.getOptions()){
+            ColorPrint.println_red("Option D: " + webEle.getText());
+        }
     }
 
     public String getSelectDim(){
@@ -72,7 +76,7 @@ public class TemperatureConverter {
     public void setSelectLeft(String opt){
         //selectLeft.click();
         for (WebElement webEle : new Select(selectLeft).getOptions()){
-            ColorPrint.println_red("Option X: " + webEle.getText());
+            ColorPrint.println_red("Option L: " + webEle.getText());
         }
         new Select(selectLeft).selectByVisibleText(opt);
     }
