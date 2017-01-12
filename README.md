@@ -46,6 +46,7 @@ This section records the issues resolved during the construction/devops phase.
     - Readers shall pay attention to understand @Before, @After and the steps in Background section comparing to Junit.
       Actually the lifecycles are a bit different. 
         - [TODO] a chart of non-paralleled Cucumber-JVM test sequence chart.
+        
 - CircleCI browser version issue resolved by updating chrome to >=v52
     ```
     google-chrome --version
@@ -55,6 +56,20 @@ This section records the issues resolved during the construction/devops phase.
     sudo apt-get --only-upgrade install google-chrome-stable
     google-chrome --version
     ```
+    
+- Use online tools to validate YAML files for TravisCI and CodeCov before commit to test:
+    - CodeCov
+    
+    ```
+        cat codecov.yml | curl --data-binary @- https://codecov.io/validate
+    ```
+    
+    - Travis-CI
+    
+    ```
+    http://lint.travis-ci.org/
+    ```
+    
 - Assert.assertEqual() will call obj.equals(), however, to check with "==", we shall use Asser.assertSame() instead.
 
 - @Cucumber.Options() is replaced by @CucumberOptions annotation.
@@ -90,14 +105,16 @@ This section records the issues resolved during the construction/devops phase.
     - Test with Travis-CI and CircleCI, Ubuntu 14, Chrome.
     
 ## TODO
+
 ```
 - Change browser binary, profile, local/remote and other parameters to json.config.
 - Consider Log4J to refactor the logging instructions.
 ```
 
 ## About
+
 An open source toy project to refresh Cucumber-JVM+Selenium in MIT License.
 
 maxwunj{AT}gmail{DOT}com 
 
-http://www.maxwu.me
+http://maxwu.me
