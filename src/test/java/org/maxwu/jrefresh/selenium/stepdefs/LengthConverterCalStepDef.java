@@ -83,7 +83,7 @@ public class LengthConverterCalStepDef  {
         // On dev env Mac, it has no such issue.
         for(int i=0; i<3; i++){
             String gotDim = tempConvt.getSelectDim();
-            ColorPrint.println_red("Got Dimension: " + dim);
+            ColorPrint.println_red("Got Dimension: " + gotDim);
             if (dim.equals(gotDim)){
                 // Stop the waiting.
                 break;
