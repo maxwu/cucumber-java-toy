@@ -74,10 +74,12 @@ public class LengthConverterCalStepDef  {
 
     @Given("^Select \"(.*)\" dimension")
     public void selectGivenDimension(String dim) throws Throwable {
-        tempConvt = new GooglePage(driver).getTempConverter(null);
-        tempConvt.setSelectDim(dim);
-
         ColorPrint.println_red("Selecting " + dim);
+        tempConvt = new GooglePage(driver).getTempConverter(null);
+
+        tempConvt.setSelectDim(dim);
+        DriverFactory.waitInterval();
+
         String gotDim = tempConvt.getSelectDim();
         ColorPrint.println_red("Got Dimension: " + dim);
     }
