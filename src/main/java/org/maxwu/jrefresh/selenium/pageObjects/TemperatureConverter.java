@@ -38,7 +38,9 @@ public class TemperatureConverter {
         selectDimOpt.selectByValue(selected);
 
         for (WebElement webEle : selectDimOpt.getOptions()){
-            ColorPrint.println_red("Option D: " + webEle.getText());
+            // Added for cloud CI platform only.
+            String optText = webEle.getText();
+            ColorPrint.println_red("Option D: " + optText);
         }
     }
 
