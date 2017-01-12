@@ -114,7 +114,12 @@ public class TemperatureConverterCalStepdef {
         this.degreeList = degreeList;
     }
 
-
+    @Given("^Temperature background check$")
+    public void verifyWebDriver() throws Throwable{
+        ColorPrint.println_blue("Verifying driver: " + driver +" #" + driver.hashCode() +", temperature converter background");
+        Assert.assertNotNull(driver);
+        Assert.assertFalse(DriverFactory.hasQuit(driver));
+    }
 
     private void enterCelsiusInput(String celsiusDegree){
         tempConvt.setInputLeft(celsiusDegree);

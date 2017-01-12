@@ -24,6 +24,7 @@ import java.util.concurrent.TimeUnit;
  * Created by maxwu on 1/8/17.
  */
 public class LengthConverterCalStepDef  {
+    private ColorPrint color = new ColorPrint();
     private WebDriver driver = null;
     private GooglePage googlePage = null;
     private TemperatureConverter tempConvt = null;

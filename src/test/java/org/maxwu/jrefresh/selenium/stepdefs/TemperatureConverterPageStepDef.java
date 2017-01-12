@@ -52,6 +52,13 @@ public class TemperatureConverterPageStepDef {
         driver = null;
     }
 
+    @Given("^Web browser initialized$")
+    public void verifyWebDriver() throws Throwable{
+        ColorPrint.println_blue("Verifying driver: " + driver +" #" + driver.hashCode() +", temperature page background");
+        Assert.assertNotNull(driver);
+        Assert.assertFalse(DriverFactory.hasQuit(driver));
+    }
+
     @Given("^Google Entrance Page with:$")
     public void google_Entrance_page(String mulText) throws Throwable {
         googlePage = new GooglePage(driver);

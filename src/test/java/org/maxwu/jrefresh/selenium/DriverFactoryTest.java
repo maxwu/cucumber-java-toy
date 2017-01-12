@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.util.List;
+
 /**
  * Created by maxwu on 1/5/17.
  * This class is designed to demo pure JUnit test on Classes.
@@ -36,6 +38,15 @@ public class DriverFactoryTest {
         DriverFactory.quitDriver(driver);
         Assert.assertTrue(DriverFactory.hasQuit(driver));
         driver = null;
+    }
+
+    @Test
+    public void quitDriverReEntryTest(){
+        driver = DriverFactory.getDriver();
+        for(int i=0; i<2; i++){
+            DriverFactory.quitDriver(driver);
+            Assert.assertTrue(DriverFactory.hasQuit(driver));
+        }
     }
 
     @Test

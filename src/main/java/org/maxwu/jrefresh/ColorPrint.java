@@ -22,6 +22,9 @@ public class ColorPrint {
     public static final String ANSI_WHITE = "\u001B[37m";
 
     //TODO: Change general logs to Log4J.
+    public ColorPrint(){
+        println_blue("ColorPrint instance log");
+    }
 
     public static String getTs(){
         return new java.text.SimpleDateFormat(
