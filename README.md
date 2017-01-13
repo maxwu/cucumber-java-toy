@@ -8,6 +8,10 @@
 
 *This project is a self-study project to refresh the skills and knowledge about Java, JUnit, Cucumber and Selenium topics*
 
+## Summary:
+ 
+ - https://maxwu.github.io/2017/01/13/Cucumber-JVM-Selenium-JUnit-Toy-Project-baselined-to-v1-2/
+
 ## Scope
 >* [X] Basic cucumber process
 >* [X] Gherkin description and how to map to steps implementation
