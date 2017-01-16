@@ -6,7 +6,7 @@
 
 # Cucumber-JVM + JUnit + Selenium Web Driver Toy Project
 
-*This project is a self-study project to refresh the skills and knowledge about Java, JUnit, Cucumber and Selenium topics*
+*This project is a self-study project to refresh the feeling and funs about Java, JUnit, Cucumber and Selenium topics*
 
 ## Summary:
  
@@ -31,15 +31,17 @@
 ## Tips
 This section records the issues resolved during the construction/devops phase.
 
-- @Before and @After hooks are invoked by each scenario on *every* test class defined in option *"glue".
+- @Before and @After hooks are invoked by each scenario on *every* test class thru internal hookAdd() when scanning is performed on "glue" implementations.
     - However, most of the online documents and tutorials suggest to initialize Page Objects (for specific scenario) during @Before;
         - This brings redundant browser activities on those classes have nothing to do with other feature files;
-        - The execution time extends dramatically.
+        - The execution time extends dramatically when typically (in those tutorials) not all Setup(s) are necessary for all scenarios.
         - If failure check hook is place with @After, for example, to take screenshot, useless screens are saved. 
           Only one of the class is taking necessary picture, other pictures are from browsers without any test steps.
-    - If there are multiple scenarios in one single feature definition file, here is the tip:
+          Because the scenario status is shared between all registered hooks.
+    - If there are multiple scenarios in one single feature definition file, here are the tips:
         - Browsers instance could not restore if they quit (destroyed) already;
-        - To mitigate and separate test scenarios, we shall initial browser at each scenario @Before.
+        - To mitigate and separate test scenarios, we shall initial browser at each scenario @Before;
+        - However, for default Object Factory (as most new comers to Cucumber), not suggested to add PageObject Init into @Before Hook;
     - Current Solution:
       This solution optimized test time from 3:09 to 2:18 min on dev MacPro env and from 4:24 to 3:08 on circleCI.
       However, there is no global hook supports with Cucumber-JVM for now. A possible balance is to:
@@ -49,7 +51,7 @@ This section records the issues resolved during the construction/devops phase.
         > The redundant browser instances will still be invoked but it is better and test will be much faster.
     - Readers shall pay attention to understand @Before, @After and the steps in Background section comparing to Junit.
       Actually the lifecycles are a bit different. 
-        - [TODO] a chart of non-paralleled Cucumber-JVM test sequence chart.
+        - [TODO] Customize the container or add a customized annotation to implement a lazy "setUp" hook.
         
 - CircleCI browser version issue resolved by updating chrome to >=v52
     ```
