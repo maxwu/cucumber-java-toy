@@ -2,7 +2,7 @@
 [![codecov](https://codecov.io/gh/maxwu/cucumber-java-toy/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/cucumber-java-toy)
 [![CircleCI](https://circleci.com/gh/maxwu/cucumber-java-toy.svg?style=svg)](https://circleci.com/gh/maxwu/cucumber-java-toy)
 [![Documentation Status](https://readthedocs.org/projects/cucumber-java-toy/badge/?version=latest)](http://cucumber-java-toy.readthedocs.io/en/latest/?badge=latest)
-[![DUB](https://img.shields.io/dub/l/vibe-d.svg)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Cucumber-JVM + JUnit + Selenium Web Driver Toy Project
 
