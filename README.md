@@ -28,7 +28,7 @@
 >* [X] Various tests and code reading to clarify obj lifecycle of Cucumber-JVM
 >* [X] Add circleCI online CI and deployment test
 >* [X] Customized Annotation and the test
->* [X] Test the Interceptor Implementation with Proxy
+>* [X] Test the Interceptor Implementation with Cglib Proxy
 
 ## Tips
 This section records the issues resolved during the construction/devops phase.
