@@ -27,6 +27,8 @@
 >* [X] Refactor to Page Factory Pattern
 >* [X] Various tests and code reading to clarify obj lifecycle of Cucumber-JVM
 >* [X] Add circleCI online CI and deployment test
+>* [X] Customized Annotation and the test
+>* [X] Test the Interceptor Implementation with Proxy
 
 ## Tips
 This section records the issues resolved during the construction/devops phase.
@@ -48,10 +50,17 @@ This section records the issues resolved during the construction/devops phase.
         - Still creating new driver in @Before hook but don't go further to PageObject;
         - In the @Given step of Gherkin, initialize the PageObject, in Page Factory Pattern if you like;
         - Still destroy browsers by @After hook via quit() method.
-        > The redundant browser instances will still be invoked but it is better and test will be much faster.
+        > [TODO] To resolve it better, try to customize the Object Factory instead of default one in close future.
     - Readers shall pay attention to understand @Before, @After and the steps in Background section comparing to Junit.
-      Actually the lifecycles are a bit different. 
-        - [TODO] Customize the container or add a customized annotation to implement a lazy "setUp" hook.
+      The concept is to invoke objects by reflection and run all hooks regardless to which scenarios is currently executing at present.
+      Therefore, the sequence is:
+        - Load Glue, build map for hooks;
+        - Run scenarios:
+            - Run @Before hooks (with reflected instances) according to the order (order value default to 10,000);
+            - Run method which matching the Steps in scenario;
+            - Run @After hooks;
+        - Format reports.
+        
         
 - CircleCI browser version issue resolved by updating chrome to >=v52
     ```
