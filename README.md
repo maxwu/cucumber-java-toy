@@ -29,6 +29,7 @@
 >* [X] Add circleCI online CI and deployment test
 >* [X] Customized Annotation and the test
 >* [X] Test the Interceptor Implementation with Cglib Proxy
+>* [X] Add RESTful test cases for freegeoip and ipify public WebAPIs
 
 ## Tips
 This section records the issues resolved during the construction/devops phase.
@@ -124,6 +125,7 @@ This section records the issues resolved during the construction/devops phase.
 ```
 - Change browser binary, profile, local/remote and other parameters to json.config.
 - Consider Log4J to refactor the logging instructions.
+- Migrating to Docker based Test and prepare for a further project releasing App in Docker.
 ```
 
 ## About

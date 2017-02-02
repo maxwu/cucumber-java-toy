@@ -6,5 +6,5 @@ package org.maxwu.jrefresh;
  * This test class, together with DriverFactoryTest, will be invoked before UAT.
  */
 public class ColorPrintTest {
-    // TODO: Implement printStream test as lower priority for 2nd phase.
+    // TODO: Implement a demo on how to test JUnit output stream on stdout.
 }
