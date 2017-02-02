@@ -38,12 +38,12 @@ public class SourceIpApiTest {
     @Before
     public void setUp() throws Exception {
         //client = new OkHttpClient();
+        //Changed to customized SSL context and hostVerifier.
         OkHttpClient.Builder clientBuilder = new OkHttpClient().newBuilder();
-        final TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
+        X509TrustManager trustManager = new X509TrustManager() {
             @Override
             public X509Certificate[] getAcceptedIssuers() {
-                X509Certificate[] cArrr = new X509Certificate[0];
-                return cArrr;
+                return new X509Certificate[0];
             }
 
             @Override
@@ -55,21 +55,18 @@ public class SourceIpApiTest {
             public void checkClientTrusted(final X509Certificate[] chain,
                                            final String authType) throws CertificateException {
             }
-        }};
+        };
+        final TrustManager[] trustAllCerts = new TrustManager[]{ trustManager };
 
         SSLContext sslContext = SSLContext.getInstance("SSL");
 
         sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
-        clientBuilder.sslSocketFactory(sslContext.getSocketFactory());
+        clientBuilder.sslSocketFactory(sslContext.getSocketFactory(), trustManager);
 
-        HostnameVerifier hostnameVerifier = new HostnameVerifier() {
-            @Override
-            public boolean verify(String hostname, SSLSession session) {
-                ColorPrint.println_blue("Trusts Host :" + hostname);
-                return true;
-            }
-        };
-        clientBuilder.hostnameVerifier( hostnameVerifier);
+        clientBuilder.hostnameVerifier((String hostname, SSLSession session) -> {
+                    ColorPrint.println_red("Trusts Host " + hostname + "in session " + session);
+                    return true;
+        });
         client = clientBuilder.build();
     }
 
@@ -114,6 +111,7 @@ public class SourceIpApiTest {
         String strResp = response.body().string().trim();
         Assert.assertTrue(checkIpv4(strResp));
 
+        //Debug part:
         Headers respHeaders = response.headers();
         respHeaders.names().forEach(n -> ColorPrint.println_green("header name:" + n + ", value:" + respHeaders.get(n)));
         ColorPrint.println_blue(strResp);
