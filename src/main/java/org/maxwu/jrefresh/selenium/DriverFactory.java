@@ -2,12 +2,14 @@ package org.maxwu.jrefresh.selenium;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.PhantomJsDriverManager;
 import org.maxwu.jrefresh.ColorPrint;
 import org.maxwu.jrefresh.selenium.pageObjects.WrongPageException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 /**
@@ -24,6 +26,7 @@ public class DriverFactory {
 
         //WebDriver driver = new FirefoxDriver();
         WebDriver driver = new ChromeDriver();
+
         if (hasQuit(driver)){
             ColorPrint.println_red("**** New Driver has quit already ****");
             throw new WrongPageException("New Driver has quit == true!");
@@ -49,7 +52,7 @@ public class DriverFactory {
 
     // To simulate the real world, JS still needs a short interval to run and fetch the result.
     public static void waitInterval(){
-        ColorPrint.println_red("CAUTION: waiting is a temporary solution for debug only!");
+        ColorPrint.println_red("CAUTION: waiting is a temporary solution for debug only, use WebDriverWait in regular wait-event cases!");
         try{
             Thread.sleep(200);
         }catch (Exception e){
