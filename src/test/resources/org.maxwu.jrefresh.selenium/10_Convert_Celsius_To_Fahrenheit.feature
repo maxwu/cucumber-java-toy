@@ -10,6 +10,7 @@ Feature:  With "Temperature Converter" Page, verify the Fahrenheit value turned 
   When  Input data from the table:
     | 100    | 212       |
     | 0      | 32        |
+    | -100   | -148      |
 
   Then  Results are correct as on table
 
