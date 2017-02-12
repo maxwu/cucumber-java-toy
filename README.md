@@ -1,17 +1,28 @@
-[![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=master)](https://travis-ci.org/maxwu/cucumber-java-toy)
-[![codecov](https://codecov.io/gh/maxwu/cucumber-java-toy/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/cucumber-java-toy)
-[![CircleCI](https://circleci.com/gh/maxwu/cucumber-java-toy.svg?style=svg)](https://circleci.com/gh/maxwu/cucumber-java-toy)
-[![Documentation Status](https://readthedocs.org/projects/cucumber-java-toy/badge/?version=latest)](http://cucumber-java-toy.readthedocs.io/en/latest/?badge=latest)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 # Cucumber-JVM + JUnit + Selenium Web Driver Toy Project
 
-*This project is a self-study project to refresh the feeling and funs about Java, JUnit, Cucumber and Selenium topics*
+*This project is a fast toy project to refresh the feeling and fun on Java, JUnit, Selenium and expand Cucumber-JVM topic*
 
-## Summary:
+Master:
+[![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=master)](https://travis-ci.org/maxwu/cucumber-java-toy)
+[![codecov](https://codecov.io/gh/maxwu/cucumber-java-toy/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/cucumber-java-toy)
+[![CircleCI](https://circleci.com/gh/maxwu/circleci_stat/tree/master.svg?style=svg)](https://circleci.com/gh/maxwu/circleci_stat/tree/master)
+
+Dev: 
+[![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=dev)](https://travis-ci.org/maxwu/cucumber-java-toy)
+[![codecov](https://codecov.io/gh/maxwu/cucumber-java-toy/branch/dev/graph/badge.svg)](https://codecov.io/gh/maxwu/cucumber-java-toy)
+[![CircleCI](https://circleci.com/gh/maxwu/circleci_stat/tree/dev.svg?style=svg)](https://circleci.com/gh/maxwu/circleci_stat/tree/dev)
+
+License: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
+## Summary of Tips, Issues and Solutions:
  
- - https://maxwu.github.io/2017/01/13/Cucumber-JVM-Selenium-JUnit-Toy-Project-baselined-to-v1-2/
-
+ - [Tips on Selenium PageObject Design (with a common template sample)](http://maxwu.me/2017/01/21/Tips-on-Selenium-PageObject-Design/)
+ - [Cucumber Java Toy v1.2 Release Notes and a brief technical summary](https://maxwu.github.io/2017/01/13/Cucumber-JVM-Selenium-JUnit-Toy-Project-baselined-to-v1-2/)
+ - [JUnit tips (in progress)](http://maxwu.me/2017/01/23/JUnit-Tips/)
+ - [Practice tips between JUnit and Python Unittest](http://maxwu.me/2017/01/23/Python-unittest-tips-from-JUnit-view/)
+ - [Trusting hosts with HttpClient in WebAPI test](http://maxwu.me/2017/02/03/Trust-all-hosts-in-WebAPI-test-with-OkHttp-and-Java-SSL/)
+ 
 ## Scope
 >* [X] Basic cucumber process
 >* [X] Gherkin description and how to map to steps implementation
@@ -61,7 +72,6 @@ This section records the issues resolved during the construction/devops phase.
             - Run method which matching the Steps in scenario;
             - Run @After hooks;
         - Format reports.
-        
         
 - CircleCI browser version issue resolved by updating chrome to >=v52
     ```
@@ -123,14 +133,16 @@ This section records the issues resolved during the construction/devops phase.
 ## TODO
 
 ```
-- Change browser binary, profile, local/remote and other parameters to json.config.
+- Change browser binary, profile, local/remote and other parameters to config YAML.
+- With primitive analysis, improve the code coverage to above 80%.
 - Consider Log4J to refactor the logging instructions.
 - Migrating to Docker based Test and prepare for a further project releasing App in Docker.
+    - Dockerfile added, however, an error under debug.
 ```
 
 ## About
 
-An open source toy project to refresh Cucumber-JVM+Selenium in MIT License.
+An open source toy project to refresh Cucumber-JVM + Selenium in MIT License.
 
 maxwunj{AT}gmail{DOT}com 
 
