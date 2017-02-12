@@ -11,7 +11,7 @@ comment:
 
 coverage:
   precision: 2
-  range: "70..100"
+  range: "50..75"
   round: down
   status:
     changes: false
