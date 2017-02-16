@@ -26,6 +26,7 @@ public class GooglePage {
     private String baseTitle = "Google";
 
     @FindBy(how = How.CSS, using = "input#lst-ib")
+
     WebElement inputSearch;
 
     public GooglePage(WebDriver driver) throws RuntimeException{
