@@ -1,0 +1,66 @@
+package org.maxwu.jrefresh.selenium.pageObjects;
+
+import org.apache.commons.io.FileUtils;
+import org.maxwu.jrefresh.ColorPrint;
+import org.maxwu.jrefresh.selenium.DriverFactory;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
+import java.io.File;
+
+/**
+ * Created by maxwu on 2/13/17.
+ */
+public class PageBase {
+    protected WebDriver driver = null;
+    private String urlRegEx = "https?:////";
+    private String titleRegEx = ".*";
+
+    public void saveScreenShot() {
+        if ((driver == null) || (DriverFactory.hasQuit(driver))) {
+            ColorPrint.println_red("Driver is null or quit already in saveScreenShot()");
+            return;
+        }
+        String fname = ColorPrint.getTs();
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(scrFile, new File("target/screenshot" + fname + ".png"));
+        }catch (Exception e){
+            ColorPrint.println_red("Error in copying screenshot: " + e);
+        }
+    }
+
+    public void checkUrl(String urlPattern){
+        String currentUrl = driver.getCurrentUrl();
+        if (!currentUrl.matches(urlPattern)){
+            throw new WrongPageException("Wrong URL with Pattern \"" + urlPattern + "\"",
+                    driver);
+        }
+    }
+
+    public void checkTitle(String titlePattern){
+        String currentUrl = driver.getCurrentUrl();
+        if (!currentUrl.matches(titlePattern)){
+            throw new WrongPageException("Wrong Title with Pattern \"" + titlePattern + "\"",
+                    driver);
+        }
+    }
+
+    public void checkUrl(){
+        checkUrl(urlRegEx);
+    }
+
+    public void checkTitle(){
+        checkTitle(titleRegEx);
+    }
+
+    PageBase(WebDriver dr, String urlPattern, String titlePattern){
+        driver = dr;
+        urlRegEx = urlPattern;
+        titleRegEx = titlePattern;
+    }
+    PageBase(WebDriver dr){
+        driver = dr;
+    }
+}
