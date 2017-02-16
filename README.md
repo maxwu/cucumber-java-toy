@@ -2,13 +2,11 @@
 
 *This project is a fast toy project to refresh the feeling and fun on Java, JUnit, Selenium and expand Cucumber-JVM topic*
 
-Master:
-[![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=master)](https://travis-ci.org/maxwu/cucumber-java-toy)
+Master: [![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=master)](https://travis-ci.org/maxwu/cucumber-java-toy)
 [![codecov](https://codecov.io/gh/maxwu/cucumber-java-toy/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/cucumber-java-toy)
 [![CircleCI](https://circleci.com/gh/maxwu/circleci_stat/tree/master.svg?style=svg)](https://circleci.com/gh/maxwu/circleci_stat/tree/master)
 
-Dev: 
-[![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=dev)](https://travis-ci.org/maxwu/cucumber-java-toy)
+Dev: [![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=dev)](https://travis-ci.org/maxwu/cucumber-java-toy)
 [![codecov](https://codecov.io/gh/maxwu/cucumber-java-toy/branch/dev/graph/badge.svg)](https://codecov.io/gh/maxwu/cucumber-java-toy)
 [![CircleCI](https://circleci.com/gh/maxwu/circleci_stat/tree/dev.svg?style=svg)](https://circleci.com/gh/maxwu/circleci_stat/tree/dev)
 
