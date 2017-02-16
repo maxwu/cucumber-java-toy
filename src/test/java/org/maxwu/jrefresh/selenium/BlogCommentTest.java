@@ -43,12 +43,12 @@ public class BlogCommentTest {
 
     @Test(timeout = 30)
     public void a01LoginDisqus(){
-
+        //TODO: login Disqus with configuration
     }
 
     @Test(timeout = 30)
     public void a02TestSequence(){
-
+        //indents to be empty to show the runner order.
     }
 
     @After
