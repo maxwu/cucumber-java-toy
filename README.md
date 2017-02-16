@@ -85,7 +85,7 @@ This section records the issues resolved during the construction/devops phase.
     - CodeCov
     
     ```
-        cat codecov.yml | curl --data-binary @- https://codecov.io/validate
+    cat codecov.yml | curl --data-binary @- https://codecov.io/validate
     ```
     
     - Travis-CI
@@ -94,7 +94,7 @@ This section records the issues resolved during the construction/devops phase.
     http://lint.travis-ci.org/
     ```
     
-- Assert.assertEqual() will call obj.equals(), however, to check with "==", we shall use Asser.assertSame() instead.
+- Assert.assertEqual() will call obj.equals(), however, to check with "==", we shall use Assert.assertSame() instead.
 
 - @Cucumber.Options() is replaced by @CucumberOptions annotation.
 
@@ -121,18 +121,25 @@ This section records the issues resolved during the construction/devops phase.
 - Environmental Issue with network:
     - The WebDriverManager lib was configured to download latest nightly Firefox driver but the network will blink if we keep on downloading many times in a short while;
     - Set properties value to force cache will resolve it:
+        
         ```
         wdm.forceCache=true
         ```
-- The dev and test env:
+
+- Coverage
+    - Coverage measured on codecov.io cloud service;
+    - Regarding coverage a tool to discover opportunities to enhance test;
+    - Avoid taking coverage percentage itself as an explicit target.
+    
+- _The dev and test env_:
     - Dev env on MBP with IntelliJ IDEA CE, Maven, JUnit, Selenium WebDriver, Firefox (stable and nightly), Chrome;
     - Test with Travis-CI and CircleCI, Ubuntu 14, Chrome.
+    - Local Jenkins on MBP (managed by Brew Services).
     
 ## TODO
 
 ```
 - Change browser binary, profile, local/remote and other parameters to config YAML.
-- With primitive analysis, improve the code coverage to above 80%.
 - Consider Log4J to refactor the logging instructions.
 - Migrating to Docker based Test and prepare for a further project releasing App in Docker.
     - Dockerfile added, however, an error under debug.
@@ -141,6 +148,8 @@ This section records the issues resolved during the construction/devops phase.
 ## About
 
 An open source toy project to refresh Cucumber-JVM + Selenium in MIT License.
+
+This toy project demonstrates general practices on JUnit, Cucumber-JVM and Selenium Page Object methodologies.
 
 maxwunj{AT}gmail{DOT}com 
 

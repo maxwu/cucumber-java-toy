@@ -40,8 +40,8 @@ public class PageBase {
     }
 
     public void checkTitle(String titlePattern){
-        String currentUrl = driver.getCurrentUrl();
-        if (!currentUrl.matches(titlePattern)){
+        String currentTitle = driver.getTitle();
+        if (!currentTitle.matches(titlePattern)){
             throw new WrongPageException("Wrong Title with Pattern \"" + titlePattern + "\"",
                     driver);
         }

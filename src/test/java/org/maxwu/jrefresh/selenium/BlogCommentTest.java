@@ -41,14 +41,17 @@ public class BlogCommentTest {
         ScreenshotWatcher.setPageObject(blogCommentPage);
     }
 
-    @Test(timeout = 30)
-    public void a01LoginDisqus(){
-        //TODO: login Disqus with configuration
+    @Test(timeout = 30000)
+    public void a01checkComments(){
+        //TODO: comments checks.
+       blogCommentPage.getComments().stream().limit(10)
+                .forEach(n -> ColorPrint.println_green("Extracted Comment: " + n));
     }
 
-    @Test(timeout = 30)
+    @Test(timeout = 30000)
     public void a02TestSequence(){
-        //indents to be empty to show the runner order.
+        //indents to show the runner order.
+        Assert.assertTrue("http://maxwu.me/2016/10/02/dropme/".matches(".*dropme.*"));
     }
 
     @After
