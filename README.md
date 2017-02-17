@@ -84,14 +84,16 @@ This section records the issues resolved during the construction/devops phase.
 - Use online tools to validate YAML files for TravisCI and CodeCov before commit to test:
     - CodeCov
     
-    ```
+    ```bash
     cat codecov.yml | curl --data-binary @- https://codecov.io/validate
     ```
     
-    - Travis-CI
+    - Travis-CI, use http://lint.travis-ci.org to validate your config or use below CLI:
     
-    ```
-    http://lint.travis-ci.org/
+    ```bash
+    curl -X POST -F "yml=`cat ./.travis.yml`"  http://lint.travis-ci.org/
+    # Find below elements on page source
+    # <p class="result">Hooray, your .travis.yml seems to be solid!</p>
     ```
     
 - Assert.assertEqual() will call obj.equals(), however, to check with "==", we shall use Assert.assertSame() instead.
