@@ -56,10 +56,8 @@ public class BlogCommentTest {
 
     @After
     public void tearDown(){
-        if (driver != null){
-            DriverFactory.quitDriver(driver);
-            driver = null;
-        }
+        DriverFactory.quitDriver(driver);
+        driver = null;
     }
 
 }
