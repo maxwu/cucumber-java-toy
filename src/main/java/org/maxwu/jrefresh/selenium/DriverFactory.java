@@ -14,6 +14,7 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by maxwu on 1/2/17.
@@ -68,6 +69,13 @@ public class DriverFactory {
             throw new WrongPageException("New Driver has quit == true!");
         }
         ColorPrint.println_blue("**** Created Web Driver #" + driver.hashCode() +"****");
+
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        }catch (Exception e){
+            // intend to empty
+        }
+        
         return driver;
     }
 

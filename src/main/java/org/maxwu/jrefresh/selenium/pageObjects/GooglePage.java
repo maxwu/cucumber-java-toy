@@ -35,11 +35,7 @@ public class GooglePage {
     public GooglePage(WebDriver driver) throws RuntimeException{
         dr = driver;
         //dr.manage().window().maximize();
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        }catch (Exception e){
-            // intend to empty
-        }
+
         try {
             dr.get(baseUrl + "/");
         }catch (Exception e){
