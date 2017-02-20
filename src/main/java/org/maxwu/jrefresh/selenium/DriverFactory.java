@@ -17,13 +17,12 @@ import org.openqa.selenium.remote.RemoteWebDriver;
  */
 public class DriverFactory {
 
-    // TODO: Add config.json items and loop on multiple browsers.
+    // TODO: Add config items and loop on multiple browsers.
     // Since it is designed to destroy (quit) driver at every test (scenario) end,
     // it requires a new driver at every test scenario beginning.
 
     static void setWdmProperties(){
         // FIXME: Only keeping forceCache to false can specify browser driver version.
-        System.setProperty("wdm.forceCache", "false");
         System.setProperty("wdm.override", "true");
         System.setProperty("timeout", "30");
         String arch = System.getProperty("sun.arch.data.model");
@@ -34,6 +33,10 @@ public class DriverFactory {
             //   From 2.22 on, the chrome driver requests chrome-browser version 51+
             //   But latest chrome browser for 32bit Linux is version 48 from Feb 2016.
             System.setProperty("wdm.chromeDriverVersion", "2.20");
+            System.setProperty("wdm.forceCache", "false");
+        }else{
+            // For 64bit system, using cache for latest version.
+            System.setProperty("wdm.forceCache", "true");
         }
     }
 
