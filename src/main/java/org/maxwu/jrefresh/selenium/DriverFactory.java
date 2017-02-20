@@ -8,6 +8,7 @@ import org.maxwu.jrefresh.selenium.pageObjects.WrongPageException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -28,13 +29,21 @@ public class DriverFactory {
         String arch = System.getProperty("sun.arch.data.model");
         ColorPrint.println_red("Arch=" + arch);
         if (arch.contains("32")){
-            String driverVer32bit = "2.21";
+            String driverVer32bit = "2.27";
             ColorPrint.println_red("Force chrome version to old " + driverVer32bit +" since 32bit is obsolete from Feb 2016");
             // Tested with JUnit Argument-line "-Dwdm.chromeDriverVersion=2.20"
             //   From 2.22 on, the chrome driver requests chrome-browser version 51+
             //   But latest chrome browser for 32bit Linux is version 48 from Feb 2016.
             System.setProperty("wdm.chromeDriverVersion", driverVer32bit);
             System.setProperty("wdm.forceCache", "false");
+            ChromeOptions options = new ChromeOptions();
+            // Use Chromium-browser instead of google-chrome
+            // apt-get install chromium-browser with
+            // root@maxwu:~# chromium-browser --version
+            // /bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+            // Chromium 53.0.2785.143 Built on Ubuntu , running on Ubuntu 14.04
+            options.setBinary("/usr/bin/chromium-browser");
+
         }else{
             // For 64bit system, using cache for latest version.
             System.setProperty("wdm.forceCache", "true");
