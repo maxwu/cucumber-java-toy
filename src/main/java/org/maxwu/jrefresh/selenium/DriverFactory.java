@@ -20,6 +20,18 @@ public class DriverFactory {
     // TODO: Add config.json items and loop on multiple browsers.
     // Since it is designed to destroy (quit) driver at every test (scenario) end,
     // it requires a new driver at every test scenario beginning.
+    {
+        System.setProperty("wdm.forceCache", "true");
+        System.setProperty("wdm.override", "true");
+        System.setProperty("timeout", "30");
+        if (System.getProperty("sun.arch.data.model").contains("32")){
+            // Tested with JUnit Argument-line "-Dwdm.chromeDriverVersion=2.20"
+            //   From 2.22 on, the chrome driver requests chrome-browser version 51+
+            //   But latest chrome browser for 32bit Linux is version 48 from Feb 2016.
+            System.setProperty("wdm.chromeDriverVersion", "2.20");
+        }
+    }
+
     public static WebDriver getDriver(){
         //FirefoxDriverManager.getInstance().setup();
         ChromeDriverManager.getInstance().setup();
