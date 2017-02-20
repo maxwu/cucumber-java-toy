@@ -70,11 +70,7 @@ public class DriverFactory {
         }
         ColorPrint.println_blue("**** Created Web Driver #" + driver.hashCode() +"****");
 
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        }catch (Exception e){
-            // intend to empty
-        }
+        waitInterval();
 
         return driver;
     }
@@ -95,12 +91,16 @@ public class DriverFactory {
     }
 
     // To simulate the real world, JS still needs a short interval to run and fetch the result.
-    public static void waitInterval(){
+    public static void waitInterval(int interval){
         ColorPrint.println_red("CAUTION: waiting is a temporary solution for debug only, use WebDriverWait in regular wait-event cases!");
         try{
-            Thread.sleep(200);
+            Thread.sleep(interval);
         }catch (Exception e){
             ColorPrint.println_red("Exception during sleep: " + e.getStackTrace());
         }
+    }
+
+    public static void waitInterval(){
+        waitInterval(500);
     }
 }
