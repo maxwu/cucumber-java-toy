@@ -32,7 +32,7 @@ public class DriverFactory {
             // Tested with JUnit Argument-line "-Dwdm.chromeDriverVersion=2.20"
             //   From 2.22 on, the chrome driver requests chrome-browser version 51+
             //   But latest chrome browser for 32bit Linux is version 48 from Feb 2016.
-            System.setProperty("wdm.chromeDriverVersion", "2.20");
+            System.setProperty("wdm.chromeDriverVersion", "2.21");
             System.setProperty("wdm.forceCache", "false");
         }else{
             // For 64bit system, using cache for latest version.
