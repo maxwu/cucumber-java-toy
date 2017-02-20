@@ -31,7 +31,7 @@ public class TemperatureConverterPageStepDef {
 
     @Before
     public void setUp(Scenario scenario) {
-        ColorPrint.printScenarioState(this, scenario, "starts, "  + scenario.getStatus());
+        ColorPrint.printScenarioState(this, scenario, "starts ");
         //The precondition
         if (driver != null){
             // Whatever the browser status is, in a @Before hook we initialize a new browser to separate scenarios.

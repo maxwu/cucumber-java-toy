@@ -31,7 +31,7 @@ public class LengthConverterCalStepDef  {
 
     @Before
     public void setUp(Scenario scenario) {
-        ColorPrint.printScenarioState(this, scenario, "starts, " + scenario.getStatus());
+        ColorPrint.printScenarioState(this, scenario, "starts ");
         // test precondition
         if ((driver == null)||(DriverFactory.hasQuit(driver))) {
             driver = DriverFactory.getDriver();
