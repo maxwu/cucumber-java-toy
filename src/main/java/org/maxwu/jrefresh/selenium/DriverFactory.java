@@ -32,7 +32,7 @@ public class DriverFactory {
         String arch = System.getProperty("sun.arch.data.model");
         ColorPrint.println_blue("Arch=" + arch);
         if (arch.contains("32")){
-            String driverVer32bit = "2.25";
+            String driverVer32bit = "2.23";
             ColorPrint.println_red("Force chrome version to old " + driverVer32bit +" since 32bit is obsolete from Feb 2016");
             // Tested with JUnit Argument-line "-Dwdm.chromeDriverVersion=2.20"
             //   From 2.22 on, the chrome driver requests chrome-browser version 51+
