@@ -39,7 +39,6 @@ public class DriverFactory {
             //   But latest chrome browser for 32bit Linux is version 48 from Feb 2016.
             System.setProperty("wdm.chromeDriverVersion", driverVer32bit);
             System.setProperty("wdm.forceCache", "false");
-            options = new ChromeOptions();
             // Use Chromium-browser instead of google-chrome
             // apt-get install chromium-browser with
             // root@maxwu:~# chromium-browser --version
@@ -54,6 +53,8 @@ public class DriverFactory {
     }
 
     public static WebDriver getDriver(){
+        options = new ChromeOptions();
+        options.addArguments("--always-authorize-plugins");
         setWdmProperties();
 
         ChromeDriverManager.getInstance().setup();

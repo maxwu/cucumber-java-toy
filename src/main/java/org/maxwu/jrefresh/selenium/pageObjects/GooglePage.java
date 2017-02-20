@@ -14,6 +14,9 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
 /**
  * Created by maxwu on 1/2/17.
  */
@@ -32,7 +35,16 @@ public class GooglePage {
     public GooglePage(WebDriver driver) throws RuntimeException{
         dr = driver;
         //dr.manage().window().maximize();
-        dr.get(baseUrl + "/");
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        }catch (Exception e){
+            // intend to empty
+        }
+        try {
+            dr.get(baseUrl + "/");
+        }catch (Exception e){
+            dr.navigate().refresh();
+        }
         String title = dr.getTitle();
         if (!title.equals(baseTitle)){
             throw new WrongPageException("Got wrong title:" + title);
