@@ -22,7 +22,8 @@ License: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](
  - [JUnit tips (in progress)](http://maxwu.me/2017/01/23/JUnit-Tips/)
  - [Practice tips between JUnit and Python Unittest](http://maxwu.me/2017/01/23/Python-unittest-tips-from-JUnit-view/)
  - [Trusting hosts with HttpClient in WebAPI test](http://maxwu.me/2017/02/03/Trust-all-hosts-in-WebAPI-test-with-OkHttp-and-Java-SSL/)
- 
+ - [Jenkins on 32bit Linux with chromium-browser, ChromeDriver and updated to selenium 3.1.0](http://maxwu.me/2017/02/21/Jenkins-to-test-Selenium-3-1-0-Chrome-Driver-latest-version-and-Chromium-Browser-on-cheap-32bit-Linux/)
+
 ## Scope
 >* [X] Basic cucumber process
 >* [X] Gherkin description and how to map to steps implementation
@@ -41,6 +42,8 @@ License: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](
 >* [X] Customized Annotation and the test
 >* [X] Test the Interceptor Implementation with Cglib Proxy
 >* [X] Add RESTful test cases for freegeoip and ipify public WebAPIs
+>* [X] Jenkins on 32bit Linux 
+>* [X] Testing with chromium-browser and ChromeDriver
 
 ## Tips
 This section records the issues resolved during the construction/devops phase.
@@ -163,6 +166,7 @@ This section records the issues resolved during the construction/devops phase.
     - Resolved chrome tab crash issue on 32bit Linux.
     - Resolved chromium-browser hanging-up with selenium.
     - Jenkins service on 32bit Linux, http://jenkins.maxwu.me 
+    
        [![Jenkins](http://oei21r8n1.bkt.clouddn.com/Jenkins-bandwagon-full.png?imageView/2/w/300/q/100)](http://jenkins.maxwu.me)
  
 - _Upgrading to selenium 3.1.0_
