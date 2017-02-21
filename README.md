@@ -1,6 +1,6 @@
 # Cucumber-JVM + JUnit + Selenium Web Driver Toy Project
 
-*This project is a fast toy project to refresh the feeling and fun on Java, JUnit, Selenium and expand Cucumber-JVM topic*
+*This project is a fast toy project to refresh the fun on Java, JUnit, Selenium and Cucumber-JVM topic*
 
 Master: [![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=master)](https://travis-ci.org/maxwu/cucumber-java-toy)
 [![codecov](https://codecov.io/gh/maxwu/cucumber-java-toy/branch/master/graph/badge.svg)](https://codecov.io/gh/maxwu/cucumber-java-toy)
@@ -162,6 +162,8 @@ This section records the issues resolved during the construction/devops phase.
     - Jenkins embedded status offers badge link as travisCI or circle.
     - Resolved chrome tab crash issue on 32bit Linux.
     - Resolved chromium-browser hanging-up with selenium.
+    - Jenkins service on 32bit Linux, http://jenkins.maxwu.me 
+       [![Jenkins](http://oei21r8n1.bkt.clouddn.com/Jenkins-bandwagon-full.png?imageView/2/w/300/q/100)](http://jenkins.maxwu.me)
  
 - _Upgrading to selenium 3.1.0_
         - Original selenium dependency version in maven is 3.0.1
