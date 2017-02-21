@@ -50,8 +50,6 @@ public class DriverFactory {
             // Updated to 55.0.2883.11-0ubuntu1 with private channel.
             System.setProperty("wdm.forceCache", "true");
             options.setBinary(new File("/usr/bin/chromium-browser"));
-
-
         }else{
             // For 64bit system, using cache for latest version.
             System.setProperty("wdm.forceCache", "true");
@@ -61,7 +59,9 @@ public class DriverFactory {
     public static WebDriver getDriver(){
         options = new ChromeOptions();
         options.addArguments("--always-authorize-plugins");
-        options.addArguments("start-maximized");
+        options.addArguments("--start-maximized");
+        //--dns-prefetch-disable
+        options.addArguments("--dns-prefetch-disable");
         setWdmProperties();
 
         ChromeDriverManager.getInstance().setup();
