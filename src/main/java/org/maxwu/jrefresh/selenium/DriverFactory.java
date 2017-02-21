@@ -47,6 +47,7 @@ public class DriverFactory {
             // Chromium 53.0.2785.143 Built on Ubuntu , running on Ubuntu 14.04
             options.setBinary(new File("/usr/bin/chromium-browser"));
 
+
         }else{
             // For 64bit system, using cache for latest version.
             System.setProperty("wdm.forceCache", "true");
@@ -56,6 +57,7 @@ public class DriverFactory {
     public static WebDriver getDriver(){
         options = new ChromeOptions();
         options.addArguments("--always-authorize-plugins");
+        options.addArguments("start-maximized");
         setWdmProperties();
 
         ChromeDriverManager.getInstance().setup();
