@@ -140,7 +140,7 @@ This section records the issues resolved during the construction/devops phase.
     - Test with Travis-CI and CircleCI, Ubuntu 14, Chrome.
     - Local Jenkins on MBP (managed by Brew Services).
 
-- _The tips with Jenkins_:
+- _The tips with Jenkins and testing with latest chrome-driver and chrome on 32bit Linux_:
     - Google Chrome browser terminated the 32bit Linux supports from Feb 2016
         - The latest 32bit Linux (RH) version is 48
     - However, the chrome-driver has criticle issue before 2.20
@@ -148,16 +148,26 @@ This section records the issues resolved during the construction/devops phase.
         - Currently the latest version is 2.27
     - WebDriverManager-Java option forceCache always caches the latest version
         - Therefore, to use an existing version rather than latest, forceCache shall be false. 
-    - Finally, choose to utilize chromium-browser 32bit instead of google-chrome
+    - Tried to utilize chromium-browser 32bit instead of google-chrome
         - Detect if OS arch is 32bit:
             - set chrome options with chromium-browser executable
             - set chrome-driver version to a verified value, e.g. 2.25
         - Chromium-browser latest version is 53
+    - The latest chrome driver requests browser version 55+
+        - Update chromium to 55 with below private channel:
+        ```shell
+        >sudo add-apt-repository ppa:saiarcot895/chromium-dev 
+        >sudo apt-get update
+        ```
     - Jenkins embedded status offers badge link as travisCI or circle.
+    - Resolved chrome tab crash issue on 32bit Linux.
+    - Resolved chromium-browser hanging-up with selenium.
  
 - _Upgrading to selenium 3.1.0_
-    - Original selenium dependency version in maven is 3.0.1
-    - With new version 3.1.0, a missing dependency shall be manually resolved by adding:
+        - Original selenium dependency version in maven is 3.0.1
+        - Upgrading to selenium-java 3.1.0, the method WebDriverWait.until() cannot be resolved by javac with IntelliJ IDEA.
+        - Fall back to 3.0.1, the same codes work well.
+    - Solution: With new version 3.1.0, a missing dependency shall be manually resolved by adding:
     ```xml
     <dependency>
       <groupId>com.google.guava</groupId>

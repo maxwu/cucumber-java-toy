@@ -30,7 +30,8 @@ public class GooglePage {
 
     public GooglePage(WebDriver driver) throws RuntimeException{
         dr = driver;
-        //dr.manage().window().maximize();
+        //removed to avoid tab crash on 32bit Chromium
+        // dr.manage().window().maximize();
 
         try {
             dr.get(baseUrl + "/");

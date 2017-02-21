@@ -58,15 +58,15 @@ public class DriverFactory {
 
     public static WebDriver getDriver(){
         options = new ChromeOptions();
-        options.addArguments("--always-authorize-plugins");
+        // To fix browser crash issue
         options.addArguments("--start-maximized");
-        //--dns-prefetch-disable
+        // To fix browser hanging-up issue
         options.addArguments("--dns-prefetch-disable");
+        options.addArguments("--always-authorize-plugins");
         setWdmProperties();
 
         ChromeDriverManager.getInstance().setup();
 
-        //WebDriver driver = new FirefoxDriver();
         WebDriver driver = (null==options)? new ChromeDriver(): new ChromeDriver(options);
 
 
