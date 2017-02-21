@@ -1,6 +1,7 @@
 package org.maxwu.jrefresh.selenium.pageObjects;
 
 import org.maxwu.jrefresh.ColorPrint;
+import org.maxwu.jrefresh.selenium.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -47,16 +48,20 @@ public class GooglePage {
     public TemperatureConverter getTempConverter(String keyWords){
         if ((keyWords == null) || (keyWords.isEmpty())){
             keyWords = "Temperature Converter";
+            ColorPrint.println_red("using default search keyword:" + keyWords);
         }
 
         inputSearch.sendKeys(keyWords);
         inputSearch.sendKeys(Keys.RETURN);
+        DriverFactory.waitInterval();
+
+        By byDiv = By.cssSelector("div#resultStats");
 
         //Wait until stats is visible
         WebDriverWait wait = new WebDriverWait(dr, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("resultStats")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(byDiv));
 
-        WebElement ele = dr.findElement(By.id("resultStats"));
+        WebElement ele = dr.findElement(byDiv);
         ColorPrint.println_blue(System.out,"Google Search Result Statistics:" + ele.getText());
 
         return new TemperatureConverter(dr);
