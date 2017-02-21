@@ -42,6 +42,8 @@ License: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](
 >* [X] Customized Annotation and the test
 >* [X] Test the Interceptor Implementation with Cglib Proxy
 >* [X] Add RESTful test cases for freegeoip and ipify public WebAPIs
+>* [X] Jenkins on 32bit Linux 
+>* [X] Testing with chromium-browser and ChromeDriver
 
 ## Tips
 This section records the issues resolved during the construction/devops phase.
