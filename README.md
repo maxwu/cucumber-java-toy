@@ -10,7 +10,7 @@ Dev: [![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=d
 [![codecov](https://codecov.io/gh/maxwu/cucumber-java-toy/branch/dev/graph/badge.svg)](https://codecov.io/gh/maxwu/cucumber-java-toy)
 [![CircleCI](https://circleci.com/gh/maxwu/circleci_stat/tree/dev.svg?style=svg)](https://circleci.com/gh/maxwu/circleci_stat/tree/dev)
 
-Jenkins: [![Build Status](http://jenkins.maxwu.me/job/Cucumber_Jvm_Selenium_Toy/badge/icon)](http://jenkins.maxwu.me/job/Cucumber_Jvm_Selenium_Toy/)
+Jenkins: [![Build Status](http://jenkins.maxwu.me/buildStatus/icon?job=Cucumber_Jvm_Selenium_Toy)](http://jenkins.maxwu.me/job/Cucumber_Jvm_Selenium_Toy/)
 
 License: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -139,7 +139,34 @@ This section records the issues resolved during the construction/devops phase.
     - Dev env on MBP with IntelliJ IDEA CE, Maven, JUnit, Selenium WebDriver, Firefox (stable and nightly), Chrome;
     - Test with Travis-CI and CircleCI, Ubuntu 14, Chrome.
     - Local Jenkins on MBP (managed by Brew Services).
-    
+
+- _The tips with Jenkins_:
+    - Google Chrome browser terminated the 32bit Linux supports from Feb 2016
+        - The latest 32bit Linux (RH) version is 48
+    - However, the chrome-driver has criticle issue before 2.20
+        - 2.20 requests google-chrome version 53+
+        - Currently the latest version is 2.27
+    - WebDriverManager-Java option forceCache always caches the latest version
+        - Therefore, to use an existing version rather than latest, forceCache shall be false. 
+    - Finally, choose to utilize chromium-browser 32bit instead of google-chrome
+        - Detect if OS arch is 32bit:
+            - set chrome options with chromium-browser executable
+            - set chrome-driver version to a verified value, e.g. 2.25
+        - Chromium-browser latest version is 53
+    - Jenkins embedded status offers badge link as travisCI or circle.
+ 
+- _Upgrading to selenium 3.1.0_
+    - Original selenium dependency version in maven is 3.0.1
+    - With new version 3.1.0, a missing dependency shall be manually resolved by adding:
+    ```xml
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>21.0</version>
+    </dependency>
+
+    ```
+
 ## TODO
 
 ```

@@ -9,13 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 /**
  * Created by maxwu on 1/2/17.
@@ -58,8 +53,9 @@ public class GooglePage {
         inputSearch.sendKeys(Keys.RETURN);
 
         //Wait until stats is visible
-        WebDriverWait wait = new WebDriverWait(dr, 5);
+        WebDriverWait wait = new WebDriverWait(dr, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("resultStats")));
+
         WebElement ele = dr.findElement(By.id("resultStats"));
         ColorPrint.println_blue(System.out,"Google Search Result Statistics:" + ele.getText());
 

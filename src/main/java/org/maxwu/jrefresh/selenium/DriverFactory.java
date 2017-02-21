@@ -76,6 +76,7 @@ public class DriverFactory {
     }
 
     public static boolean hasQuit(WebDriver driver) {
+        // return driver.toString().contains("null");
         return ((RemoteWebDriver)driver).getSessionId() == null;
     }
 
