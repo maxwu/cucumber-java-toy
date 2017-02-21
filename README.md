@@ -194,6 +194,9 @@ An open source toy project to refresh Cucumber-JVM + Selenium in MIT License.
 
 This toy project demonstrates general practices on JUnit, Cucumber-JVM and Selenium Page Object methodologies.
 
+The Jenkins service is running on 32bit Ubuntu 14 with chromium-browser instead of chrome-browser, details could be found at http://jenkins.maxwu.me
+
+
 maxwunj{AT}gmail{DOT}com 
 
 http://maxwu.me
