@@ -14,7 +14,6 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by maxwu on 1/2/17.
@@ -76,7 +75,7 @@ public class DriverFactory {
         }
         ColorPrint.println_blue("**** Created Web Driver #" + driver.hashCode() +"****");
 
-        waitInterval();
+        //waitInterval();
 
         return driver;
     }
@@ -99,7 +98,7 @@ public class DriverFactory {
 
     // To simulate the real world, JS still needs a short interval to run and fetch the result.
     public static void waitInterval(int interval){
-        ColorPrint.println_red("CAUTION: waiting is a temporary solution for debug only, use WebDriverWait in regular wait-event cases!");
+        ColorPrint.println_red("CAUTION: waiting is a temporary solution for debug only, use WebDriverWait in wait-event cases!");
         try{
             Thread.sleep(interval);
         }catch (Exception e){
