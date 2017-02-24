@@ -20,14 +20,11 @@ class ScreenshotWatcher extends TestWatcher {
     @Override
     public void failed(Throwable e, Description description) {
         ColorPrint.println_blue("Case " + description.getMethodName() + " fails.");
-        if (page != null) {
-            page.saveScreenShot();
-        }
     }
 
     @Override
-    public void starting(Description description){
-        ColorPrint.println_blue("Case " + description.getMethodName() + " starts.");
+    public void succeeded(Description description) {
+        ColorPrint.println_blue("Case " + description.getMethodName() + " succeeds.");
     }
 
 }

@@ -58,21 +58,19 @@ public class DriverFactory {
     public static WebDriver getDriver(){
         options = new ChromeOptions();
         // To fix browser crash issue
-        options.addArguments("--start-maximized");
+        options.addArguments("start-maximized");
         // To fix browser hanging-up issue
-        options.addArguments("--dns-prefetch-disable");
-        options.addArguments("--always-authorize-plugins");
+        options.addArguments("dns-prefetch-disable");
+        options.addArguments("test-type");
+        options.addArguments("disable-plugins");
+        options.addArguments("disable-extensions");
+        options.setExperimentalOption("forceDevToolsScreenshot", true);
         setWdmProperties();
 
         ChromeDriverManager.getInstance().setup();
 
         WebDriver driver = (null==options)? new ChromeDriver(): new ChromeDriver(options);
 
-
-        if (hasQuit(driver)){
-            ColorPrint.println_red("**** New Driver has quit already ****");
-            throw new WrongPageException("New Driver has quit == true!");
-        }
         ColorPrint.println_blue("**** Created Web Driver #" + driver.hashCode() +"****");
 
         //waitInterval();

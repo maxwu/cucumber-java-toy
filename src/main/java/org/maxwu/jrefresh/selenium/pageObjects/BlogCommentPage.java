@@ -1,6 +1,7 @@
 package org.maxwu.jrefresh.selenium.pageObjects;
 
 import org.maxwu.jrefresh.ColorPrint;
+import org.maxwu.jrefresh.selenium.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,6 +36,7 @@ public class BlogCommentPage extends PageBase{
         super(driver, urlRegEx, titleRegEx);
 
         driver.get(blogUrl);
+
         checkUrl();
         checkTitle();
 

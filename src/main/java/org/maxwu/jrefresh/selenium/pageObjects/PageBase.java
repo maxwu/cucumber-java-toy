@@ -17,18 +17,22 @@ public class PageBase {
     private String urlRegEx = "https?:////";
     private String titleRegEx = ".*";
 
-    public void saveScreenShot() {
-        if ((driver == null) || (DriverFactory.hasQuit(driver))) {
+    public static void saveScreenShot(WebDriver dr, String caseName) {
+        if ((dr == null) || (DriverFactory.hasQuit(dr))) {
             ColorPrint.println_red("Driver is null or quit already in saveScreenShot()");
             return;
         }
         String fname = ColorPrint.getTs();
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File scrFile = ((TakesScreenshot) dr).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(scrFile, new File("target/screenshot" + fname + ".png"));
+            FileUtils.copyFile(scrFile, new File("target/scr_" + fname + "_" + caseName + ".png"));
         }catch (Exception e){
             ColorPrint.println_red("Error in copying screenshot: " + e);
         }
+    }
+
+    public void saveScreenShot(String caseName) {
+        PageBase.saveScreenShot(driver, caseName);
     }
 
     public void checkUrl(String urlPattern){
