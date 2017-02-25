@@ -199,6 +199,8 @@ This section records the issues resolved during the construction/devops phase.
 
 *[ ] Parameterized JUnit 
 
+*[ ] Update PageBase Url/Title check with Hamcrest matcher
+
 ## TODO with 1.5 
 
 *[ ] Migrating to Docker based Test and prepare for a further project releasing App in Docker.

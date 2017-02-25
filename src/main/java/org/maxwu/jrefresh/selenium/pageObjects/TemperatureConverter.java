@@ -8,12 +8,15 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
  * Created by maxwu on 1/2/17.
  */
 public class TemperatureConverter {
+    static Logger logger = LoggerFactory.getLogger(TemperatureConverter.class.getName());
     public static String titleSuffix = " - Google Search";
     private WebDriver dr = null;
 
@@ -40,7 +43,7 @@ public class TemperatureConverter {
         for (WebElement webEle : selectDimOpt.getOptions()){
             // Added for cloud CI platform debug only.
             String optText = webEle.getText();
-            ColorPrint.println_green("Option D: " + optText);
+            logger.debug("Option D: " + optText);
         }
     }
 
@@ -54,7 +57,7 @@ public class TemperatureConverter {
 
         String title = driver.getTitle();
         if (!title.endsWith(TemperatureConverter.titleSuffix)){
-            throw new WrongPageException("Got wrong title " + title);
+            throw new WrongPageException("Wrong title " + title);
         }
     }
 
