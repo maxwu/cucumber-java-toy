@@ -30,7 +30,7 @@ License: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](
 >* [X] JUnit integration and the annotations to run by Cucumber
 >* [X] Multiple line parameters to step method by Cucumber Gherkin statement
 >* [X] DataTable for Cucumber 
->* [X] Java 8 Lambda practice
+>* [X] Java 8 Lambda and stream demo
 >* [X] Failure hook for Cucumber
 >* [X] Screenshot in Cucumber hook
 >* [X] Parameterized test with Cucumber Scenario Outline
@@ -46,6 +46,8 @@ License: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](
 >* [X] Testing with chromium-browser and ChromeDriver
 >* [X] Updated to selenium 3.1.0
 >* [X] Migrated to SLF with log4j1.2 in test
+>* [X] JUnit test order, TestWatcher and Rule demo
+>* [X] JUnit test on RuntimeException demo
 
 ## Tips
 This section records the issues resolved during the construction/devops phase.
@@ -185,7 +187,7 @@ This section records the issues resolved during the construction/devops phase.
 
     ```
 
-## TODO
+## TODO with 1.4
 
 *[ ] Change browser binary, profile, local/remote and other parameters to config YAML.
 
@@ -193,10 +195,16 @@ This section records the issues resolved during the construction/devops phase.
 
 *[ ] Demo of output stream test with JUnit
 
-*[ ] Demo of exception test with JUnit
+*[X] Demo of exception test with JUnit
+
+*[ ] Parameterized JUnit 
+
+## TODO with 1.5 
 
 *[ ] Migrating to Docker based Test and prepare for a further project releasing App in Docker.
     - Dockerfile added, however, an error under debug.
+    
+    ![Scenairo](http://oei21r8n1.bkt.clouddn.com/DevOps-Docker-CircleCI-AWS-sample.png?imageView/2/w/300/q/100)
 ```
 
 ## About
