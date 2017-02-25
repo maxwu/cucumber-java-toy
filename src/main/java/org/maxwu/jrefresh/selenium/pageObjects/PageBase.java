@@ -6,6 +6,8 @@ import org.maxwu.jrefresh.selenium.DriverFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
@@ -13,22 +15,28 @@ import java.io.File;
  * Created by maxwu on 2/13/17.
  */
 public class PageBase {
+    static Logger logger = LoggerFactory.getLogger(PageBase.class.getName());
+
     protected WebDriver driver = null;
     private String urlRegEx = "https?:////";
     private String titleRegEx = ".*";
 
-    public void saveScreenShot() {
-        if ((driver == null) || (DriverFactory.hasQuit(driver))) {
-            ColorPrint.println_red("Driver is null or quit already in saveScreenShot()");
+    public static void saveScreenShot(WebDriver dr, String caseName) {
+        if ((dr == null) || (DriverFactory.hasQuit(dr))) {
+            logger.error("Driver is null or quit already in saveScreenShot()");
             return;
         }
         String fname = ColorPrint.getTs();
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File scrFile = ((TakesScreenshot) dr).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(scrFile, new File("target/screenshot" + fname + ".png"));
+            FileUtils.copyFile(scrFile, new File("target/scr_" + fname + "_" + caseName + ".png"));
         }catch (Exception e){
-            ColorPrint.println_red("Error in copying screenshot: " + e);
+            logger.error("Error in copying screenshot: " + e);
         }
+    }
+
+    public void saveScreenShot(String caseName) {
+        PageBase.saveScreenShot(driver, caseName);
     }
 
     public void checkUrl(String urlPattern){

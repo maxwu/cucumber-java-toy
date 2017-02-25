@@ -12,6 +12,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.maxwu.jrefresh.ColorPrint;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.security.cert.CertificateException;
@@ -33,6 +35,7 @@ import java.security.cert.X509Certificate;
 
  */
 public class SourceIpApiTest {
+    static Logger logger = LoggerFactory.getLogger(SourceIpApiTest.class.getName());
     private OkHttpClient client = null;
 
     @Before
@@ -64,8 +67,9 @@ public class SourceIpApiTest {
         clientBuilder.sslSocketFactory(sslContext.getSocketFactory(), trustManager);
 
         clientBuilder.hostnameVerifier((String hostname, SSLSession session) -> {
-                    ColorPrint.println_red("Trusts Host " + hostname + "in session " + session);
-                    return true;
+            // Just trust the host to support Unit Test
+            logger.info("Trusts Host {} in session {}", hostname, session);
+            return true;
         });
         client = clientBuilder.build();
     }
@@ -92,11 +96,10 @@ public class SourceIpApiTest {
         String ip = jsonResp.getString("ip");
         Assert.assertTrue(checkIpv4(ip));
 
-        //Debug part:
+        // Dump debug info without verification
         Headers respHeaders = response.headers();
-        respHeaders.names().forEach(n -> ColorPrint.println_green("header name:" + n + ", value:" + respHeaders.get(n)));
-        ColorPrint.println_blue(jsonResp.toString(2));
-
+        respHeaders.names().forEach(n -> logger.debug("header: {},\t value: {}",  n, ColorPrint.blue(respHeaders.get(n))));
+        logger.debug(ColorPrint.blue(jsonResp.toString(2)));
     }
 
     @Test
@@ -111,10 +114,10 @@ public class SourceIpApiTest {
         String strResp = response.body().string().trim();
         Assert.assertTrue(checkIpv4(strResp));
 
-        //Debug part:
+        //Debug dump without verification.
         Headers respHeaders = response.headers();
-        respHeaders.names().forEach(n -> ColorPrint.println_green("header name:" + n + ", value:" + respHeaders.get(n)));
-        ColorPrint.println_blue(strResp);
+        respHeaders.names().forEach(n -> logger.debug("header: {},\t value: {}",  n, ColorPrint.blue(respHeaders.get(n))));
+        logger.debug(ColorPrint.blue(strResp));
     }
 
 }

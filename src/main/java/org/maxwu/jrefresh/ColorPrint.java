@@ -76,27 +76,33 @@ public class ColorPrint {
         System.out.println(col + str + ANSI_RESET);
     }
 
-    // Urgent or critical message
+    public static String red(String st){
+        return ANSI_RED + st + ANSI_RESET;
+    }
     public static void println_red(PrintStream ps, String st){
-        ps.println(ANSI_RED + st + ANSI_RESET);
+        ps.println(red(st));
         ps.flush();
     }
     public static void println_red(String st){
         println_red(System.out, st);
     }
 
-    // General comment message
+    public static String green(String st){
+        return ANSI_GREEN + st + ANSI_RESET;
+    }
     public static void println_green(PrintStream ps, String st){
-        ps.println(ANSI_GREEN + st + ANSI_RESET);
+        ps.println(green(st ));
         ps.flush();
     }
     public static void println_green(String st){
         println_green(System.out, st);
     }
 
-    // Element, data to show in log messages
+    public static String blue(String st){
+        return ANSI_BLUE + st + ANSI_RESET;
+    }
     public static void println_blue(PrintStream ps, String st){
-        ps.println(ANSI_BLUE + st + ANSI_RESET);
+        ps.println(blue(st));
         ps.flush();
     }
     public static void println_blue(String st){

@@ -44,6 +44,8 @@ License: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](
 >* [X] Add RESTful test cases for freegeoip and ipify public WebAPIs
 >* [X] Jenkins on 32bit Linux 
 >* [X] Testing with chromium-browser and ChromeDriver
+>* [X] Updated to selenium 3.1.0
+>* [X] Migrated to SLF with log4j1.2 in test
 
 ## Tips
 This section records the issues resolved during the construction/devops phase.
@@ -185,10 +187,15 @@ This section records the issues resolved during the construction/devops phase.
 
 ## TODO
 
-```
-- Change browser binary, profile, local/remote and other parameters to config YAML.
-- Consider Log4J to refactor the logging instructions.
-- Migrating to Docker based Test and prepare for a further project releasing App in Docker.
+*[ ] Change browser binary, profile, local/remote and other parameters to config YAML.
+
+*[X] ~~Consider Log4J to refactor the logging instructions.~~
+
+*[ ] Demo of output stream test with JUnit
+
+*[ ] Demo of exception test with JUnit
+
+*[ ] Migrating to Docker based Test and prepare for a further project releasing App in Docker.
     - Dockerfile added, however, an error under debug.
 ```
 

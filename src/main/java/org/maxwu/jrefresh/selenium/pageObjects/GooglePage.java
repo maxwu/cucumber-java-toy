@@ -11,12 +11,15 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.How;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
  * Created by maxwu on 1/2/17.
  */
 public class GooglePage {
+    static Logger logger = LoggerFactory.getLogger(GooglePage.class.getName());
     private WebDriver dr = null;
     // Special note:
     // Google.co.nz would simply turn to Celsius->Fahrenheit table.
@@ -30,8 +33,6 @@ public class GooglePage {
 
     public GooglePage(WebDriver driver) throws RuntimeException{
         dr = driver;
-        //removed to avoid tab crash on 32bit Chromium
-        // dr.manage().window().maximize();
 
         try {
             dr.get(baseUrl + "/");
@@ -49,7 +50,7 @@ public class GooglePage {
     public TemperatureConverter getTempConverter(String keyWords){
         if ((keyWords == null) || (keyWords.isEmpty())){
             keyWords = "Temperature Converter";
-            ColorPrint.println_red("using default search keyword:" + keyWords);
+            logger.warn("using default search keyword: {}", keyWords);
         }
 
         inputSearch.sendKeys(keyWords);
@@ -63,7 +64,7 @@ public class GooglePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(byDiv));
 
         WebElement ele = dr.findElement(byDiv);
-        ColorPrint.println_blue(System.out,"Google Search Result Statistics:" + ele.getText());
+        logger.debug("Search returned: {}", ele.getText());
 
         return new TemperatureConverter(dr);
     }
