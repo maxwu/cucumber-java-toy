@@ -76,7 +76,7 @@ public class DriverFactory {
 
         WebDriver driver = (null==options)? new ChromeDriver(): new ChromeDriver(options);
 
-        ColorPrint.println_blue("**** Created Web Driver #" + driver.hashCode() +"****");
+        logger.debug("**** Created Web Driver #" + driver.hashCode() +"****");
 
         //waitInterval();
 
@@ -90,7 +90,7 @@ public class DriverFactory {
 
     public static void quitDriver(WebDriver driver){
         if ((driver != null) &&(!hasQuit(driver))){
-            ColorPrint.println_blue("**** Destroying Web Driver #" + driver.hashCode() +"****");
+            logger.debug("**** Destroying Web Driver #" + driver.hashCode() +"****");
             ((JavascriptExecutor) driver).executeScript("window.stop;");
             driver.quit();
         }else{
@@ -101,11 +101,11 @@ public class DriverFactory {
 
     // To simulate the real world, JS still needs a short interval to run and fetch the result.
     public static void waitInterval(int interval){
-        ColorPrint.println_red("CAUTION: waiting is a temporary solution for debug only, use WebDriverWait in wait-event cases!");
+        logger.warn("CAUTION: waiting is a temporary solution for debug only, use WebDriverWait in wait-event cases!");
         try{
             Thread.sleep(interval);
         }catch (Exception e){
-            ColorPrint.println_red("Exception during sleep: " + e.getStackTrace());
+            logger.error("Exception during sleep: {}", e.getStackTrace());
         }
     }
 
