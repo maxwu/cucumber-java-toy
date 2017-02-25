@@ -4,6 +4,9 @@ import cucumber.api.junit.Cucumber;
 import cucumber.api.CucumberOptions;
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
+import org.maxwu.jrefresh.ColorPrint;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -25,8 +28,10 @@ import org.junit.runner.RunWith;
         glue = "org.maxwu.jrefresh.selenium.stepdefs"
 )
 public class TemperatureConverterTest {
+    static Logger logger = LoggerFactory.getLogger(TemperatureConverterTest.class.getName());
+
     @AfterClass
     public static void tearDownSuite(){
-        DriverFactory.getDriver().quit();
+        logger.info(ColorPrint.blue("...Suite tears down @AfterClass..."));
     }
 }

@@ -4,7 +4,6 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.PhantomJsDriverManager;
 import org.maxwu.jrefresh.ColorPrint;
-import org.maxwu.jrefresh.selenium.pageObjects.WrongPageException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

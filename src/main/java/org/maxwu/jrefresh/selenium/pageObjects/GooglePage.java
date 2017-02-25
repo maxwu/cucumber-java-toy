@@ -18,8 +18,9 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by maxwu on 1/2/17.
  */
-public class GooglePage {
+public class GooglePage{
     static Logger logger = LoggerFactory.getLogger(GooglePage.class.getName());
+
     private WebDriver dr = null;
     // Special note:
     // Google.co.nz would simply turn to Celsius->Fahrenheit table.
@@ -41,7 +42,7 @@ public class GooglePage {
         }
         String title = dr.getTitle();
         if (!title.equals(baseTitle)){
-            throw new WrongPageException("Got wrong title:" + title);
+            throw new WrongPageException("Wrong title:" + title);
         }
 
         PageFactory.initElements(driver, this);

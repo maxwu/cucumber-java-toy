@@ -10,3 +10,4 @@ Feature: Convert value in mile to km
       | mile | kilometer |
       | 1    | 1.60934   |
       | 0    | 0         |
+      | -1   | -1.60934  |

@@ -25,6 +25,8 @@ License: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](
  - [Jenkins on 32bit Linux with chromium-browser, ChromeDriver and updated to selenium 3.1.0](http://maxwu.me/2017/02/21/Jenkins-to-test-Selenium-3-1-0-Chrome-Driver-latest-version-and-Chromium-Browser-on-cheap-32bit-Linux/)
 
 ## Scope
+v1.2
+
 >* [X] Basic cucumber process
 >* [X] Gherkin description and how to map to steps implementation
 >* [X] JUnit integration and the annotations to run by Cucumber
@@ -42,6 +44,9 @@ License: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](
 >* [X] Customized Annotation and the test
 >* [X] Test the Interceptor Implementation with Cglib Proxy
 >* [X] Add RESTful test cases for freegeoip and ipify public WebAPIs
+
+v1.3dev
+
 >* [X] Jenkins on 32bit Linux 
 >* [X] Testing with chromium-browser and ChromeDriver
 >* [X] Updated to selenium 3.1.0
@@ -187,7 +192,7 @@ This section records the issues resolved during the construction/devops phase.
 
     ```
 
-## TODO with 1.4
+## TODO with 1.4rc
 
 *[ ] Change browser binary, profile, local/remote and other parameters to config YAML.
 
@@ -201,13 +206,16 @@ This section records the issues resolved during the construction/devops phase.
 
 *[ ] Update PageBase Url/Title check with Hamcrest matcher
 
-## TODO with 1.5 
+## TODO with 1.5dev 
 
 *[ ] Migrating to Docker based Test and prepare for a further project releasing App in Docker.
+    
     - Dockerfile added, however, an error under debug.
     
-    ![Scenairo](http://oei21r8n1.bkt.clouddn.com/DevOps-Docker-CircleCI-AWS-sample.png?imageView/2/w/300/q/100)
-```
+    - Scenario as target to v1.5dev 
+    
+![Scenairo](http://oei21r8n1.bkt.clouddn.com/DevOps-Docker-CircleCI-AWS-sample.png?imageView/2/w/300/q/100)
+
 
 ## About
 
@@ -218,6 +226,6 @@ This toy project demonstrates general practices on JUnit, Cucumber-JVM and Selen
 The Jenkins service is running on 32bit Ubuntu 14 with chromium-browser instead of chrome-browser, details could be found at http://jenkins.maxwu.me
 
 
-maxwunj{AT}gmail{DOT}com 
+maxwunj${AT}msn${DOT}com 
 
 http://maxwu.me
