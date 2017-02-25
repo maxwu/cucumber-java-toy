@@ -1,5 +1,6 @@
 package org.maxwu.jrefresh.selenium.pageObjects;
 
+import javafx.print.PageOrientation;
 import org.apache.commons.io.FileUtils;
 import org.maxwu.jrefresh.ColorPrint;
 import org.maxwu.jrefresh.selenium.DriverFactory;
@@ -39,36 +40,61 @@ public class PageBase {
         PageBase.saveScreenShot(driver, caseName);
     }
 
-    public void checkUrl(String urlPattern){
+    public boolean checkUrl(String urlPattern){
         String currentUrl = driver.getCurrentUrl();
         if (!currentUrl.matches(urlPattern)){
             throw new WrongPageException("Wrong URL with Pattern \"" + urlPattern + "\"",
                     driver);
+        }else{
+            return true;
         }
+
     }
 
-    public void checkTitle(String titlePattern){
+    public boolean checkTitle(String titlePattern){
         String currentTitle = driver.getTitle();
         if (!currentTitle.matches(titlePattern)){
             throw new WrongPageException("Wrong Title with Pattern \"" + titlePattern + "\"",
                     driver);
+        }else{
+            return true;
         }
     }
 
-    public void checkUrl(){
-        checkUrl(urlRegEx);
+    public boolean checkUrl(){
+        return checkUrl(urlRegEx);
     }
 
-    public void checkTitle(){
-        checkTitle(titleRegEx);
+    public boolean checkTitle(){
+        return checkTitle(titleRegEx);
     }
 
-    PageBase(WebDriver dr, String urlPattern, String titlePattern){
-        driver = dr;
+    public PageBase(WebDriver dr, String urlPattern, String titlePattern, String baseUrl){
+        this(dr, urlPattern, titlePattern);
+        this.get(baseUrl);
+    }
+
+    public PageBase get(String url){
+        driver.get(url);
+        return this;
+    }
+
+    public PageBase(WebDriver dr, String urlPattern, String titlePattern){
+        this(dr);
         urlRegEx = urlPattern;
         titleRegEx = titlePattern;
     }
-    PageBase(WebDriver dr){
+
+    public PageBase(WebDriver dr){
         driver = dr;
+    }
+
+    public PageBase(){
+        this(DriverFactory.getDriver());
+    }
+
+    @Override
+    protected void finalize(){
+        DriverFactory.quitDriver(driver);
     }
 }
