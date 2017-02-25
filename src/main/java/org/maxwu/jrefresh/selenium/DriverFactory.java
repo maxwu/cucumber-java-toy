@@ -12,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
@@ -25,12 +27,15 @@ public class DriverFactory {
     // it requires a new driver at every test scenario beginning.
     static ChromeOptions options = null;
 
+    static Logger logger = LoggerFactory.getLogger(DriverFactory.class.getName());
+
     static void setWdmProperties(){
         // FIXME: Only keeping forceCache to false can specify browser driver version.
         System.setProperty("wdm.override", "true");
         System.setProperty("timeout", "30");
         String arch = System.getProperty("sun.arch.data.model");
-        ColorPrint.println_blue("Arch=" + arch);
+        logger.info(ColorPrint.blue("Arch=" + arch));
+
         if (arch.contains("32")){
             /*
             String driverVer32bit = "2.25";

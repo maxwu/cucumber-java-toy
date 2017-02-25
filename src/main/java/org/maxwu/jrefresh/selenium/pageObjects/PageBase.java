@@ -6,6 +6,8 @@ import org.maxwu.jrefresh.selenium.DriverFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
@@ -13,13 +15,15 @@ import java.io.File;
  * Created by maxwu on 2/13/17.
  */
 public class PageBase {
+    static Logger logger = LoggerFactory.getLogger(PageBase.class.getName());
+
     protected WebDriver driver = null;
     private String urlRegEx = "https?:////";
     private String titleRegEx = ".*";
 
     public static void saveScreenShot(WebDriver dr, String caseName) {
         if ((dr == null) || (DriverFactory.hasQuit(dr))) {
-            ColorPrint.println_red("Driver is null or quit already in saveScreenShot()");
+            logger.error("Driver is null or quit already in saveScreenShot()");
             return;
         }
         String fname = ColorPrint.getTs();
@@ -27,7 +31,7 @@ public class PageBase {
         try {
             FileUtils.copyFile(scrFile, new File("target/scr_" + fname + "_" + caseName + ".png"));
         }catch (Exception e){
-            ColorPrint.println_red("Error in copying screenshot: " + e);
+            logger.error("Error in copying screenshot: " + e);
         }
     }
 

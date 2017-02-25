@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,6 +17,8 @@ import java.util.stream.Collectors;
  * Created by maxwu on 2/13/17.
  */
 public class BlogCommentPage extends PageBase{
+    static Logger logger = LoggerFactory.getLogger(BlogCommentPage.class.getName());
+
     static String baseUrl = "http://maxwu.me";
     static String blogUrl = "http://maxwu.me/2016/10/02/dropme/";
     static String urlRegEx = ".*dropme.*"; //matches() perform a whole string matching check
