@@ -73,10 +73,18 @@
             <version>2.5.0</version>
         </dependency>
 
+        <!-- For Selenium 3.1.0, add a missing dependency -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>21.0</version>
+        </dependency>
+
+        <!-- To test new Page Object design with Selenide -->
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>4.3</version>
         </dependency>
 
     </dependencies>
