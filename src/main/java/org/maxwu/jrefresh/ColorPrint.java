@@ -37,7 +37,6 @@ public class ColorPrint {
                 getTs() + " #" + obj.hashCode() + " "+ obj.getClass().getSimpleName()
                 + ", [" + scenario.getName() + "] " + state
         );
-
     }
 
     private static JSONObject jsonDriverReport(WebDriver driver){

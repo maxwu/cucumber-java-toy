@@ -40,6 +40,7 @@ public class PageBase {
         PageBase.saveScreenShot(driver, caseName);
     }
 
+    // Up to instance class to choose whether to perform title or url check.
     public boolean checkUrl(String urlPattern){
         String currentUrl = driver.getCurrentUrl();
         if (!currentUrl.matches(urlPattern)){
@@ -69,14 +70,18 @@ public class PageBase {
         return checkTitle(titleRegEx);
     }
 
+    public PageBase get(String url){
+        try {
+            driver.get(url + "/");
+        }catch (Exception e){
+            driver.navigate().refresh();
+        }
+        return this;
+    }
+
     public PageBase(WebDriver dr, String urlPattern, String titlePattern, String baseUrl){
         this(dr, urlPattern, titlePattern);
         this.get(baseUrl);
-    }
-
-    public PageBase get(String url){
-        driver.get(url);
-        return this;
     }
 
     public PageBase(WebDriver dr, String urlPattern, String titlePattern){

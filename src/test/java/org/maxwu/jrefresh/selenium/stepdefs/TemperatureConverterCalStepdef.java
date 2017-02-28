@@ -38,7 +38,7 @@ public class TemperatureConverterCalStepdef {
         if ((driver == null)||(DriverFactory.hasQuit(driver))){
             driver = DriverFactory.getDriver();
         }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // precondition
     }
 

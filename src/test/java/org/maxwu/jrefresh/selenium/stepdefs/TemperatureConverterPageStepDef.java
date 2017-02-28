@@ -1,23 +1,16 @@
 package org.maxwu.jrefresh.selenium.stepdefs;
 
-//Before/After
-import cucumber.api.DataTable;
 import cucumber.api.Scenario;
 import cucumber.api.java.*;
-//Cucumber Annotation Keys
 import cucumber.api.java.en.*;
-
 import org.junit.Assert;
-import org.maxwu.jrefresh.ColorPrint;
-import org.maxwu.jrefresh.selenium.DriverFactory;
-import org.maxwu.jrefresh.selenium.pageObjects.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
-import java.awt.*;
-import java.util.concurrent.TimeUnit;
 import static org.hamcrest.CoreMatchers.containsString;
+import org.maxwu.jrefresh.ColorPrint;
+import org.maxwu.jrefresh.selenium.DriverFactory;
+import org.maxwu.jrefresh.selenium.pageObjects.*;
 
 /**
  * Created by maxwu on 1/2/17.

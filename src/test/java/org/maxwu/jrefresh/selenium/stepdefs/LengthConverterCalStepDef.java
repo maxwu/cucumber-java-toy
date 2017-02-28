@@ -16,6 +16,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -24,7 +26,6 @@ import java.util.concurrent.TimeUnit;
  * Created by maxwu on 1/8/17.
  */
 public class LengthConverterCalStepDef  {
-    private ColorPrint color = new ColorPrint();
     private WebDriver driver = null;
     private GooglePage googlePage = null;
     private TemperatureConverter tempConvt = null;
@@ -36,7 +37,7 @@ public class LengthConverterCalStepDef  {
         if ((driver == null)||(DriverFactory.hasQuit(driver))) {
             driver = DriverFactory.getDriver();
         }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // precondition
     }
 

@@ -15,10 +15,12 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by maxwu on 1/2/17.
  */
-public class TemperatureConverter {
+public class TemperatureConverter extends PageBase{
     static Logger logger = LoggerFactory.getLogger(TemperatureConverter.class.getName());
-    public static String titleSuffix = " - Google Search";
-    private WebDriver dr = null;
+    static private String urlRegEx = ".*\\.google\\.co\\.nz.*";
+    static private String titleRegEx = ".*\\s+-\\s+Google Search";
+    // For test case "page_Title_is_Temperature_Converter"
+    static public String titleSuffix = " - Google Search";
 
     @FindBy(how = How.CSS, using = "div#rso div._frf > select._nif")
     private WebElement selectDim;
@@ -52,13 +54,10 @@ public class TemperatureConverter {
     }
 
     public TemperatureConverter(WebDriver driver){
+        super(driver, urlRegEx, titleRegEx);
+        checkTitle();
 
         PageFactory.initElements(driver, this);
-
-        String title = driver.getTitle();
-        if (!title.endsWith(TemperatureConverter.titleSuffix)){
-            throw new WrongPageException("Wrong title " + title);
-        }
     }
 
     public void setInputLeft(String val){

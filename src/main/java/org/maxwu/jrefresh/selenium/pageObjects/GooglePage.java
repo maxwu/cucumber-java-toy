@@ -18,32 +18,25 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by maxwu on 1/2/17.
  */
-public class GooglePage{
+public class GooglePage extends PageBase {
     static Logger logger = LoggerFactory.getLogger(GooglePage.class.getName());
 
-    private WebDriver dr = null;
     // Special note:
     // Google.co.nz would simply turn to Celsius->Fahrenheit table.
     // Instead, google.com would lead to Fahrenheit->Celsius table as US style.
-    private String baseUrl = "https://www.google.co.nz";
-    private String baseTitle = "Google";
+    static private String baseUrl = "https://www.google.co.nz";
+    static private String urlRegEx = ".*\\.google\\.co\\.nz.*";
+    static private String baseTitle = "Google";
+    static private String titleRegEx = ".*Google.*";
 
     @FindBy(how = How.CSS, using = "input#lst-ib")
-
     WebElement inputSearch;
 
     public GooglePage(WebDriver driver) throws RuntimeException{
-        dr = driver;
-
-        try {
-            dr.get(baseUrl + "/");
-        }catch (Exception e){
-            dr.navigate().refresh();
-        }
-        String title = dr.getTitle();
-        if (!title.equals(baseTitle)){
-            throw new WrongPageException("Wrong title:" + title);
-        }
+        super(driver, urlRegEx, titleRegEx);
+        get(baseUrl);
+        checkUrl();
+        checkTitle();
 
         PageFactory.initElements(driver, this);
     }
@@ -56,17 +49,16 @@ public class GooglePage{
 
         inputSearch.sendKeys(keyWords);
         inputSearch.sendKeys(Keys.RETURN);
-        DriverFactory.waitInterval();
+        DriverFactory.waitInterval(1000);
 
         By byDiv = By.cssSelector("div#resultStats");
-
         //Wait until stats is visible
-        WebDriverWait wait = new WebDriverWait(dr, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.visibilityOfElementLocated(byDiv));
 
-        WebElement ele = dr.findElement(byDiv);
-        logger.debug("Search returned: {}", ele.getText());
+        WebElement ele = driver.findElement(byDiv);
+        logger.info("Search returned: {}", ColorPrint.red(ele.getText()));
 
-        return new TemperatureConverter(dr);
+        return new TemperatureConverter(driver);
     }
 }
