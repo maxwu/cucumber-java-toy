@@ -92,6 +92,7 @@ public class DriverFactory {
             logger.debug("**** Destroying Web Driver #" + driver.hashCode() +"****");
             ((JavascriptExecutor) driver).executeScript("window.stop;");
             driver.quit();
+            driver = null;
         }else{
             // Do nothing for null driver on quiting state transition.
             // However, further code of logs will be nice.
