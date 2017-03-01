@@ -206,8 +206,6 @@ This section records the issues resolved during the construction/devops phase.
 
 *[ ] Update PageBase Url/Title check with Hamcrest matcher
 
-*[ ] Selenide trial, KISS Page Object
-
 ## TODO with 1.5dev 
 
 *[ ] Migrating to Docker based Test and prepare for a further project releasing App in Docker.

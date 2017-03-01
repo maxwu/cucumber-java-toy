@@ -80,13 +80,6 @@
             <version>21.0</version>
         </dependency>
 
-        <!-- To test new Page Object design with Selenide -->
-        <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>selenide</artifactId>
-            <version>4.3</version>
-        </dependency>
-
     </dependencies>
 
     <build>
