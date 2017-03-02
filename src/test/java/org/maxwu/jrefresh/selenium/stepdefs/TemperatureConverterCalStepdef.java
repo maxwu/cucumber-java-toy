@@ -40,6 +40,7 @@ public class TemperatureConverterCalStepdef {
         }
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // precondition
+        tempConvt = new GooglePage(driver).getTempConverter("Temperature Converter");
     }
 
     @After
@@ -55,7 +56,7 @@ public class TemperatureConverterCalStepdef {
                     File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
                     FileUtils.copyFile(scrFile, new File("target/screenshot" + fname + ".png"));
                 }else{
-                    ColorPrint.println_red("Exception: driver is not working #" + driver);
+                    ColorPrint.println_red("screenshot: driver is not working #" + driver);
                 }
             } catch (final Exception ex) {
                 ex.printStackTrace();
@@ -86,8 +87,6 @@ public class TemperatureConverterCalStepdef {
 
     @Given("^\"(F.*)\" select is present$")
     public void verify_fahrenheit_present(String fahText) throws Throwable {
-        tempConvt = new GooglePage(driver).getTempConverter("Temperature Converter");
-
         tempConvt.setSelectRight(fahText);
         DriverFactory.waitInterval();
 
