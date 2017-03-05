@@ -25,8 +25,7 @@ public class GooglePage extends PageBase {
     // Google.co.nz would simply turn to Celsius->Fahrenheit table.
     // Instead, google.com would lead to Fahrenheit->Celsius table as US style.
     static private String baseUrl = "https://www.google.co.nz";
-    static private String urlRegEx = ".*\\.google\\.co\\.nz.*";
-    static private String baseTitle = "Google";
+    static private String urlRegEx = ".*\\.google\\..*";
     static private String titleRegEx = ".*Google.*";
 
     @FindBy(how = How.CSS, using = "input#lst-ib")

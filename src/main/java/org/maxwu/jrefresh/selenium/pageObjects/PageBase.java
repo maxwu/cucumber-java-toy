@@ -43,6 +43,12 @@ public class PageBase {
     // Up to instance class to choose whether to perform title or url check.
     public boolean checkUrl(String urlPattern){
         String currentUrl = driver.getCurrentUrl();
+        if (currentUrl.startsWith("data")){
+            // If URL is "data:,", then the browser runs slowly and page content is not loaded yet.
+            DriverFactory.waitInterval(1000);
+            // After 1s, refresh URL again.
+            currentUrl = driver.getCurrentUrl();
+        }
         if (!currentUrl.matches(urlPattern)){
             throw new WrongPageException("Wrong URL with Pattern \"" + urlPattern + "\"",
                     driver);
