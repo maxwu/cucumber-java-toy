@@ -69,6 +69,7 @@ public class DriverFactory {
         options.addArguments("disable-plugins");
         options.addArguments("disable-extensions");
         options.setExperimentalOption("forceDevToolsScreenshot", true);
+        options.addArguments("--loglevel 0");
         setWdmProperties();
 
         ChromeDriverManager.getInstance().setup();
