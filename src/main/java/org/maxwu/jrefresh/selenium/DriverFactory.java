@@ -61,6 +61,7 @@ public class DriverFactory {
 
     public static WebDriver getDriver(){
         options = new ChromeOptions();
+        // List of options, http://peter.sh/experiments/chromium-command-line-switches/
         // To fix browser crash issue
         options.addArguments("start-maximized");
         // To fix browser hanging-up issue
