@@ -71,6 +71,7 @@ public class DriverFactory {
         options.addArguments("disable-extensions");
         options.setExperimentalOption("forceDevToolsScreenshot", true);
         options.addArguments("--loglevel 0");
+        options.addArguments("ignore-urlfetcher-cert-requests");
         setWdmProperties();
 
         ChromeDriverManager.getInstance().setup();
