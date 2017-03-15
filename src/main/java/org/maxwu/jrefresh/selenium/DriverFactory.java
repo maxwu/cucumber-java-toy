@@ -28,7 +28,7 @@ public class DriverFactory {
 
     static Logger logger = LoggerFactory.getLogger(DriverFactory.class.getName());
 
-    static void setWdmProperties(){
+    static void setWdmChromeProperties(){
         // FIXME: Only keeping forceCache to false can specify browser driver version.
         System.setProperty("wdm.override", "true");
         System.setProperty("timeout", "30");
@@ -59,7 +59,7 @@ public class DriverFactory {
         }
     }
 
-    public static WebDriver getDriver(){
+    static WebDriver  getChromeDriver(){
         options = new ChromeOptions();
         // List of options, http://peter.sh/experiments/chromium-command-line-switches/
         // To fix browser crash issue
@@ -72,16 +72,16 @@ public class DriverFactory {
         options.setExperimentalOption("forceDevToolsScreenshot", true);
         options.addArguments("--loglevel 0");
         options.addArguments("ignore-urlfetcher-cert-requests");
-        setWdmProperties();
+        setWdmChromeProperties();
 
         ChromeDriverManager.getInstance().setup();
 
-        WebDriver driver = (null==options)? new ChromeDriver(): new ChromeDriver(options);
+        return (null==options)? new ChromeDriver(): new ChromeDriver(options);
+    }
 
+    public static WebDriver getDriver(){
+        WebDriver driver = getChromeDriver();
         logger.debug("**** Created Web Driver #" + driver.hashCode() +"****");
-
-        //waitInterval();
-
         return driver;
     }
 
@@ -92,13 +92,11 @@ public class DriverFactory {
 
     public static void quitDriver(WebDriver driver){
         if ((driver != null) &&(!hasQuit(driver))){
-            logger.debug("**** Destroying Web Driver #" + driver.hashCode() +"****");
+            logger.debug("**** Destroy Web Driver #" + driver.hashCode() +"****");
             ((JavascriptExecutor) driver).executeScript("window.stop;");
             driver.quit();
-            driver = null;
         }else{
-            // Do nothing for null driver on quiting state transition.
-            // However, further code of logs will be nice.
+            logger.error("Destroy a null or quit driver" + driver.hashCode());
         }
     }
 
