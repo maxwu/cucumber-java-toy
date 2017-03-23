@@ -228,4 +228,4 @@ The Jenkins service is running on 32bit Ubuntu 14 with chromium-browser instead 
 
 maxwunj${AT}msn${DOT}com 
 
-http://maxwu.me
+Readers may visit [http://maxwu.me](http://maxwu.me) for further information.
