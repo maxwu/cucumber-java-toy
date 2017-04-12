@@ -12,7 +12,7 @@ Dev: [![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=d
 
 Jenkins: [![Build Status](http://jenkins.maxwu.me/buildStatus/icon?job=Cucumber_Jvm_Selenium_Toy)](http://jenkins.maxwu.me/job/Cucumber_Jvm_Selenium_Toy/)
 
-License: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+License: [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 
 ## Summary of Tips, Issues and Solutions:
@@ -214,7 +214,7 @@ This section records the issues resolved during the construction/devops phase.
     
     - Scenario as target to v1.5dev 
     
-![Scenairo](http://oei21r8n1.bkt.clouddn.com/DevOps-Docker-CircleCI-AWS-sample.png?imageView/2/w/300/q/100)
+![Scenario](http://oei21r8n1.bkt.clouddn.com/DevOps-Docker-CircleCI-AWS-sample.png?imageView/2/w/300/q/100)
 
 
 ## About
