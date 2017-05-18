@@ -1,6 +1,5 @@
 package org.maxwu.jrefresh.selenium.pageObjects;
 
-import javafx.print.PageOrientation;
 import org.apache.commons.io.FileUtils;
 import org.maxwu.jrefresh.ColorPrint;
 import org.maxwu.jrefresh.selenium.DriverFactory;
