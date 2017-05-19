@@ -127,7 +127,7 @@ public class DriverFactory {
             ((JavascriptExecutor) driver).executeScript("window.stop;");
             driver.quit();
         }else{
-            logger.error("Destroy a null or quit driver " + (driver!=null? driver.hashCode(): "None"));
+            logger.error("Destroy a null or quit driver #" + (driver!=null? driver.hashCode(): "None"));
         }
     }
 
