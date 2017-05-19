@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.util.Optional;
 
 /**
  * Created by maxwu on 1/2/17.
@@ -27,6 +28,13 @@ public class DriverFactory {
     static ChromeOptions options = null;
 
     static Logger logger = LoggerFactory.getLogger(DriverFactory.class.getName());
+
+    static String ENV_BROWSER = "browser";
+    static String DEF_BROWSER = "chrome";
+    public static enum Flavor{
+        None, FF, CHROME, PHANTOMJS;
+    }
+    static Flavor browserType = Flavor.None;
 
     static void setWdmChromeProperties(){
         // FIXME: Only keeping forceCache to false can specify browser driver version.
@@ -80,14 +88,37 @@ public class DriverFactory {
     }
 
     public static WebDriver getDriver(){
-        WebDriver driver = getChromeDriver();
-        logger.debug("**** Created Web Driver #" + driver.hashCode() +"****");
-        return driver;
+        WebDriver driver = null;
+        String browser = Optional.ofNullable(System.getenv(ENV_BROWSER)).orElse(DEF_BROWSER);
+        logger.debug("Browser Option is " + browser);
+        if (browser.equalsIgnoreCase("Chrome")) {
+            driver = getChromeDriver();
+            browserType = Flavor.CHROME;
+            logger.info("**** Created Chrome Web Driver #" + driver.hashCode() + "****");
+            return driver;
+        }
+        if (browser.equalsIgnoreCase("FF") || browser.equalsIgnoreCase("Firefox")) {
+            driver = getFirefoxDriver();
+            browserType = Flavor.FF;
+            logger.info("**** Created Firefox Web Driver #" + driver.hashCode() + "****");
+            return driver;
+        }
+        // Exception shall trigger here to expose issue ASAP.
+        return null;
     }
 
+    public static WebDriver getFirefoxDriver(){
+        FirefoxDriverManager.getInstance().setup();
+        return new FirefoxDriver();
+    }
+
+    // Return true if driver is null or has quit already.
     public static boolean hasQuit(WebDriver driver) {
-        // return driver.toString().contains("null");
-        return ((RemoteWebDriver)driver).getSessionId() == null;
+        if (driver != null) {
+            return ((RemoteWebDriver) driver).getSessionId() == null;
+        }else{
+            return true;
+        }
     }
 
     public static void quitDriver(WebDriver driver){
@@ -96,7 +127,7 @@ public class DriverFactory {
             ((JavascriptExecutor) driver).executeScript("window.stop;");
             driver.quit();
         }else{
-            logger.error("Destroy a null or quit driver" + driver.hashCode());
+            logger.error("Destroy a null or quit driver " + (driver!=null? driver.hashCode(): "None"));
         }
     }
 
