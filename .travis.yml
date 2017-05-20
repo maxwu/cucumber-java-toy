@@ -21,7 +21,7 @@ jdk:
   - oraclejdk8
 
 addons:
-  firefox: "51.1.2"
+  firefox: "53.0.3"
 
 cache:
    directories:

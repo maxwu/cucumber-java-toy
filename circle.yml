@@ -10,6 +10,7 @@ dependencies:
     - sudo apt-get update
     - sudo apt-get --only-upgrade install google-chrome-stable
     - google-chrome --version
+    
   override:
     - sudo apt-get update && sudo apt-get install libpango1.0-0 && sudo apt-get install firefox
 
