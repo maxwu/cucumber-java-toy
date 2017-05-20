@@ -12,36 +12,26 @@ import org.maxwu.jrefresh.ColorPrint;
 import org.maxwu.jrefresh.selenium.DriverFactory;
 import org.maxwu.jrefresh.selenium.pageObjects.GooglePage;
 import org.maxwu.jrefresh.selenium.pageObjects.TemperatureConverter;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.File;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by maxwu on 1/8/17.
  */
 public class LengthConverterCalStepDef  {
     private WebDriver driver = null;
-    private GooglePage googlePage = null;
     private TemperatureConverter tempConvt = null;
 
     @Before
     public void setUp(Scenario scenario) {
         ColorPrint.printScenarioState(this, scenario, "starts ");
-        // test precondition
         if ((driver == null)||(DriverFactory.hasQuit(driver))) {
             driver = DriverFactory.getDriver();
         }
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        // precondition
     }
 
-    // "After" runs by each scenario ending, therefore add a "tag" to quit.
     @After
     public void tearDown(Scenario scenario){
         ColorPrint.printScenarioState(this, scenario, "ends, " + scenario.getStatus());
@@ -56,7 +46,6 @@ public class LengthConverterCalStepDef  {
         }
         DriverFactory.quitDriver(driver);
         tempConvt = null;
-        googlePage = null;
         driver = null;
     }
 
@@ -92,6 +81,7 @@ public class LengthConverterCalStepDef  {
                 break;
             }
             ColorPrint.println_red("Try again after a short interval...");
+            DriverFactory.waitInterval(1000);
             tempConvt.setSelectDim(dim);
         }
     }
