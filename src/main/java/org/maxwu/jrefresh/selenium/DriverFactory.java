@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
@@ -109,7 +110,7 @@ public class DriverFactory {
 
     public static WebDriver getFirefoxDriver(){
         FirefoxDriverManager.getInstance().setup();
-        return new FirefoxDriver();
+        return new FirefoxDriver(new FirefoxProfile());
     }
 
     // Return true if driver is null or has quit already.
