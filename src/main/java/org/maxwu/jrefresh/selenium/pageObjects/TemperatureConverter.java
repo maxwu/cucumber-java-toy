@@ -45,7 +45,7 @@ public class TemperatureConverter extends PageBase{
         for (WebElement webEle : selectDimOpt.getOptions()){
             // Added for cloud CI platform debug only.
             logger.debug("Dim Opt [" + webEle.getAttribute("value") + "]: text="
-                + webEle.getText() + "selected=" + webEle.getAttribute("Selected"));
+                + webEle.getText() + ", selected=" + webEle.getAttribute("Selected"));
         }
     }
 
