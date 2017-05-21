@@ -110,7 +110,9 @@ public class DriverFactory {
 
     public static WebDriver getFirefoxDriver(){
         FirefoxDriverManager.getInstance().setup();
-        return new FirefoxDriver(new FirefoxProfile());
+        FirefoxProfile profile = new FirefoxProfile(new File("src/test/resources/ff_profile"));
+        profile.setAcceptUntrustedCertificates(true);
+        return new FirefoxDriver(profile);
     }
 
     // Return true if driver is null or has quit already.

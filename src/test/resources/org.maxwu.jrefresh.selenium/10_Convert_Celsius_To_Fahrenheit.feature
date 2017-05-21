@@ -22,8 +22,8 @@ Feature:  With "Temperature Converter" Page, verify the Fahrenheit value turned 
   Then  Check the value against "<fahrenheit_degree>"
   Examples:
     | celsius_degree | fahrenheit_degree |
-    | 100            | 212               |
+    #| 100            | 212               |
     | 0              | 32                |
-    | -100           | -148              |
+    #| -100           | -148              |
     | 65535          | 117995            |
-    | -65536         | -117932.8         |
+    #| -65536         | -117932.8         |
