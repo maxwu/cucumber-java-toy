@@ -10,8 +10,6 @@ Dev: [![Build Status](https://travis-ci.org/maxwu/cucumber-java-toy.svg?branch=d
 [![codecov](https://codecov.io/gh/maxwu/cucumber-java-toy/branch/dev/graph/badge.svg)](https://codecov.io/gh/maxwu/cucumber-java-toy)
 [![CircleCI](https://circleci.com/gh/maxwu/circleci_stat/tree/dev.svg?style=shield)](https://circleci.com/gh/maxwu/circleci_stat/tree/dev)
 
-Jenkins: [![Build Status](http://jenkins.maxwu.me/buildStatus/icon?job=Cucumber_Jvm_Selenium_Toy)](http://jenkins.maxwu.me/job/Cucumber_Jvm_Selenium_Toy/)
-
 License: [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 
