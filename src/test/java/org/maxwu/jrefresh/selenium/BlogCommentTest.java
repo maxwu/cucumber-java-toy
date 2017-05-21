@@ -50,14 +50,14 @@ public class BlogCommentTest {
         }
     }
 
-    @Test(timeout = 30000)
+    @Test(timeout = 60000)
     public void a01checkComments(){
         //TODO: comments checks.
        blogCommentPage.getComments().stream().limit(10)
                 .forEach(n -> ColorPrint.println_green("Extracted Comment: " + n));
     }
 
-    @Test(timeout = 30000)
+    @Test(timeout = 60000)
     public void a02TestSequenceNoPageObject(){
         // Demo case to show the runner order.
         Assert.assertTrue("http://maxwu.me/2016/10/02/dropme/".matches(".*dropme.*"));
@@ -66,7 +66,7 @@ public class BlogCommentTest {
         PageBase.saveScreenShot(driver, "TestSequence2");
     }
 
-    @Test(timeout = 30000)
+    @Test(timeout = 60000)
     public void a03TestSequence(){
         // print title right after blogCommentPage creation.
         ColorPrint.println_blue("the title is \"" + driver.getTitle() + "\"");

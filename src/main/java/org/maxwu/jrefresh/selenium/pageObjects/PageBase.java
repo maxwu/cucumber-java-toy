@@ -77,7 +77,9 @@ public class PageBase {
 
     public PageBase get(String url){
         try {
-            driver.get(url + "/");
+            // Github URL with parameters shall not point to root entry.
+            // driver.get(url + "/");
+            driver.get(url);
         }catch (Exception e){
             driver.navigate().refresh();
         }
