@@ -1,6 +1,9 @@
 machine:
   java:
     version: oraclejdk8
+  environment:
+    - browser:FF
+    - DBUS_SESSION_BUS_ADDRESS:/dev/null
 
 dependencies:
   pre:
@@ -14,9 +17,7 @@ dependencies:
   override:
     - sudo apt-get update && sudo apt-get install libpango1.0-0 && sudo apt-get install firefox
 
-environment:
-  - browser:FF
-  - DBUS_SESSION_BUS_ADDRESS:/dev/null
+
 
 test:
   override:
