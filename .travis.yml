@@ -28,8 +28,7 @@ cache:
      - '$HOME/.m2/repository'
 
 env:
-  - browser=FF
-  - DBUS_SESSION_BUS_ADDRESS=/dev/null
+  - browser="FF" DBUS_SESSION_BUS_ADDRESS="/dev/null"
 
 branches :
    only :
