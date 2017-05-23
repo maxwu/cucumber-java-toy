@@ -2,8 +2,8 @@ machine:
   java:
     version: oraclejdk8
   environment:
-    browser:FF
-    DBUS_SESSION_BUS_ADDRESS:/dev/null
+    browser: "FF"
+    DBUS_SESSION_BUS_ADDRESS: "/dev/null"
 
 dependencies:
   pre:
@@ -19,6 +19,8 @@ dependencies:
 
 test:
   override:
+    - echo "user:$CIRCLE_PROJECT_USERNAME, proj:$CIRCLE_PROJECT_REPONAME, branch:$CIRCLE_BRANCH"
+    - echo "x-win:$DISPLAY, lang:$LANG"
     - mvn clean test
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
