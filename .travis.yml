@@ -4,7 +4,7 @@ sudo: required
 
 dist: trusty
 
-script: mvn clean test || echo "Web Test Report with Issue"
+script: mvn clean test || travis_terminate 0
 #mvn clean install
 
 before_install:
