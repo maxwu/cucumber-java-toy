@@ -14,7 +14,7 @@ import java.io.File;
 /**
  * Created by maxwu on 2/13/17.
  */
-public class PageBase {
+public abstract class PageBase implements WebDrivable {
     static Logger logger = LoggerFactory.getLogger(PageBase.class.getName());
 
     protected WebDriver driver = null;
@@ -33,10 +33,6 @@ public class PageBase {
         }catch (Exception e){
             logger.error("Error in copying screenshot: " + e);
         }
-    }
-
-    public void saveScreenShot(String caseName) {
-        PageBase.saveScreenShot(driver, caseName);
     }
 
     // Up to instance class to choose whether to perform title or url check.
@@ -101,6 +97,12 @@ public class PageBase {
         driver = dr;
     }
 
+    public <T extends PageBase> T autoTrigger(){
+        // For some practices, the derived object holds an automatica trigger to start.
+        // When it starts, the instance of PageBase will be returned to represent the new State.
+        return null;
+    }
+
     public PageBase(){
         this(DriverFactory.getDriver());
     }
@@ -109,4 +111,5 @@ public class PageBase {
     protected void finalize(){
         DriverFactory.quitDriver(driver);
     }
+
 }
