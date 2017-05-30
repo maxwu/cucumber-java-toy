@@ -14,7 +14,7 @@ import java.io.File;
 /**
  * Created by maxwu on 2/13/17.
  */
-public abstract class PageBase implements WebDrivable {
+public class PageBase implements WebDrivable {
     static Logger logger = LoggerFactory.getLogger(PageBase.class.getName());
 
     protected WebDriver driver = null;
