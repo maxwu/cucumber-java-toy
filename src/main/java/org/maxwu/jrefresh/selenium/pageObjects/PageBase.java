@@ -98,7 +98,7 @@ public class PageBase implements WebDrivable {
     }
 
     public <T extends PageBase> T autoTrigger(){
-        // For some practices, the derived object holds an automatica trigger to start.
+        // For some practices, the derived object holds an automatic trigger to start.
         // When it starts, the instance of PageBase will be returned to represent the new State.
         return null;
     }
