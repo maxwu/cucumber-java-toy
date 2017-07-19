@@ -37,12 +37,11 @@ public class GithubPage extends PageBase {
 
     public GithubPage(WebDriver driver, String name) throws RuntimeException{
         super(driver, urlRegEx, titleRegEx);
-        if (name == null || name.isEmpty()){
-            throw new WrongPageException("profile name cannot be null or empty", driver);
+        if (name != null && !name.isEmpty()) {
+            get(baseUrl + "/" + name + "?tab=following");
+            checkUrl();
+            checkTitle();
         }
-        get(baseUrl + "/" + name + "?tab=following");
-        checkUrl();
-        checkTitle();
         PageFactory.initElements(driver, this);
     }
 }
