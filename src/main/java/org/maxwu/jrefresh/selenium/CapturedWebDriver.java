@@ -1,6 +1,7 @@
 package org.maxwu.jrefresh.selenium;
 
 import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.*;
 import java.io.IOException;
 import java.net.URL;
@@ -22,12 +23,14 @@ public class CapturedWebDriver extends RemoteWebDriver {
                     System.out.println("executing " + cmdName);
                     return super.execute(command);
                     //DriverCommand.GET_ALL_SESSIONS;
+                    //If test a cmd returns failure, set sessionID to null and force a newSession cmd.
                 }
                 return super.execute(
-                    new Command(new SessionId(sessionId), DriverCommand.GET_CAPABILITIES,
-                        new HashMap<String, String>(){
+                    new Command(CapturedWebDriver.super.getSessionId(), DriverCommand.GET_CAPABILITIES,
+                        new HashMap<String, Capabilities>(){
                             {
-                                put("GET", "/session/" + sessionId);
+                                //put("GET", "/session/" + sessionId);
+                                put("desiredCapabilities", new DesiredCapabilities("","", Platform.ANY));
                             }
                         })
                 );
@@ -38,12 +41,12 @@ public class CapturedWebDriver extends RemoteWebDriver {
         //startSession(new DesiredCapabilities());
     }
 
-    @Override
-    protected void startSession(Capabilities desiredCapabilities) {
-        if (this.getSessionId() == null) {
-            super.startSession(desiredCapabilities);
-        }
-    }
+//    @Override
+//    protected void startSession(Capabilities desiredCapabilities) {
+//        if (this.getSessionId() == null) {
+//            super.startSession(desiredCapabilities);
+//        }
+//    }
 
     static public String getLocalUrl(int port){
         return "http://localhost:" + port;

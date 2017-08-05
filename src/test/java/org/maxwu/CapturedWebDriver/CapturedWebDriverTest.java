@@ -13,6 +13,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Scanner;
+
 import static java.util.logging.Level.INFO;
 
 /**
@@ -23,13 +25,20 @@ public class CapturedWebDriverTest {
     static WebDriver driver;
     private GithubPage githubPage;
 
+    static void pause(){
+        System.out.println("Pause until an input with Enter.");
+        Scanner scanner = new Scanner(System.in);
+        String whatEver = scanner.next();
+        scanner.close();
+        System.out.println("Resuming.");
+    }
 
     @Before
     public void setUp(){
         driver = DriverFactory.getDriver();
     }
 
-    @Test
+    @Test @Ignore
     public void webDriver1(){
         githubPage = new GithubPage(driver, "maxwu");
         List<String> followings = githubPage.getFollowingList();
@@ -40,6 +49,10 @@ public class CapturedWebDriverTest {
         System.out.println("URL=" + driverUrl + " ID=" + sessionId);
 
         System.out.println("Old Title=" + driver.getTitle());
+
+        pause();
+
+        System.out.println("Building Captured Web Driver...");
 
         CapturedWebDriver capDriver = new CapturedWebDriver(driverUrl, sessionId);
         System.out.println("New Title=" + capDriver.getTitle());
